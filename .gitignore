@@ -88,3 +88,5 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+MiniChallenge04/MiniChallenge04/Secrets.plist
+MiniChallenge04/MiniChallenge04/PROD-Keys.plist
