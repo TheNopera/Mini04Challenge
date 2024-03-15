@@ -9,18 +9,19 @@ import Foundation
 import Alamofire
 
 class APIManager : ObservableObject{
-    @Published var response : PlacesResponse = PlacesResponse(places: [])
     var ENV : APIKeyable {
         return ProdENV()
     }
     
-    var apiURL = "https://places.googleapis.com/v1/places:searchText"
+    var API_BASE_URL = "https://places.googleapis.com"
     
-    func getTouristAttractions(city : String) {
     
+    //MARK: FUNÇÃO PARA RETORNAR PONTOS TURISTICOS EM CIDADE ESPECIFICA
+    func getTouristAttractions(city : String) async throws -> PlacesResponse {
         //O body do request
         let parameters : [String:Any] = [
-            "textQuery" : "Pontos turisticos \(city)"
+            "textQuery" : "Pontos turisticos \(city)",
+            "languageCode" : "pt-br"
         ]
         
         //Configuração do header do request
@@ -30,17 +31,14 @@ class APIManager : ObservableObject{
             "X-Goog-FieldMask": "places.displayName,places.editorialSummary" // Informações que você quer que a API retorne
         ]
         
-        AF.request(apiURL, method: .post,parameters: parameters ,encoding: JSONEncoding.default,headers: headers).response{ response in
-            switch response.result {
-                case .success:
-                    print("Raw Response: ")
-                
-            
-            case .failure(let error):
-                    print("Request failed with error: \(error)")
-                }
-        }
+        let data = try await AF.request("\(API_BASE_URL)/v1/places:searchText", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).serializingDecodable(PlacesResponse.self).value
+        
+        return data
     }
     
+    //MARK: FUNÇÃO PARA RETORNAR IMAGEM DE UM LOCAL
+    func getPlaceImage() async throws{
+        
+    }
     
 }
