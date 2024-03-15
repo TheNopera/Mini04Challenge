@@ -19,7 +19,7 @@ struct ContentView: View {
         
         
         NavigationStack{
-            NavigationLink {GaleriaEstado()} label: {
+            NavigationLink {GaleriaEstado(fotos: [])} label: {
                 Text("Estado")
             }
         }
