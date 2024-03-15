@@ -12,8 +12,8 @@ struct CardModifier : ViewModifier{
     var cornerRadius : CGFloat
     var title : String
     var image : Image
-    var width : CGFloat = 130
-    var height : CGFloat = 210
+    var width : CGFloat = 150
+    var height : CGFloat = 220
     func body(content: Content) -> some View {
         content
             .overlay(
@@ -27,7 +27,7 @@ struct CardModifier : ViewModifier{
                     Text(title)
                         .bold()
                         .foregroundStyle(.white)
-                        .padding(5)
+                        .padding([.vertical],5)
                     Spacer()
                 }
                 
