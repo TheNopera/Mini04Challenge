@@ -1,5 +1,4 @@
 {
-  "originHash" : "a0f4e6c43caba06b86b2266e7c407c04856f8ac9cff15a7a4eb210a7de994b78",
   "pins" : [
     {
       "identity" : "ios-places-sdk",
@@ -11,5 +10,5 @@
       }
     }
   ],
-  "version" : 3
+  "version" : 2
 }
