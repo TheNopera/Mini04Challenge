@@ -90,3 +90,4 @@ fastlane/test_output
 iOSInjectionProject/
 MiniChallenge04/MiniChallenge04/Secrets.plist
 MiniChallenge04/MiniChallenge04/PROD-Keys.plist
+MiniChallenge04/.DS_Store
