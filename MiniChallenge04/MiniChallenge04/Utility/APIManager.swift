@@ -9,42 +9,38 @@ import Foundation
 import Alamofire
 
 class APIManager : ObservableObject{
+    @Published var response : PlacesResponse = PlacesResponse(places: [])
     var ENV : APIKeyable {
         return ProdENV()
     }
     
-    var API_BASE_URL = "https://places.googleapis.com/v1/"
+    var apiURL = "https://places.googleapis.com/v1/places:searchText"
     
+    func getTouristAttractions(city : String) {
     
-    //MARK: FUNÇÃO PARA RETORNAR PONTOS TURISTICOS EM CIDADE ESPECIFICA
-    func getTouristAttractions(city : String) async throws -> PlacesResponse? {
         //O body do request
         let parameters : [String:Any] = [
-            "textQuery" : "Pontos turisticos \(city)",
-            "languageCode" : "pt-br"
+            "textQuery" : "Pontos turisticos \(city)"
         ]
         
         //Configuração do header do request
         let headers : HTTPHeaders = [
             "Content-Type": "application/json",
             "X-Goog-Api-Key": ENV.SERVICE_API_KEY,
-            "X-Goog-FieldMask": "places.displayName,places.editorialSummary,places.photos" // Informações que você quer que a API retorne
+            "X-Goog-FieldMask": "places.displayName,places.editorialSummary" // Informações que você quer que a API retorne
         ]
         
-        let data = try await AF.request("\(API_BASE_URL)places:searchText", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).serializingDecodable(PlacesResponse.self).value
-        
-        return data
+        AF.request(apiURL, method: .post,parameters: parameters ,encoding: JSONEncoding.default,headers: headers).response{ response in
+            switch response.result {
+                case .success:
+                    print("Raw Response: ")
+                
+            
+            case .failure(let error):
+                    print("Request failed with error: \(error)")
+                }
+        }
     }
     
-    
-    //MARK: FUNÇÃO PARA RETORNAR IMAGEM DE UM LOCAL
-    func getPlaceImage(imageName : String) async throws-> Data? {
-        let maxHeight : Int = 400
-        let maxWidht  : Int = 400
-        
-        let data = try await AF.request("\(API_BASE_URL+imageName)/media?maxHeightPx=\(maxHeight)&maxWidthPx=\(maxWidht)&key=\(ENV.SERVICE_API_KEY)").serializingData().value
-        
-        return data
-    }
     
 }
