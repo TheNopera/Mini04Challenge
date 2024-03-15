@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var api = APIManager()
+    var api = APIManager()
+    @State var places =  PlacesResponse(places: [])
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -16,7 +17,7 @@ struct ContentView: View {
                 .foregroundStyle(.tint)
             Button(action: {
                 Task{
-                     api.getTouristAttractions(city: "Rio de Janeiro")
+                    try await api.getTouristAttractions(city: "Rio de Janeiro")
                 }
             }, label: {
                 Text("get info about Rio")
