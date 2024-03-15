@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A2033C52BA4DB9F00145F71 /* PROD-Keys.plist in Sources */ = {isa = PBXBuildFile; fileRef = 0A2033C32BA4DB7200145F71 /* PROD-Keys.plist */; };
+		0A2033C82BA4DCCA00145F71 /* MiniChallenge04App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2033C62BA4DC4900145F71 /* MiniChallenge04App.swift */; };
 		62B5E6BD2BA21EDF00E3ED07 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B5E6BC2BA21EDF00E3ED07 /* APIManager.swift */; };
-		62B5E6C02BA22C5500E3ED07 /* PROD-Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62B5E6BF2BA22C5500E3ED07 /* PROD-Keys.plist */; };
 		62B5E6C22BA23C6100E3ED07 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B5E6C12BA23C6100E3ED07 /* Errors.swift */; };
 		62B5E6C52BA3699600E3ED07 /* PlacesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B5E6C42BA3699600E3ED07 /* PlacesModel.swift */; };
-		62CD744E2BA21DFD006F022F /* MiniChallenge04App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD744D2BA21DFD006F022F /* MiniChallenge04App.swift */; };
 		62CD74502BA21DFD006F022F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD744F2BA21DFD006F022F /* ContentView.swift */; };
 		62CD74522BA21DFF006F022F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CD74512BA21DFF006F022F /* Assets.xcassets */; };
 		62CD74552BA21DFF006F022F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CD74542BA21DFF006F022F /* Preview Assets.xcassets */; };
@@ -20,13 +20,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A2033C32BA4DB7200145F71 /* PROD-Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PROD-Keys.plist"; sourceTree = "<group>"; };
+		0A2033C62BA4DC4900145F71 /* MiniChallenge04App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MiniChallenge04App.swift; path = Utility/MiniChallenge04App.swift; sourceTree = "<group>"; };
 		12292422961DBE13E3111C71 /* Pods-MiniChallenge04.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniChallenge04.debug.xcconfig"; path = "Target Support Files/Pods-MiniChallenge04/Pods-MiniChallenge04.debug.xcconfig"; sourceTree = "<group>"; };
 		62B5E6BC2BA21EDF00E3ED07 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		62B5E6BF2BA22C5500E3ED07 /* PROD-Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PROD-Keys.plist"; sourceTree = "<group>"; };
 		62B5E6C12BA23C6100E3ED07 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		62B5E6C42BA3699600E3ED07 /* PlacesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesModel.swift; sourceTree = "<group>"; };
 		62CD744A2BA21DFD006F022F /* MiniChallenge04.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniChallenge04.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		62CD744D2BA21DFD006F022F /* MiniChallenge04App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniChallenge04App.swift; sourceTree = "<group>"; };
 		62CD744F2BA21DFD006F022F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		62CD74512BA21DFF006F022F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62CD74542BA21DFF006F022F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -67,6 +67,7 @@
 		62CD74412BA21DFD006F022F = {
 			isa = PBXGroup;
 			children = (
+				0A2033C32BA4DB7200145F71 /* PROD-Keys.plist */,
 				62CD744C2BA21DFD006F022F /* MiniChallenge04 */,
 				62CD744B2BA21DFD006F022F /* Products */,
 				C051BA09DB1F73FBA01C08C5 /* Pods */,
@@ -87,11 +88,10 @@
 			children = (
 				62B5E6C32BA3697F00E3ED07 /* Models */,
 				62B5E6BB2BA21ED000E3ED07 /* Utility */,
-				62CD744D2BA21DFD006F022F /* MiniChallenge04App.swift */,
+				0A2033C62BA4DC4900145F71 /* MiniChallenge04App.swift */,
 				62CD744F2BA21DFD006F022F /* ContentView.swift */,
 				62CD74512BA21DFF006F022F /* Assets.xcassets */,
 				62CD74532BA21DFF006F022F /* Preview Content */,
-				62B5E6BF2BA22C5500E3ED07 /* PROD-Keys.plist */,
 			);
 			path = MiniChallenge04;
 			sourceTree = "<group>";
@@ -188,7 +188,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				62CD74552BA21DFF006F022F /* Preview Assets.xcassets in Resources */,
-				62B5E6C02BA22C5500E3ED07 /* PROD-Keys.plist in Resources */,
 				62CD74522BA21DFF006F022F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,10 +241,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A2033C82BA4DCCA00145F71 /* MiniChallenge04App.swift in Sources */,
+				0A2033C52BA4DB9F00145F71 /* PROD-Keys.plist in Sources */,
 				62B5E6C22BA23C6100E3ED07 /* Errors.swift in Sources */,
 				62B5E6BD2BA21EDF00E3ED07 /* APIManager.swift in Sources */,
 				62CD74502BA21DFD006F022F /* ContentView.swift in Sources */,
-				62CD744E2BA21DFD006F022F /* MiniChallenge04App.swift in Sources */,
 				62B5E6C52BA3699600E3ED07 /* PlacesModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,7 +381,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniChallenge04/Preview Content\"";
-				DEVELOPMENT_TEAM = H6ULSPHHN4;
+				DEVELOPMENT_TEAM = TK562C9P89;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -412,7 +412,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniChallenge04/Preview Content\"";
-				DEVELOPMENT_TEAM = H6ULSPHHN4;
+				DEVELOPMENT_TEAM = TK562C9P89;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
