@@ -58,7 +58,7 @@ playground.xcworkspace
 Pods/
 #
 # Add this line if you want to avoid checking in source code from the Xcode workspace
- *.xcworkspace
+*.xcworkspace
 
 # Carthage
 #
@@ -90,5 +90,5 @@ fastlane/test_output
 
 iOSInjectionProject/
 MiniChallenge04/MiniChallenge04/Secrets.plist
-MiniChallenge04/MiniChallenge04/PROD-Keys.plist
-MiniChallenge04/.DS_Store
+*PROD-Keys.plist
+*.DS_Store
