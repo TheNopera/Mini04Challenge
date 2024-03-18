@@ -10,6 +10,7 @@ import SwiftUI
 
 struct GaleriaEstado:View {
     
+    
     var fotos:[Image] = []
     
     var body: some View {
