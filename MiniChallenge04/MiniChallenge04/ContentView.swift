@@ -17,10 +17,11 @@ struct ContentView: View {
     var body: some View {
         
         
-        
-        NavigationStack{
-            NavigationLink {GaleriaEstado(fotos: [])} label: {
-                Text("Estado")
+        VStack{
+            NavigationStack{
+                NavigationLink {GaleriaEstado(titulo: "Distrito Federal")} label: {
+                    Text("Estado")
+                }
             }
         }
         .padding()

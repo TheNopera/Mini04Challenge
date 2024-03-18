@@ -10,7 +10,14 @@ import SwiftUI
 
 struct GaleriaEstado:View {
     
+    
+    var titulo:String
     var fotos:[Image] = []
+    
+    init(titulo: String) {
+        self.titulo = titulo
+        self.fotos = []
+    }
     
     var body: some View {
         VStack {
@@ -19,11 +26,11 @@ struct GaleriaEstado:View {
                     .bold()
             }
         }
-        .navigationTitle("Distrito Federal")
+        .navigationTitle(titulo)
         .navigationBarTitleDisplayMode(.large)
     }
 }
 
 #Preview {
-    GaleriaEstado()
+    GaleriaEstado(titulo: "Distrito Federal")
 }
