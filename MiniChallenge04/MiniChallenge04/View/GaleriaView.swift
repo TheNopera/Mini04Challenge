@@ -10,9 +10,10 @@ import SwiftUI
 
 struct GaleriaView:View {
     
-    
     var titulo:String
     var fotos:[Image] = []
+    
+    @StateObject var galleryViewModel:GalleyViewModel = GalleyViewModel()
     
     init(titulo: String) {
         self.titulo = titulo

@@ -20,6 +20,8 @@
 		62CD74522BA21DFF006F022F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CD74512BA21DFF006F022F /* Assets.xcassets */; };
 		62CD74552BA21DFF006F022F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CD74542BA21DFF006F022F /* Preview Assets.xcassets */; };
 		62CD745D2BA21E7A006F022F /* GooglePlaces in Frameworks */ = {isa = PBXBuildFile; productRef = 62CD745C2BA21E7A006F022F /* GooglePlaces */; };
+		6EA2967B2BAA0AF5006181E3 /* GaleryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA2967A2BAA0AF5006181E3 /* GaleryModel.swift */; };
+		6EA2967D2BAA0BA6006181E3 /* GalleyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA2967C2BAA0BA6006181E3 /* GalleyViewModel.swift */; };
 		DDCB1D633F14B7DF0CBA91AF /* Pods_MiniChallenge04.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCD00C95CF5B0A7CD6B636A1 /* Pods_MiniChallenge04.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,8 @@
 		62CD744F2BA21DFD006F022F /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		62CD74512BA21DFF006F022F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62CD74542BA21DFF006F022F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6EA2967A2BAA0AF5006181E3 /* GaleryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaleryModel.swift; sourceTree = "<group>"; };
+		6EA2967C2BAA0BA6006181E3 /* GalleyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleyViewModel.swift; sourceTree = "<group>"; };
 		72B5C5178C4E36F05E4C9396 /* Pods-MiniChallenge04.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniChallenge04.release.xcconfig"; path = "Target Support Files/Pods-MiniChallenge04/Pods-MiniChallenge04.release.xcconfig"; sourceTree = "<group>"; };
 		BCD00C95CF5B0A7CD6B636A1 /* Pods_MiniChallenge04.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiniChallenge04.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -56,7 +60,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A2033CE2BAA035300145F71 /* New Group */ = {
+		0A2033CE2BAA035300145F71 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				0A2033C92BA4E28200145F71 /* GaleriaView.swift */,
@@ -64,7 +68,7 @@
 				62CD744F2BA21DFD006F022F /* MapView.swift */,
 				0A2033CF2BAA03C300145F71 /* RecomendationView.swift */,
 			);
-			path = "New Group";
+			path = View;
 			sourceTree = "<group>";
 		};
 		62B5E6BB2BA21ED000E3ED07 /* Utility */ = {
@@ -80,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				62B5E6C42BA3699600E3ED07 /* PlacesModel.swift */,
+				6EA2967A2BAA0AF5006181E3 /* GaleryModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -108,9 +113,10 @@
 			children = (
 				0A2033CB2BA4E63300145F71 /* Info.plist */,
 				62B5E6C32BA3697F00E3ED07 /* Models */,
+				0A2033CE2BAA035300145F71 /* View */,
+				6EA296792BAA08D8006181E3 /* ViewModel */,
 				62B5E6BB2BA21ED000E3ED07 /* Utility */,
 				0A2033C62BA4DC4900145F71 /* MiniChallenge04App.swift */,
-				0A2033CE2BAA035300145F71 /* New Group */,
 				62CD74512BA21DFF006F022F /* Assets.xcassets */,
 				62CD74532BA21DFF006F022F /* Preview Content */,
 				620ED3E32BA4EA86000450BB /* PlaceCard.swift */,
@@ -124,6 +130,14 @@
 				62CD74542BA21DFF006F022F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6EA296792BAA08D8006181E3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6EA2967C2BAA0BA6006181E3 /* GalleyViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		806F97F4E8F5BA75A982C82C /* Frameworks */ = {
@@ -272,6 +286,8 @@
 				62B5E6BD2BA21EDF00E3ED07 /* APIManager.swift in Sources */,
 				0A2033D02BAA03C300145F71 /* RecomendationView.swift in Sources */,
 				62CD74502BA21DFD006F022F /* MapView.swift in Sources */,
+				6EA2967B2BAA0AF5006181E3 /* GaleryModel.swift in Sources */,
+				6EA2967D2BAA0BA6006181E3 /* GalleyViewModel.swift in Sources */,
 				62B5E6C52BA3699600E3ED07 /* PlacesModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,7 +423,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniChallenge04/Preview Content\"";
-				DEVELOPMENT_TEAM = TK562C9P89;
+				DEVELOPMENT_TEAM = L4N6N49H26;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -439,7 +455,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniChallenge04/Preview Content\"";
-				DEVELOPMENT_TEAM = TK562C9P89;
+				DEVELOPMENT_TEAM = L4N6N49H26;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
