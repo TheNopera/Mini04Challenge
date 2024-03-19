@@ -19,6 +19,7 @@ struct ContentView: View {
         
         NavigationStack{
             NavigationLink("Galeria", destination: GaleriaView(titulo: "Estado"))
+            
         }
         .padding()
     }

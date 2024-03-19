@@ -28,6 +28,7 @@ struct GaleriaView:View {
         }
         .navigationTitle(titulo)
         .navigationBarTitleDisplayMode(.large)
+        .toolbar(.hidden, for: .tabBar)
     }
 }
 
