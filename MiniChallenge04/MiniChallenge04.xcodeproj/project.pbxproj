@@ -18,6 +18,9 @@
 		62CD74522BA21DFF006F022F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CD74512BA21DFF006F022F /* Assets.xcassets */; };
 		62CD74552BA21DFF006F022F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CD74542BA21DFF006F022F /* Preview Assets.xcassets */; };
 		62CD745D2BA21E7A006F022F /* GooglePlaces in Frameworks */ = {isa = PBXBuildFile; productRef = 62CD745C2BA21E7A006F022F /* GooglePlaces */; };
+		703FEC802BA8BD3400CCF751 /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703FEC7F2BA8BD3400CCF751 /* DataItem.swift */; };
+		703FEC832BA8C9B700CCF751 /* GalleryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703FEC822BA8C9B700CCF751 /* GalleryDataModel.swift */; };
+		703FEC852BA8CA3E00CCF751 /* FormDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703FEC842BA8CA3E00CCF751 /* FormDataModel.swift */; };
 		DDCB1D633F14B7DF0CBA91AF /* Pods_MiniChallenge04.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCD00C95CF5B0A7CD6B636A1 /* Pods_MiniChallenge04.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +38,9 @@
 		62CD744F2BA21DFD006F022F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		62CD74512BA21DFF006F022F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62CD74542BA21DFF006F022F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		703FEC7F2BA8BD3400CCF751 /* DataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
+		703FEC822BA8C9B700CCF751 /* GalleryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDataModel.swift; sourceTree = "<group>"; };
+		703FEC842BA8CA3E00CCF751 /* FormDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDataModel.swift; sourceTree = "<group>"; };
 		72B5C5178C4E36F05E4C9396 /* Pods-MiniChallenge04.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniChallenge04.release.xcconfig"; path = "Target Support Files/Pods-MiniChallenge04/Pods-MiniChallenge04.release.xcconfig"; sourceTree = "<group>"; };
 		BCD00C95CF5B0A7CD6B636A1 /* Pods_MiniChallenge04.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiniChallenge04.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -91,10 +97,12 @@
 		62CD744C2BA21DFD006F022F /* MiniChallenge04 */ = {
 			isa = PBXGroup;
 			children = (
+				703FEC812BA8C99E00CCF751 /* DataModel */,
 				0A2033CB2BA4E63300145F71 /* Info.plist */,
 				62B5E6C32BA3697F00E3ED07 /* Models */,
 				62B5E6BB2BA21ED000E3ED07 /* Utility */,
 				0A2033C62BA4DC4900145F71 /* MiniChallenge04App.swift */,
+				703FEC7F2BA8BD3400CCF751 /* DataItem.swift */,
 				0A2033C92BA4E28200145F71 /* GaleriaEstado.swift */,
 				62CD744F2BA21DFD006F022F /* ContentView.swift */,
 				62CD74512BA21DFF006F022F /* Assets.xcassets */,
@@ -110,6 +118,15 @@
 				62CD74542BA21DFF006F022F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		703FEC812BA8C99E00CCF751 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				703FEC822BA8C9B700CCF751 /* GalleryDataModel.swift */,
+				703FEC842BA8CA3E00CCF751 /* FormDataModel.swift */,
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 		806F97F4E8F5BA75A982C82C /* Frameworks */ = {
@@ -251,12 +268,15 @@
 			files = (
 				0A2033C82BA4DCCA00145F71 /* MiniChallenge04App.swift in Sources */,
 				620ED3E42BA4EA86000450BB /* PlaceCard.swift in Sources */,
+				703FEC832BA8C9B700CCF751 /* GalleryDataModel.swift in Sources */,
 				0A2033CA2BA4E28200145F71 /* GaleriaEstado.swift in Sources */,
 				0A2033C52BA4DB9F00145F71 /* PROD-Keys.plist in Sources */,
+				703FEC802BA8BD3400CCF751 /* DataItem.swift in Sources */,
 				62B5E6C22BA23C6100E3ED07 /* Errors.swift in Sources */,
 				62B5E6BD2BA21EDF00E3ED07 /* APIManager.swift in Sources */,
 				62CD74502BA21DFD006F022F /* ContentView.swift in Sources */,
 				62B5E6C52BA3699600E3ED07 /* PlacesModel.swift in Sources */,
+				703FEC852BA8CA3E00CCF751 /* FormDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
