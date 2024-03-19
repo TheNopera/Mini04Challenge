@@ -11,18 +11,14 @@ import Photos
 struct ContentView: View {
     
     @StateObject var api = APIManager()
-    
+    @State var isShowingAdditionalContent = false
     
     
     var body: some View {
         
         
-        VStack{
-            NavigationStack{
-                NavigationLink {GaleriaEstado(titulo: "Distrito Federal")} label: {
-                    Text("Estado")
-                }
-            }
+        NavigationStack{
+            NavigationLink("Galeria", destination: GaleriaView(titulo: "Estado"))
         }
         .padding()
     }

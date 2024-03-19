@@ -39,7 +39,12 @@ struct CardModifier : ViewModifier{
 
 struct CardView : View {
     var body: some View {
-        VStack{
+        Button {
+            
+            print("RJ")
+            
+        } label:
+        {
             RoundedRectangle(cornerRadius: 25)
                 .modifier(CardModifier(cornerRadius: 25, title: "Rio de Janeiro", image: Image("Cristo")))
         }

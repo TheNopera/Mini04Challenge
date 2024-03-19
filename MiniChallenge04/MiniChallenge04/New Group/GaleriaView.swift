@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct GaleriaEstado:View {
+struct GaleriaView:View {
     
     
     var titulo:String
@@ -32,5 +32,5 @@ struct GaleriaEstado:View {
 }
 
 #Preview {
-    GaleriaEstado(titulo: "Distrito Federal")
+    GaleriaView(titulo: "Distrito Federal")
 }
