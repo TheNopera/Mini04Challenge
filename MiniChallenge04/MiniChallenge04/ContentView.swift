@@ -10,7 +10,7 @@ import Photos
 
 struct ContentView: View {
     
-    @StateObject var api = APIManager()
+
     
     
     
@@ -21,6 +21,7 @@ struct ContentView: View {
         NavigationStack{
             NavigationLink {GaleriaEstado(fotos: [])} label: {
                 Text("Estado")
+                
             }
         }
         .padding()

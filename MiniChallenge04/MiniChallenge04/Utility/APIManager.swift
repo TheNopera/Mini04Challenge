@@ -17,7 +17,8 @@ class APIManager : ObservableObject{
     
     
     //MARK: FUNÇÃO PARA RETORNAR PONTOS TURISTICOS EM CIDADE ESPECIFICA
-    func getTouristAttractions(city : String) async throws -> PlacesResponse? {
+    func getTouristAttractions(city : String) async throws -> DataResponse<PlacesResponse, AFError> {
+        
         //O body do request
         let parameters : [String:Any] = [
             "textQuery" : "Pontos turisticos \(city)",
@@ -31,22 +32,28 @@ class APIManager : ObservableObject{
             "X-Goog-FieldMask": "places.displayName,places.editorialSummary,places.photos" // Informações que você quer que a API retorne
         ]
         
-        let data = try await AF.request("\(API_BASE_URL)places:searchText", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).serializingDecodable(PlacesResponse.self).value
+        let data = await AF.request("\(API_BASE_URL)places:searchText", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).serializingDecodable(PlacesResponse.self).response
+        
         
         return data
     }
     
     
     //MARK: FUNÇÃO PARA RETORNAR IMAGEM DE UM LOCAL
-    func getPlaceImage(imageName : String) async throws-> Data? {
+    func getImageUrl(imageName : String) async throws -> DataResponse<Photo, AFError> {
         let maxHeight : Int = 400
         let maxWidht  : Int = 400
         
-        let data = try await AF.request("\(API_BASE_URL+imageName)/media?maxHeightPx=\(maxHeight)&maxWidthPx=\(maxWidht)&key=\(ENV.SERVICE_API_KEY)").serializingData().value
+        let data = await AF.request("\(API_BASE_URL+imageName)/media?maxHeightPx=\(maxHeight)&maxWidthPx=\(maxWidht)&key=\(ENV.SERVICE_API_KEY)").serializingDecodable(Photo.self).response
         
         return data
     }
     
+    func downloadImage(url: URL) async throws -> DataResponse<Data,AFError>{
+        let data = await AF.request(url, method: .get).serializingData().response
+        
+        return data
+    }
 }
 
 
