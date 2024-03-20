@@ -8,11 +8,50 @@
 import SwiftUI
 
 struct RecomendationView: View {
+    @ObservedObject var viewModel: RecomendationViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        NavigationStack
+        {
+            
+            HStack{
+                Text("Para você!")
+                    .font(.title)
+                    .bold()
+                Spacer()
+                
+                NavigationLink {} label: {
+                    HStack {
+                        Text("Mostrar Mais")
+                        Image(systemName: "chevron.right")
+                            .resizable()
+                            .frame(width: 4, height: 9)
+                    }
+                    .font(.caption)
+                    .bold()
+                    .tint(.gray)
+                }
+            }
+        
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack{
+                    ForEach(viewModel.recomendationModel.recomendacoes, id: \.self) { recomendacao in
+                        PlaceCard(nome: recomendacao)
+                            .padding(5)
+                    }
+                }
+            }
+        }.padding()
     }
 }
 
+
 #Preview {
-    RecomendationView()
+    
+    let viewModel = RecomendationViewModel()
+    viewModel.recomendationModel.recomendacoes = ["Distrito Federal", "São Paulo", "Rio de Janeiro", "Ceara"]
+    
+    return RecomendationView(viewModel: viewModel)
+        
 }

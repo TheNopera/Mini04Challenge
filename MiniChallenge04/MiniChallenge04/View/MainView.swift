@@ -8,33 +8,33 @@
 import SwiftUI
 
 struct MainView: View {
+    @StateObject var viewModel = RecomendationViewModel() // Use StateObject para inicializar o ViewModel
+    
     var body: some View {
-        TabView
-        {
-            
+        TabView {
             // View do Mapa
             ContentView()
-                .tabItem { 
-                    VStack {
-                    Image(systemName: "map.fill")
-                    Text("Mapa")}
-                }
-            
-            // View das recomendações
-            RecomendationView()
                 .tabItem {
                     VStack {
-                    Image(systemName: "hand.thumbsup.fill")
-                    Text("Recomendação")
+                        Image(systemName: "map.fill")
+                        Text("Mapa")
+                    }
                 }
-            }
-                
+
+            // View das recomendações
+            RecomendationView(viewModel: viewModel)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "hand.thumbsup.fill")
+                        Text("Recomendação")
+                    }
+                }
         }
-        
-        
     }
 }
 
 #Preview {
-    MainView()
+    let viewModel = RecomendationViewModel()
+    viewModel.recomendationModel.recomendacoes = ["DF", "SP", "RJ", "CE"]
+    return MainView(viewModel: viewModel)
 }
