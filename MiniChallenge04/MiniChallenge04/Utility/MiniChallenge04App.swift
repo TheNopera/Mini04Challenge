@@ -7,7 +7,6 @@
 
 import SwiftUI
 import GooglePlaces
-
 class BaseEnv{
     let dict : NSDictionary
     
