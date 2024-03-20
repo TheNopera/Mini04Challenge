@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-class APIManager : ObservableObject{
+class APIManager {
     var ENV : APIKeyable {
         return ProdENV()
     }
@@ -32,19 +32,19 @@ class APIManager : ObservableObject{
             "X-Goog-FieldMask": "places.displayName,places.editorialSummary,places.photos" // Informações que você quer que a API retorne
         ]
         
-        let data = await AF.request("\(API_BASE_URL)places:searchText", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).serializingDecodable(PlacesResponse.self).response
+        let data = await AF.request(API_BASE_URL+"places:searchText", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).serializingDecodable(PlacesResponse.self).response
         
-        
+        print(data.error)
         return data
     }
     
     
     //MARK: FUNÇÃO PARA RETORNAR IMAGEM DE UM LOCAL
-    func getImageUrl(imageName : String) async throws -> DataResponse<Photo, AFError> {
+    func getImageUrl(imageName : String) async throws -> DataResponse<Data, AFError> {
         let maxHeight : Int = 400
         let maxWidht  : Int = 400
         
-        let data = await AF.request("\(API_BASE_URL+imageName)/media?maxHeightPx=\(maxHeight)&maxWidthPx=\(maxWidht)&key=\(ENV.SERVICE_API_KEY)").serializingDecodable(Photo.self).response
+        let data = await AF.request("\(API_BASE_URL+imageName)/media?maxHeightPx=\(maxHeight)&maxWidthPx=\(maxWidht)&key=\(ENV.SERVICE_API_KEY)").serializingData().response
         
         return data
     }

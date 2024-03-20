@@ -6,7 +6,10 @@
 //
 
 import Foundation
-
+struct ImageResponse : Codable{
+    var name : String
+    var photoUri : String
+}
 struct Photo: Codable {
     let name: String
     let widthPx: Int
@@ -32,10 +35,10 @@ struct DisplayName: Codable {
 
 struct Place: Codable {
     let displayName: DisplayName
-    let editorialSummary: EditorialSummary
+    let editorialSummary: EditorialSummary?
     let photos: [Photo]
 }
 
 struct PlacesResponse: Codable {
-    let places: [Place]
+    var places: [Place]
 }

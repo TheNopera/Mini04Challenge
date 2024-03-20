@@ -8,60 +8,51 @@
 import Foundation
 import UIKit
 
+
 class PlacesViewModel : ObservableObject{
     var api = APIManager()
+    @Published var places : PlacesResponse = PlacesResponse(places: [])
     
-    @Published var places : PlacesResponse
-    
-    func getPlaces(in city : String) async throws -> PlacesResponse?{
+    @MainActor
+    func getPlaces(in city : String) async throws {
+        print("Searching places in \(city)")
         let places = try await api.getTouristAttractions(city: city)
         
         switch places.result{
             
         case .success(_):
-            return places.value
+            if let locations = places.value?.places{
+                for location in locations{
+                    self.places.places.append(location)
+                }
+            }
         case .failure(_):
+            print("failed")
             throw APIError.invalidResponse("Algo deu errado ao buscar dados do local")
         }
     }
     
-    func getImageUrl(imgName : String) async throws -> URL?{
+    @MainActor
+    func getImageUrl(imgName : String) async throws -> UIImage{
         let imgData = try await api.getImageUrl(imageName: imgName)
         
         switch imgData.result{
         case .success(_):
-            guard let img = imgData.value?.authorAttributions.first?.photoUri else{
-                return nil
+            if let imageResponse = imgData.value{
+                guard let _ = imageResponse.first else{
+                    return UIImage(named: "Image_Load_Failed")!
+                }
             }
-            return URL(string: img)
-        case .failure(_):
-            throw APIError.invalidResponse("Não foi possivel recuperar imagens deste local")
-        }
-    }
-    
-    func getImage(imgName : String) async throws -> UIImage{
-        var imgUrl = try await getImageUrl(imgName: imgName)
-        guard let url = imgUrl else{
-            throw APIError.invalidData("NO IMAGE DATA")
-        }
-        
-        var imgData = try await api.downloadImage(url: url)
-        switch imgData.result{
             
-        case .success(_):
-            guard let img = imgData.data else{
-                //colocar imagem de não encontrado aqui
-                throw APIError.invalidData("NO IMAGE DATA")
-            }
-        
-            return UIImage(data: img)!
+            return UIImage(data: imgData.value!)!
+            
         case .failure(_):
-            throw APIError.invalidData("Something went wrong")
+            print("Failed to get Image")
+            return UIImage(named: "Image_Load_Failed")!
         }
     }
     
-    init(api: APIManager = APIManager(), places: PlacesResponse) {
+    init(api: APIManager = APIManager()) {
         self.api = api
-        self.places = places
     }
 }
