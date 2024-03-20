@@ -10,6 +10,13 @@
 		0A2033C52BA4DB9F00145F71 /* PROD-Keys.plist in Sources */ = {isa = PBXBuildFile; fileRef = 0A2033C32BA4DB7200145F71 /* PROD-Keys.plist */; };
 		0A2033C82BA4DCCA00145F71 /* MiniChallenge04App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2033C62BA4DC4900145F71 /* MiniChallenge04App.swift */; };
 		0A2033CA2BA4E28200145F71 /* GaleriaEstado.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2033C92BA4E28200145F71 /* GaleriaEstado.swift */; };
+		0A2033DC2BAB747D00145F71 /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2033DB2BAB747D00145F71 /* GalleryViewModel.swift */; };
+		0A2033DE2BAB755C00145F71 /* GaleryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2033DD2BAB755C00145F71 /* GaleryModel.swift */; };
+		0A2033E02BAB758A00145F71 /* RecomendationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2033DF2BAB758A00145F71 /* RecomendationView.swift */; };
+		0A2033E22BAB75AE00145F71 /* RecomendationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2033E12BAB75AE00145F71 /* RecomendationViewModel.swift */; };
+		0A2033E42BAB75CA00145F71 /* RecomendationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2033E32BAB75CA00145F71 /* RecomendationModel.swift */; };
+		0A2033E62BAB762F00145F71 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2033E52BAB762F00145F71 /* MainView.swift */; };
+		0A2033E82BAB76D300145F71 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2033E72BAB76D300145F71 /* MapView.swift */; };
 		620ED3E42BA4EA86000450BB /* PlaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620ED3E32BA4EA86000450BB /* PlaceCard.swift */; };
 		629777372BA8C6150023AE38 /* PlacesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629777362BA8C6150023AE38 /* PlacesViewModel.swift */; };
 		62B5E6BD2BA21EDF00E3ED07 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B5E6BC2BA21EDF00E3ED07 /* APIManager.swift */; };
@@ -30,6 +37,13 @@
 		0A2033C62BA4DC4900145F71 /* MiniChallenge04App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MiniChallenge04App.swift; path = Utility/MiniChallenge04App.swift; sourceTree = "<group>"; };
 		0A2033C92BA4E28200145F71 /* GaleriaEstado.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaleriaEstado.swift; sourceTree = "<group>"; };
 		0A2033CB2BA4E63300145F71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0A2033DB2BAB747D00145F71 /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
+		0A2033DD2BAB755C00145F71 /* GaleryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaleryModel.swift; sourceTree = "<group>"; };
+		0A2033DF2BAB758A00145F71 /* RecomendationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationView.swift; sourceTree = "<group>"; };
+		0A2033E12BAB75AE00145F71 /* RecomendationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationViewModel.swift; sourceTree = "<group>"; };
+		0A2033E32BAB75CA00145F71 /* RecomendationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationModel.swift; sourceTree = "<group>"; };
+		0A2033E52BAB762F00145F71 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		0A2033E72BAB76D300145F71 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		12292422961DBE13E3111C71 /* Pods-MiniChallenge04.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniChallenge04.debug.xcconfig"; path = "Target Support Files/Pods-MiniChallenge04/Pods-MiniChallenge04.debug.xcconfig"; sourceTree = "<group>"; };
 		620ED3E32BA4EA86000450BB /* PlaceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCard.swift; sourceTree = "<group>"; };
 		629777362BA8C6150023AE38 /* PlacesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewModel.swift; sourceTree = "<group>"; };
@@ -60,6 +74,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A2033D82BAB73BA00145F71 /* Modulos */ = {
+			isa = PBXGroup;
+			children = (
+				620ED3E32BA4EA86000450BB /* PlaceCard.swift */,
+			);
+			path = Modulos;
+			sourceTree = "<group>";
+		};
+		0A2033D92BAB73C000145F71 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				629777362BA8C6150023AE38 /* PlacesViewModel.swift */,
+				0A2033DB2BAB747D00145F71 /* GalleryViewModel.swift */,
+				0A2033E12BAB75AE00145F71 /* RecomendationViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0A2033DA2BAB73C700145F71 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0A2033C92BA4E28200145F71 /* GaleriaEstado.swift */,
+				0A2033DF2BAB758A00145F71 /* RecomendationView.swift */,
+				0A2033E52BAB762F00145F71 /* MainView.swift */,
+				0A2033E72BAB76D300145F71 /* MapView.swift */,
+				62CD744F2BA21DFD006F022F /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		62B5E6BB2BA21ED000E3ED07 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -73,7 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				62B5E6C42BA3699600E3ED07 /* PlacesModel.swift */,
-				629777362BA8C6150023AE38 /* PlacesViewModel.swift */,
+				0A2033DD2BAB755C00145F71 /* GaleryModel.swift */,
+				0A2033E32BAB75CA00145F71 /* RecomendationModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -100,17 +145,16 @@
 		62CD744C2BA21DFD006F022F /* MiniChallenge04 */ = {
 			isa = PBXGroup;
 			children = (
+				0A2033DA2BAB73C700145F71 /* Views */,
+				0A2033D92BAB73C000145F71 /* ViewModels */,
+				0A2033D82BAB73BA00145F71 /* Modulos */,
 				703FEC812BA8C99E00CCF751 /* DataModel */,
 				0A2033CB2BA4E63300145F71 /* Info.plist */,
 				62B5E6C32BA3697F00E3ED07 /* Models */,
 				62B5E6BB2BA21ED000E3ED07 /* Utility */,
 				0A2033C62BA4DC4900145F71 /* MiniChallenge04App.swift */,
-				703FEC7F2BA8BD3400CCF751 /* DataItem.swift */,
-				0A2033C92BA4E28200145F71 /* GaleriaEstado.swift */,
-				62CD744F2BA21DFD006F022F /* ContentView.swift */,
 				62CD74512BA21DFF006F022F /* Assets.xcassets */,
 				62CD74532BA21DFF006F022F /* Preview Content */,
-				620ED3E32BA4EA86000450BB /* PlaceCard.swift */,
 			);
 			path = MiniChallenge04;
 			sourceTree = "<group>";
@@ -126,6 +170,7 @@
 		703FEC812BA8C99E00CCF751 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				703FEC7F2BA8BD3400CCF751 /* DataItem.swift */,
 				703FEC822BA8C9B700CCF751 /* GalleryDataModel.swift */,
 				703FEC842BA8CA3E00CCF751 /* FormDataModel.swift */,
 			);
@@ -270,15 +315,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A2033C82BA4DCCA00145F71 /* MiniChallenge04App.swift in Sources */,
+				0A2033E62BAB762F00145F71 /* MainView.swift in Sources */,
 				620ED3E42BA4EA86000450BB /* PlaceCard.swift in Sources */,
+				0A2033E02BAB758A00145F71 /* RecomendationView.swift in Sources */,
 				703FEC832BA8C9B700CCF751 /* GalleryDataModel.swift in Sources */,
 				0A2033CA2BA4E28200145F71 /* GaleriaEstado.swift in Sources */,
 				629777372BA8C6150023AE38 /* PlacesViewModel.swift in Sources */,
 				0A2033C52BA4DB9F00145F71 /* PROD-Keys.plist in Sources */,
 				703FEC802BA8BD3400CCF751 /* DataItem.swift in Sources */,
 				62B5E6C22BA23C6100E3ED07 /* Errors.swift in Sources */,
+				0A2033E42BAB75CA00145F71 /* RecomendationModel.swift in Sources */,
+				0A2033DC2BAB747D00145F71 /* GalleryViewModel.swift in Sources */,
 				62B5E6BD2BA21EDF00E3ED07 /* APIManager.swift in Sources */,
+				0A2033E22BAB75AE00145F71 /* RecomendationViewModel.swift in Sources */,
 				62CD74502BA21DFD006F022F /* ContentView.swift in Sources */,
+				0A2033E82BAB76D300145F71 /* MapView.swift in Sources */,
+				0A2033DE2BAB755C00145F71 /* GaleryModel.swift in Sources */,
 				62B5E6C52BA3699600E3ED07 /* PlacesModel.swift in Sources */,
 				703FEC852BA8CA3E00CCF751 /* FormDataModel.swift in Sources */,
 			);

@@ -7,12 +7,14 @@
 
 import Foundation
 import SwiftUI
-import Photos
 
-struct GaleriaEstado:View {
+struct GalleryView:View {
     
-    
+    var titulo:String
     var fotos:[Image] = []
+    
+    @StateObject var GalleryViewModel:GalleryViewModel
+    
     
     var body: some View {
         VStack {
@@ -21,11 +23,12 @@ struct GaleriaEstado:View {
                     .bold()
             }
         }
-        .navigationTitle("Distrito Federal")
+        .navigationTitle(titulo)
         .navigationBarTitleDisplayMode(.large)
+        .toolbar(.hidden, for: .tabBar)
     }
 }
 
 #Preview {
-    GaleriaEstado()
+    GalleryView(titulo: "Distrito Federal", GalleryViewModel: GalleryViewModel())
 }
