@@ -14,7 +14,7 @@ struct MapView: View {
         
         
         NavigationStack{
-            NavigationLink("Galeria", destination: GalleryView(titulo: "Estado", GalleryViewModel: GalleryViewModel()))
+            NavigationLink("Galeria", destination: GalleryView(titulo: "Estado"))
             
         }
         .padding()
