@@ -57,4 +57,6 @@ class GalleyViewModel: ObservableObject{
 
         return image // Retornar a imagem da foto
     }
+    
+    
 }

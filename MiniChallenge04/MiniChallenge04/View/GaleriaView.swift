@@ -29,7 +29,7 @@ struct GaleriaView:View {
                     Section(header: Text(location)) {
                         ForEach(assets, id: \.self) { asset in
                             // Exibir a foto usando a função 'image' do 'PHAsset'
-                            Image(uiImage: self.getImage(from: asset))
+                            Image(uiImage: galleryViewModel.getImage(from: asset))
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 100, height: 100)
@@ -44,20 +44,7 @@ struct GaleriaView:View {
         }
         
         }
-    func getImage(from asset: PHAsset) -> UIImage {
-        let manager = PHImageManager.default()
-        let options = PHImageRequestOptions()
-        options.isSynchronous = true
-        var image = UIImage()
-
-        manager.requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFit, options: options) { result, _ in
-            if let result = result {
-                image = result // Obter a imagem da foto
-            }
-        }
-
-        return image // Retornar a imagem da foto
-    }
+    
 }
 
 #Preview {
