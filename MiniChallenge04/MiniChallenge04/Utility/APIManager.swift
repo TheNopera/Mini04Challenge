@@ -34,7 +34,7 @@ class APIManager {
         
         let data = await AF.request(API_BASE_URL+"places:searchText", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).serializingDecodable(PlacesResponse.self).response
         
-        print(data.error)
+
         return data
     }
     
