@@ -12,9 +12,11 @@ import SwiftData
 class FormDataModel{
     var geography:String
     var weather:String
+    var culture:String
     
-    init(geography: String, weather: String) {
+    init(geography: String, weather: String, culture: String) {
         self.geography = geography
         self.weather = weather
+        self.culture = culture
     }
 }

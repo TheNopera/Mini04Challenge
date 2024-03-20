@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Photos
 
 struct GaleriaEstado:View {
     
