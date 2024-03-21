@@ -21,7 +21,7 @@ struct PlaceCard:View {
                     .frame(width: 155, height: 155)
             }
             HStack{
-                Image("Pin")
+                Image("pin")
                     .resizable()
                     .frame(width: 14, height: 16.9)
                 Text(nome)

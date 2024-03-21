@@ -10,5 +10,7 @@ import Foundation
 struct RecomendationModel {
     
     var recomendacoes:[String] = []
+    var categorias:[String] = ["Acampamento", "Praia", "Montanhas", "Floresta"]
+    var maisProcurados:[String] = ["Rio de Janeiro", "Amapa", "Volta Redonda"]
     
 }
