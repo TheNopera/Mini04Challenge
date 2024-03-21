@@ -92,3 +92,4 @@ iOSInjectionProject/
 MiniChallenge04/MiniChallenge04/Secrets.plist
 *PROD-Keys.plist
 *.DS_Store
+*.xcscheme
