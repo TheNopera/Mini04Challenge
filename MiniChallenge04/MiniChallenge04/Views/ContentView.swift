@@ -19,9 +19,10 @@ struct ContentView: View {
         VStack{
             if !imgIsLoaded{
                 ProgressView()
-                    .frame(width: 200,height: 200)
+                    .frame(width: 200, height: 200)
             } else{
                 Image(uiImage: img)
+                    .padding()
             }
             TextField(text: $search) {
                 Text("Pesquise uma cidade")
@@ -29,8 +30,12 @@ struct ContentView: View {
             .textFieldStyle(.roundedBorder)
             Button {
                 Task{
+                    self.imgIsLoaded = false
+                    if !vm.places.places.isEmpty{
+                        vm.places.places.removeAll()
+                    }
                     try await vm.getPlaces(in: search)
-                    self.img = try await vm.getImageUrl(imgName: vm.places.places.first!.photos.first!.name)
+                    self.img = try await vm.getImage(imgName: vm.getRandomPlace().photos.first!.name)
                     
                     self.imgIsLoaded = true
                 }

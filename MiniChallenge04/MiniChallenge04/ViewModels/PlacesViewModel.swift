@@ -13,6 +13,7 @@ class PlacesViewModel : ObservableObject{
     var api = APIManager()
     @Published var places : PlacesResponse = PlacesResponse(places: [])
     
+    //MARK: Get touristic places in a specific city
     @MainActor
     func getPlaces(in city : String) async throws {
         print("Searching places in \(city)")
@@ -32,8 +33,9 @@ class PlacesViewModel : ObservableObject{
         }
     }
     
+    //MARK: Get images from a place
     @MainActor
-    func getImageUrl(imgName : String) async throws -> UIImage{
+    func getImage(imgName : String) async throws -> UIImage{
         let imgData = try await api.getImageUrl(imageName: imgName)
         
         switch imgData.result{
@@ -50,6 +52,12 @@ class PlacesViewModel : ObservableObject{
             print("Failed to get Image")
             return UIImage(named: "Image_Load_Failed")!
         }
+    }
+    
+    //MARK: Get a random place in the array
+    func getRandomPlace() -> Place{
+        let randomNumber = Int.random(in: 0..<places.places.count)
+        return places.places[randomNumber]
     }
     
     init(api: APIManager = APIManager()) {
