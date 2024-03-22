@@ -19,6 +19,9 @@
 		0A2033E82BAB76D300145F71 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2033E72BAB76D300145F71 /* MapView.swift */; };
 		0A2033EA2BACA36000145F71 /* CategoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2033E92BACA36000145F71 /* CategoryCard.swift */; };
 		620ED3E42BA4EA86000450BB /* PlaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620ED3E32BA4EA86000450BB /* PlaceCard.swift */; };
+		624B0FB32BACB33200E2D046 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624B0FB22BACB33200E2D046 /* SearchBar.swift */; };
+		624B0FB52BACB3BC00E2D046 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624B0FB42BACB3BC00E2D046 /* Section.swift */; };
+		624B0FB72BAE001E00E2D046 /* RoundCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624B0FB62BAE001E00E2D046 /* RoundCard.swift */; };
 		629777372BA8C6150023AE38 /* PlacesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629777362BA8C6150023AE38 /* PlacesViewModel.swift */; };
 		62B5E6BD2BA21EDF00E3ED07 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B5E6BC2BA21EDF00E3ED07 /* APIManager.swift */; };
 		62B5E6C22BA23C6100E3ED07 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B5E6C12BA23C6100E3ED07 /* Errors.swift */; };
@@ -48,6 +51,9 @@
 		0A2033E92BACA36000145F71 /* CategoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCard.swift; sourceTree = "<group>"; };
 		12292422961DBE13E3111C71 /* Pods-MiniChallenge04.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniChallenge04.debug.xcconfig"; path = "Target Support Files/Pods-MiniChallenge04/Pods-MiniChallenge04.debug.xcconfig"; sourceTree = "<group>"; };
 		620ED3E32BA4EA86000450BB /* PlaceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCard.swift; sourceTree = "<group>"; };
+		624B0FB22BACB33200E2D046 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		624B0FB42BACB3BC00E2D046 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		624B0FB62BAE001E00E2D046 /* RoundCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCard.swift; sourceTree = "<group>"; };
 		629777362BA8C6150023AE38 /* PlacesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewModel.swift; sourceTree = "<group>"; };
 		62B5E6BC2BA21EDF00E3ED07 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		62B5E6C12BA23C6100E3ED07 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
@@ -81,6 +87,9 @@
 			children = (
 				620ED3E32BA4EA86000450BB /* PlaceCard.swift */,
 				0A2033E92BACA36000145F71 /* CategoryCard.swift */,
+				624B0FB22BACB33200E2D046 /* SearchBar.swift */,
+				624B0FB42BACB3BC00E2D046 /* Section.swift */,
+				624B0FB62BAE001E00E2D046 /* RoundCard.swift */,
 			);
 			path = Modulos;
 			sourceTree = "<group>";
@@ -330,7 +339,10 @@
 				62B5E6C22BA23C6100E3ED07 /* Errors.swift in Sources */,
 				0A2033E42BAB75CA00145F71 /* RecomendationModel.swift in Sources */,
 				0A2033DC2BAB747D00145F71 /* GalleryViewModel.swift in Sources */,
+				624B0FB72BAE001E00E2D046 /* RoundCard.swift in Sources */,
 				62B5E6BD2BA21EDF00E3ED07 /* APIManager.swift in Sources */,
+				624B0FB32BACB33200E2D046 /* SearchBar.swift in Sources */,
+				624B0FB52BACB3BC00E2D046 /* Section.swift in Sources */,
 				0A2033E22BAB75AE00145F71 /* RecomendationViewModel.swift in Sources */,
 				62CD74502BA21DFD006F022F /* ContentView.swift in Sources */,
 				0A2033E82BAB76D300145F71 /* MapView.swift in Sources */,

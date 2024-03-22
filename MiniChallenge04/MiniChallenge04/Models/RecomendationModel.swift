@@ -9,7 +9,7 @@ import Foundation
 
 struct RecomendationModel {
     
-    var recomendacoes:[String] = []
+    var recomendacoes:[String] = ["Brasília", "São Paulo", "Rio de Janeiro", "Curitiba"]
     var categorias:[String] = ["Acampamento", "Praia", "Montanhas", "Floresta"]
     var maisProcurados:[String] = ["Rio de Janeiro", "Amapa", "Volta Redonda"]
     

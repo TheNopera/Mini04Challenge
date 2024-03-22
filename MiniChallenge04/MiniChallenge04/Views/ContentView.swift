@@ -34,7 +34,7 @@ struct ContentView: View {
                     if !vm.places.places.isEmpty{
                         vm.places.places.removeAll()
                     }
-                    try await vm.getPlaces(in: search)
+                    try await vm.getTouristicPlaces(in: search)
                     self.img = try await vm.getImage(imgName: vm.getRandomPlace().photos.first!.name)
                     
                     self.imgIsLoaded = true

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+let categorias = ["Acampamento", "Praia", "Montanhas", "Floresta"]
 struct RecomendationView: View {
     @ObservedObject var viewModel: RecomendationViewModel
     @State private var searchText = ""
@@ -18,45 +18,35 @@ struct RecomendationView: View {
                     VStack(spacing: 0) {
                         Image("Brazil")
                             .resizable()
-                            .frame(width: 390, height: 256)
-                            .aspectRatio(contentMode: .fill)
-                            .ignoresSafeArea()
-                        
+                            .scaledToFill()
+                            .frame(height: 256)
+                            .clipped()
                         SearchBar(text: $searchText)
                             .padding(.horizontal)
                             .offset(y: -25)
+                            .shadow(radius: 10)
                         
                         VStack(spacing: 10) {
-                            SectionHeader(title: "Para você")
+                            SectionComponent(sectionName: "Para Você!", linkText: "Mostrar mais")
+                                .padding(.bottom)
                             
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 25) {
                                     ForEach(viewModel.recomendationModel.recomendacoes, id: \.self) { recomendacao in
-                                        PlaceCard(nome: recomendacao)
+                                        PlaceCard(cityName: recomendacao)
                                     }
-                                }.padding()
+                                }.padding(.horizontal)
                             }
-                            
-                            SectionHeader(title: "Categorias")
-                            
-                            ScrollView(.horizontal, showsIndicators: false) {
-                                HStack(spacing: 10) {
-                                    ForEach(viewModel.recomendationModel.categorias, id: \.self) { categorias in
-                                        CategoryCard(categoria: categorias)
-                                    }
-                                }.padding()
-                            }
-                            
-                            SectionHeader(title: "Mais Procurados")
-                            
+                            SectionComponent(sectionName: "Categorias")
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 25) {
-                                    ForEach(viewModel.recomendationModel.maisProcurados, id: \.self) { procurados in
-                                        PlaceCard(nome: procurados)
+                                    ForEach(categorias, id: \.self) { categoria in
+                                     RoundCard(category: categoria)
                                     }
                                 }.padding()
                             }
                         }
+                        SectionComponent(sectionName: "Mais Procurados")
                     }
                 }
             }
@@ -64,6 +54,11 @@ struct RecomendationView: View {
         }
     }
 }
+
+
+
+
+
 
 struct SectionHeader: View {
     var title: String
@@ -79,20 +74,6 @@ struct SectionHeader: View {
     }
 }
 
-struct SearchBar: View {
-    @Binding var text: String
-    
-    var body: some View {
-        HStack {
-            TextField("Pesquisar", text: $text)
-                .padding(.vertical, 10)
-                .padding(.horizontal, 20)
-                .background(Color(.systemGray6))
-                .cornerRadius(8)
-                .padding(.horizontal)
-        }
-    }
-}
 
 #Preview {
     

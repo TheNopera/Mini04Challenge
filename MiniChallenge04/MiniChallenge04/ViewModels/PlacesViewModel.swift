@@ -15,7 +15,7 @@ class PlacesViewModel : ObservableObject{
     
     //MARK: Get touristic places in a specific city
     @MainActor
-    func getPlaces(in city : String) async throws {
+    func getTouristicPlaces(in city : String) async throws {
         print("Searching places in \(city)")
         let places = try await api.getTouristAttractions(city: city)
         
@@ -57,8 +57,11 @@ class PlacesViewModel : ObservableObject{
     //MARK: Get a random place in the array
     func getRandomPlace() -> Place{
         let randomNumber = Int.random(in: 0..<places.places.count)
+        
         return places.places[randomNumber]
     }
+    
+    
     
     init(api: APIManager = APIManager()) {
         self.api = api
