@@ -25,6 +25,7 @@ struct RecomendationView: View {
                         SearchBar(text: $searchText)
                             .padding(.horizontal)
                             .offset(y: -25)
+                            .shadow(color: .gray, radius: 10)
                         
                         VStack(spacing: 10) {
                             SectionHeader(title: "Para você")
@@ -84,6 +85,8 @@ struct SearchBar: View {
     
     var body: some View {
         HStack {
+            
+            
             TextField("Pesquisar", text: $text)
                 .padding(.vertical, 10)
                 .padding(.horizontal, 20)
