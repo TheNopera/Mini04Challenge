@@ -28,6 +28,7 @@
 		62CD745D2BA21E7A006F022F /* GooglePlaces in Frameworks */ = {isa = PBXBuildFile; productRef = 62CD745C2BA21E7A006F022F /* GooglePlaces */; };
 		6EF3B17B2BACAA930012BDD9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF3B17A2BACAA930012BDD9 /* LocationManager.swift */; };
 		6EF3B17D2BAE16C50012BDD9 /* MyTabularClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 6EF3B17C2BAE16C50012BDD9 /* MyTabularClassifier.mlmodel */; };
+		6EF3B1832BAE27550012BDD9 /* UFDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF3B1822BAE27550012BDD9 /* UFDictionary.swift */; };
 		703FEC802BA8BD3400CCF751 /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703FEC7F2BA8BD3400CCF751 /* DataItem.swift */; };
 		703FEC832BA8C9B700CCF751 /* GalleryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703FEC822BA8C9B700CCF751 /* GalleryDataModel.swift */; };
 		703FEC852BA8CA3E00CCF751 /* FormDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703FEC842BA8CA3E00CCF751 /* FormDataModel.swift */; };
@@ -58,6 +59,7 @@
 		62CD74542BA21DFF006F022F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6EF3B17A2BACAA930012BDD9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		6EF3B17C2BAE16C50012BDD9 /* MyTabularClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MyTabularClassifier.mlmodel; sourceTree = "<group>"; };
+		6EF3B1822BAE27550012BDD9 /* UFDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFDictionary.swift; sourceTree = "<group>"; };
 		703FEC7F2BA8BD3400CCF751 /* DataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
 		703FEC822BA8C9B700CCF751 /* GalleryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDataModel.swift; sourceTree = "<group>"; };
 		703FEC842BA8CA3E00CCF751 /* FormDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDataModel.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				62B5E6C42BA3699600E3ED07 /* PlacesModel.swift */,
 				0A2033DD2BAB755C00145F71 /* GaleryModel.swift */,
 				0A2033E32BAB75CA00145F71 /* RecomendationModel.swift */,
+				6EF3B1822BAE27550012BDD9 /* UFDictionary.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				0A2033CA2BA4E28200145F71 /* GalleryView.swift in Sources */,
 				629777372BA8C6150023AE38 /* PlacesViewModel.swift in Sources */,
 				0A2033C52BA4DB9F00145F71 /* PROD-Keys.plist in Sources */,
+				6EF3B1832BAE27550012BDD9 /* UFDictionary.swift in Sources */,
 				703FEC802BA8BD3400CCF751 /* DataItem.swift in Sources */,
 				62B5E6C22BA23C6100E3ED07 /* Errors.swift in Sources */,
 				0A2033E42BAB75CA00145F71 /* RecomendationModel.swift in Sources */,
