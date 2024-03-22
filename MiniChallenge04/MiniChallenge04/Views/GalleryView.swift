@@ -11,15 +11,9 @@ import Photos
 
 struct GalleryView:View {
     
-    var titulo:String
-    var fotos:[Image] = []
     
     @StateObject var galleryViewModel:GalleryViewModel = GalleryViewModel()
     
-    init(titulo: String) {
-        self.titulo = titulo
-        self.fotos = []
-    }
     
     var body: some View {
         
@@ -54,5 +48,5 @@ struct GalleryView:View {
 }
 
 #Preview {
-    GalleryView(titulo: "Distrito Federal")
+    GalleryView()
 }

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Photos
+import CoreML
 
 class GalleryViewModel: ObservableObject{
     @Published var assetsByLocation: [String: [PHAsset]] = [:] // Dicionário para armazenar fotos por localização
@@ -29,8 +30,8 @@ class GalleryViewModel: ObservableObject{
             guard let location = asset.location else {
                 return // Ignorar assets sem informações de localização
             }
-
-            let locationString = "\(location.coordinate.latitude), \(location.coordinate.longitude)" // Criar uma chave única com base na localização
+            
+            let locationString = "\(self.getUFLocalization(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude))" // Criar uma chave única com base na localização
             DispatchQueue.main.async {
                 if self.assetsByLocation[locationString] == nil {
                     self.assetsByLocation[locationString] = [PHAsset]() // Inicializar a lista de assets para essa localização
@@ -54,6 +55,20 @@ class GalleryViewModel: ObservableObject{
         }
 
         return image // Retornar a imagem ou thumbnail do vídeo
+    }
+    
+    func getUFLocalization(latitude:Double,longitude:Double) -> Int{
+        do{
+            let config = MLModelConfiguration()
+            let model = try UFLocalization(configuration: config)
+            
+            let prediction = try model.prediction(latitude: latitude, longitude: longitude)
+            
+            return Int(prediction.codigo_uf)
+        }catch{
+            print("erro in get localization UF")
+        }
+        return 0
     }
     
 }
