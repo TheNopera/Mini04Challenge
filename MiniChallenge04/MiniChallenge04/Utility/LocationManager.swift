@@ -1,9 +1,9 @@
 import Foundation
 import CoreLocation
+import Photos
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
     private var locationManager: CLLocationManager
-
     override init() {
         self.locationManager = CLLocationManager()
         super.init()

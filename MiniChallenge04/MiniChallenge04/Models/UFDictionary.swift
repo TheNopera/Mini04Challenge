@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 // Definindo o dicionário de UFs
 let ufDictionary: [String: String] = [
     "12": "AC",
@@ -39,3 +37,6 @@ let ufDictionary: [String: String] = [
     "28": "SE",
     "17": "TO"
 ]
+/*
+ 
+ */
