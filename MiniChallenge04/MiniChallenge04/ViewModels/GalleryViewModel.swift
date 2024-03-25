@@ -6,6 +6,7 @@ class GalleryViewModel: ObservableObject {
     @Published var assetsByLocation: [String: [PHAsset]] = [:]
     @Published var selectedPhoto: PHAsset?
     @Published var locationString: String = ""
+    @Published var title:String = "UF"
 
     
     func requestPhotoLibraryAccess() {

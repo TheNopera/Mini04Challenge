@@ -26,11 +26,10 @@
 		62CD74522BA21DFF006F022F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CD74512BA21DFF006F022F /* Assets.xcassets */; };
 		62CD74552BA21DFF006F022F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CD74542BA21DFF006F022F /* Preview Assets.xcassets */; };
 		62CD745D2BA21E7A006F022F /* GooglePlaces in Frameworks */ = {isa = PBXBuildFile; productRef = 62CD745C2BA21E7A006F022F /* GooglePlaces */; };
-		6EF3B17B2BACAA930012BDD9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF3B17A2BACAA930012BDD9 /* LocationManager.swift */; };
-		6EF3B1832BAE27550012BDD9 /* UFDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF3B1822BAE27550012BDD9 /* UFDictionary.swift */; };
-
+		6E73001C2BB217EF00D9FB73 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E73001B2BB217EF00D9FB73 /* MapViewModel.swift */; };
+		6EF3B17B2BACAA930012BDD9 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		6EF3B1832BAE27550012BDD9 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		7021F2B02BB1F2AD005103CC /* UFLocalization.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7021F2AF2BB1F2AD005103CC /* UFLocalization.mlmodel */; };
-
 		703FEC802BA8BD3400CCF751 /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703FEC7F2BA8BD3400CCF751 /* DataItem.swift */; };
 		703FEC832BA8C9B700CCF751 /* GalleryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703FEC822BA8C9B700CCF751 /* GalleryDataModel.swift */; };
 		703FEC852BA8CA3E00CCF751 /* FormDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703FEC842BA8CA3E00CCF751 /* FormDataModel.swift */; };
@@ -61,9 +60,8 @@
 		62CD744F2BA21DFD006F022F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		62CD74512BA21DFF006F022F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62CD74542BA21DFF006F022F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-
+		6E73001B2BB217EF00D9FB73 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		7021F2AF2BB1F2AD005103CC /* UFLocalization.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = UFLocalization.mlmodel; sourceTree = "<group>"; };
-
 		703FEC7F2BA8BD3400CCF751 /* DataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
 		703FEC822BA8C9B700CCF751 /* GalleryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDataModel.swift; sourceTree = "<group>"; };
 		703FEC842BA8CA3E00CCF751 /* FormDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDataModel.swift; sourceTree = "<group>"; };
@@ -101,6 +99,7 @@
 				0A2033DB2BAB747D00145F71 /* GalleryViewModel.swift */,
 				0A2033E12BAB75AE00145F71 /* RecomendationViewModel.swift */,
 				706947342BACB1ED0027E9E2 /* OmboardingViewModel.swift */,
+				6E73001B2BB217EF00D9FB73 /* MapViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -123,7 +122,6 @@
 			children = (
 				62B5E6BC2BA21EDF00E3ED07 /* APIManager.swift */,
 				62B5E6C12BA23C6100E3ED07 /* Errors.swift */,
-				6EF3B17A2BACAA930012BDD9 /* LocationManager.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -131,13 +129,10 @@
 		62B5E6C32BA3697F00E3ED07 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-
 				7021F2AF2BB1F2AD005103CC /* UFLocalization.mlmodel */,
-
 				62B5E6C42BA3699600E3ED07 /* PlacesModel.swift */,
 				0A2033DD2BAB755C00145F71 /* GaleryModel.swift */,
 				0A2033E32BAB75CA00145F71 /* RecomendationModel.swift */,
-				6EF3B1822BAE27550012BDD9 /* UFDictionary.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -339,17 +334,18 @@
 				0A2033E62BAB762F00145F71 /* MainView.swift in Sources */,
 				620ED3E42BA4EA86000450BB /* PlaceCard.swift in Sources */,
 				0A2033E02BAB758A00145F71 /* RecomendationView.swift in Sources */,
+				6E73001C2BB217EF00D9FB73 /* MapViewModel.swift in Sources */,
 				703FEC832BA8C9B700CCF751 /* GalleryDataModel.swift in Sources */,
 				0A2033CA2BA4E28200145F71 /* GalleryView.swift in Sources */,
 				629777372BA8C6150023AE38 /* PlacesViewModel.swift in Sources */,
 				7021F2B02BB1F2AD005103CC /* UFLocalization.mlmodel in Sources */,
 				0A2033C52BA4DB9F00145F71 /* PROD-Keys.plist in Sources */,
-				6EF3B1832BAE27550012BDD9 /* UFDictionary.swift in Sources */,
+				6EF3B1832BAE27550012BDD9 /* (null) in Sources */,
 				703FEC802BA8BD3400CCF751 /* DataItem.swift in Sources */,
 				62B5E6C22BA23C6100E3ED07 /* Errors.swift in Sources */,
 				0A2033E42BAB75CA00145F71 /* RecomendationModel.swift in Sources */,
 				0A2033DC2BAB747D00145F71 /* GalleryViewModel.swift in Sources */,
-				6EF3B17B2BACAA930012BDD9 /* LocationManager.swift in Sources */,
+				6EF3B17B2BACAA930012BDD9 /* (null) in Sources */,
 				62B5E6BD2BA21EDF00E3ED07 /* APIManager.swift in Sources */,
 				0A2033E22BAB75AE00145F71 /* RecomendationViewModel.swift in Sources */,
 				62CD74502BA21DFD006F022F /* ContentView.swift in Sources */,
@@ -491,9 +487,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniChallenge04/Preview Content\"";
-
-				DEVELOPMENT_TEAM = CU2V2363W7;
-
+				DEVELOPMENT_TEAM = L4N6N49H26;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -526,9 +520,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniChallenge04/Preview Content\"";
-
-				DEVELOPMENT_TEAM = CU2V2363W7;
-
+				DEVELOPMENT_TEAM = L4N6N49H26;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;

@@ -4,24 +4,48 @@
 //
 //  Created by Felipe Porto on 20/03/24.
 //
-
 import SwiftUI
-import Photos
+
+extension String: Identifiable {
+    public var id: String { self }
+}
 
 struct MapView: View {
-    
-    let ufs = ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"]
-    
+    // Array de siglas das UFs do Brasil
+    @StateObject var mapViewModel = MapViewModel()
+
+    @State private var selectedUF: String?
+
     var body: some View {
-        
-        
         NavigationStack{
-            NavigationLink("Galeria", destination: GalleryView())
-            
+            VStack {
+                // Criando uma LazyVGrid para organizar os botões em uma grade vertical
+                LazyVGrid(columns: [
+                                GridItem(.flexible(minimum: 50)),
+                                GridItem(.flexible(minimum: 50)),
+                                GridItem(.flexible(minimum: 50))
+                ], spacing: 10) {
+                    ForEach(mapViewModel.ufs, id: \.self) { uf in
+                        NavigationLink(destination: GalleryView()) {
+                        
+                            // Label do botão contendo a sigla da UF
+                            Text(uf)
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(Color.blue)
+                                .cornerRadius(10)
+                        }.onTapGesture {
+                            GalleryViewModel().title = uf
+                        }
+                        
+                    }
+                }
+                .padding()
+            }
         }
-        .padding()
     }
 }
+
 
 #Preview {
     MapView()

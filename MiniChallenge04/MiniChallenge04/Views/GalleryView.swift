@@ -13,7 +13,7 @@ struct GalleryView:View {
     
     
     @StateObject var galleryViewModel:GalleryViewModel = GalleryViewModel()
-    
+    //@State var title:String
     
     var body: some View {
         
@@ -21,8 +21,6 @@ struct GalleryView:View {
                         // Exibir assets (fotos ou vídeos) organizados por localização
             List(galleryViewModel.assetsByLocation.sorted(by: { $0.key < $1.key }), id: \.key) { location, assets in
                             Section(header: Text(location)) {
-                                
-                                
                                 
                                 ForEach(assets, id: \.self) { asset in
                                     if asset.mediaType == .image {
@@ -42,7 +40,7 @@ struct GalleryView:View {
                             }
                         }
                     }
-                    .navigationBarTitle("Minha Galeria de Mídia") // Definir o título da barra de navegação
+        .navigationBarTitle(galleryViewModel.title) // Definir o título da barra de navegação
                     .onAppear {
                         galleryViewModel.requestPhotoLibraryAccess() // Solicitar permissão para acessar a biblioteca de fotos ao aparecer na tela
                 }
