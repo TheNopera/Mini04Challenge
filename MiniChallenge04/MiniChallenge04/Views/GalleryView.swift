@@ -21,6 +21,9 @@ struct GalleryView:View {
                         // Exibir assets (fotos ou vídeos) organizados por localização
             List(galleryViewModel.assetsByLocation.sorted(by: { $0.key < $1.key }), id: \.key) { location, assets in
                             Section(header: Text(location)) {
+                                
+                                
+                                
                                 ForEach(assets, id: \.self) { asset in
                                     if asset.mediaType == .image {
                                         // Exibir a foto usando a função 'image' do 'PHAsset'
