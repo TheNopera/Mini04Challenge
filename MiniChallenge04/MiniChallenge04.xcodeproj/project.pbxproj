@@ -28,9 +28,14 @@
 		62CD745D2BA21E7A006F022F /* GooglePlaces in Frameworks */ = {isa = PBXBuildFile; productRef = 62CD745C2BA21E7A006F022F /* GooglePlaces */; };
 		6EF3B17B2BACAA930012BDD9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF3B17A2BACAA930012BDD9 /* LocationManager.swift */; };
 		6EF3B1832BAE27550012BDD9 /* UFDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF3B1822BAE27550012BDD9 /* UFDictionary.swift */; };
+
+		7021F2B02BB1F2AD005103CC /* UFLocalization.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7021F2AF2BB1F2AD005103CC /* UFLocalization.mlmodel */; };
+
 		703FEC802BA8BD3400CCF751 /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703FEC7F2BA8BD3400CCF751 /* DataItem.swift */; };
 		703FEC832BA8C9B700CCF751 /* GalleryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703FEC822BA8C9B700CCF751 /* GalleryDataModel.swift */; };
 		703FEC852BA8CA3E00CCF751 /* FormDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703FEC842BA8CA3E00CCF751 /* FormDataModel.swift */; };
+		706947332BACB1DC0027E9E2 /* OmboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706947322BACB1DC0027E9E2 /* OmboardingView.swift */; };
+		706947352BACB1ED0027E9E2 /* OmboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706947342BACB1ED0027E9E2 /* OmboardingViewModel.swift */; };
 		DDCB1D633F14B7DF0CBA91AF /* Pods_MiniChallenge04.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCD00C95CF5B0A7CD6B636A1 /* Pods_MiniChallenge04.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,11 +61,14 @@
 		62CD744F2BA21DFD006F022F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		62CD74512BA21DFF006F022F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62CD74542BA21DFF006F022F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		6EF3B17A2BACAA930012BDD9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		6EF3B1822BAE27550012BDD9 /* UFDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFDictionary.swift; sourceTree = "<group>"; };
+
+		7021F2AF2BB1F2AD005103CC /* UFLocalization.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = UFLocalization.mlmodel; sourceTree = "<group>"; };
+
 		703FEC7F2BA8BD3400CCF751 /* DataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
 		703FEC822BA8C9B700CCF751 /* GalleryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDataModel.swift; sourceTree = "<group>"; };
 		703FEC842BA8CA3E00CCF751 /* FormDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDataModel.swift; sourceTree = "<group>"; };
+		706947322BACB1DC0027E9E2 /* OmboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmboardingView.swift; sourceTree = "<group>"; };
+		706947342BACB1ED0027E9E2 /* OmboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmboardingViewModel.swift; sourceTree = "<group>"; };
 		72B5C5178C4E36F05E4C9396 /* Pods-MiniChallenge04.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniChallenge04.release.xcconfig"; path = "Target Support Files/Pods-MiniChallenge04/Pods-MiniChallenge04.release.xcconfig"; sourceTree = "<group>"; };
 		BCD00C95CF5B0A7CD6B636A1 /* Pods_MiniChallenge04.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiniChallenge04.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -92,6 +100,7 @@
 				629777362BA8C6150023AE38 /* PlacesViewModel.swift */,
 				0A2033DB2BAB747D00145F71 /* GalleryViewModel.swift */,
 				0A2033E12BAB75AE00145F71 /* RecomendationViewModel.swift */,
+				706947342BACB1ED0027E9E2 /* OmboardingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -104,6 +113,7 @@
 				0A2033E52BAB762F00145F71 /* MainView.swift */,
 				0A2033E72BAB76D300145F71 /* MapView.swift */,
 				62CD744F2BA21DFD006F022F /* ContentView.swift */,
+				706947322BACB1DC0027E9E2 /* OmboardingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -121,6 +131,9 @@
 		62B5E6C32BA3697F00E3ED07 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+
+				7021F2AF2BB1F2AD005103CC /* UFLocalization.mlmodel */,
+
 				62B5E6C42BA3699600E3ED07 /* PlacesModel.swift */,
 				0A2033DD2BAB755C00145F71 /* GaleryModel.swift */,
 				0A2033E32BAB75CA00145F71 /* RecomendationModel.swift */,
@@ -320,6 +333,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				706947352BACB1ED0027E9E2 /* OmboardingViewModel.swift in Sources */,
+				706947332BACB1DC0027E9E2 /* OmboardingView.swift in Sources */,
 				0A2033C82BA4DCCA00145F71 /* MiniChallenge04App.swift in Sources */,
 				0A2033E62BAB762F00145F71 /* MainView.swift in Sources */,
 				620ED3E42BA4EA86000450BB /* PlaceCard.swift in Sources */,
@@ -327,6 +342,7 @@
 				703FEC832BA8C9B700CCF751 /* GalleryDataModel.swift in Sources */,
 				0A2033CA2BA4E28200145F71 /* GalleryView.swift in Sources */,
 				629777372BA8C6150023AE38 /* PlacesViewModel.swift in Sources */,
+				7021F2B02BB1F2AD005103CC /* UFLocalization.mlmodel in Sources */,
 				0A2033C52BA4DB9F00145F71 /* PROD-Keys.plist in Sources */,
 				6EF3B1832BAE27550012BDD9 /* UFDictionary.swift in Sources */,
 				703FEC802BA8BD3400CCF751 /* DataItem.swift in Sources */,
@@ -475,7 +491,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniChallenge04/Preview Content\"";
-				DEVELOPMENT_TEAM = L4N6N49H26;
+
+				DEVELOPMENT_TEAM = CU2V2363W7;
+
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -508,7 +526,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniChallenge04/Preview Content\"";
-				DEVELOPMENT_TEAM = L4N6N49H26;
+
+				DEVELOPMENT_TEAM = CU2V2363W7;
+
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
