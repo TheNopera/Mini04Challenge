@@ -16,6 +16,7 @@ class APIManager {
     var API_BASE_URL = "https://places.googleapis.com/v1/"
     
     
+    
     //MARK: FUNÇÃO PARA RETORNAR PONTOS TURISTICOS EM CIDADE ESPECIFICA
     func getTouristAttractions(city : String) async throws -> DataResponse<PlacesResponse, AFError> {
         

@@ -8,13 +8,17 @@
 import SwiftUI
 let categorias = ["Acampamento", "Praia", "Montanhas", "Floresta"]
 struct RecomendationView: View {
-    @ObservedObject var viewModel: RecomendationViewModel
+    @ObservedObject var viewModel: PlacesViewModel
     @State private var searchText = ""
-    
+    @State var isCurrentlyRefreshing = false
     var body: some View {
         NavigationView {
             VStack {
                 ScrollView {
+                    if isCurrentlyRefreshing {
+                        ProgressView()
+                            .padding()
+                    }
                     VStack(spacing: 0) {
                         Image("Brazil")
                             .resizable()
@@ -33,7 +37,7 @@ struct RecomendationView: View {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 25) {
                                     ForEach(viewModel.recomendationModel.recomendacoes, id: \.self) { recomendacao in
-                                        PlaceCard(cityName: recomendacao)
+                                        PlaceCard(cityName: recomendacao, vm: self.viewModel)
                                     }
                                 }.padding(.horizontal)
                             }
@@ -50,11 +54,16 @@ struct RecomendationView: View {
                     }
                 }
             }
+            .refreshable {
+                isCurrentlyRefreshing = true
+                viewModel.apiIsCallable = true
+                isCurrentlyRefreshing = false
+            }
+            
             .ignoresSafeArea(edges:.top)
         }
     }
 }
-
 
 
 
@@ -77,7 +86,7 @@ struct SectionHeader: View {
 
 #Preview {
     
-    let viewModel = RecomendationViewModel()
+    let viewModel = PlacesViewModel()
     viewModel.recomendationModel.recomendacoes = ["Distrito Federal", "São Paulo", "Rio de Janeiro", "Ceara"]
     
     return RecomendationView(viewModel: viewModel)

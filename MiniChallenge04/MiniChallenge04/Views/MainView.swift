@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @StateObject var viewModel = RecomendationViewModel() // Use StateObject para inicializar o ViewModel
+    @StateObject var viewModel = PlacesViewModel() // Use StateObject para inicializar o ViewModel
     
     var body: some View {
         TabView {
@@ -34,7 +34,7 @@ struct MainView: View {
 }
 
 #Preview {
-    let viewModel = RecomendationViewModel()
+    let viewModel = PlacesViewModel()
     viewModel.recomendationModel.recomendacoes = ["DF", "SP", "RJ", "CE"]
     return MainView(viewModel: viewModel)
 }

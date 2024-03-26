@@ -8,11 +8,18 @@
 import Foundation
 import UIKit
 
+struct PlaceData {
+    var cityName : String
+    var places : [Place]
+}
+
 
 class PlacesViewModel : ObservableObject{
-    var api = APIManager()
+    @Published var api = APIManager()
+    @Published var recomendationModel: RecomendationModel = RecomendationModel()
     @Published var places : PlacesResponse = PlacesResponse(places: [])
-    
+    @Published var placesData : [PlaceData] = []
+    @Published var apiIsCallable : Bool = false
     //MARK: Get touristic places in a specific city
     @MainActor
     func getTouristicPlaces(in city : String) async throws {
@@ -23,9 +30,7 @@ class PlacesViewModel : ObservableObject{
             
         case .success(_):
             if let locations = places.value?.places{
-                for location in locations{
-                    self.places.places.append(location)
-                }
+                    self.placesData.append(PlaceData(cityName: city, places: locations))
             }
         case .failure(_):
             print("failed")
@@ -55,15 +60,19 @@ class PlacesViewModel : ObservableObject{
     }
     
     //MARK: Get a random place in the array
-    func getRandomPlace() -> Place{
-        let randomNumber = Int.random(in: 0..<places.places.count)
+    func getRandomPlace(_ city : String) -> String{
+        let filteredData = placesData.filter { $0.cityName == city }
+        let randomNumber = Int.random(in: 0..<filteredData.count)
+        let randomPlace = Int.random(in: 0..<filteredData[randomNumber].places.count)
         
-        return places.places[randomNumber]
+        
+        return filteredData[randomNumber].places[randomPlace].photos.first!.name
     }
     
     
     
-    init(api: APIManager = APIManager()) {
+    init(api: APIManager = APIManager(), recomendationModel: RecomendationModel = RecomendationModel()) {
         self.api = api
+        self.recomendationModel = recomendationModel
     }
 }

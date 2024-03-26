@@ -35,7 +35,7 @@ struct ContentView: View {
                         vm.places.places.removeAll()
                     }
                     try await vm.getTouristicPlaces(in: search)
-                    self.img = try await vm.getImage(imgName: vm.getRandomPlace().photos.first!.name)
+                    self.img = try await vm.getImage(imgName: vm.getRandomPlace(search))
                     
                     self.imgIsLoaded = true
                 }
@@ -44,6 +44,8 @@ struct ContentView: View {
             }.buttonStyle(.bordered).tint(.accentColor)
 
                 
+        }.refreshable {
+            
         }
         .padding()
 

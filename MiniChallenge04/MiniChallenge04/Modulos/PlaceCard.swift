@@ -8,23 +8,15 @@
 import Foundation
 import SwiftUI
 
-struct PlaceCard:View {
+struct PlaceCard: View {
     let cityName : String
-    let vm = PlacesViewModel()
+    let vm : PlacesViewModel
     @State var image = UIImage()
     @State var imgIsLoaded = false
-    var apiIsCallable = false
     var body: some View {
         VStack{
             if !imgIsLoaded{
-                
-                RoundedRectangle(cornerRadius: 20)
-                    .foregroundStyle(.thickMaterial)
-                    .overlay{
-                        ProgressView()
-                    }
-                    .frame(width: 155, height: 155)
-                
+                LoadingCardView()
             }
             else{
                 VStack{
@@ -44,22 +36,50 @@ struct PlaceCard:View {
                     }
                 }.frame(width: 155)
             }
-        }.task {
-            Task{
-                if apiIsCallable{
-                    try await vm.getTouristicPlaces(in: cityName)
-                    self.image = try await vm.getImage(imgName: vm.getRandomPlace().photos.first!.name)
-                }
-                else{
-                    self.image = UIImage(named: "Image_Load_Failed")!
-                }
-                
-                self.imgIsLoaded = true
+        }
+        .task {
+            if vm.places.places.isEmpty{
+                updateImage()
             }
+        }
+        .onChange(of: vm.apiIsCallable){
+            if vm.apiIsCallable{
+                updateImage()
+            }
+        }
+    }
+    
+    @MainActor
+    func updateImage(){
+        Task{
+            if vm.apiIsCallable{
+                self.imgIsLoaded = false
+                vm.places.places.removeAll()
+                try await vm.getTouristicPlaces(in: cityName)
+                self.image = try await vm.getImage(imgName: vm.getRandomPlace(self.cityName))
+            }
+            else{
+                self.image = UIImage(named: "Image_Load_Failed")!
+            }
+            
+            self.imgIsLoaded = true
+            vm.apiIsCallable = false
+            
         }
     }
 }
 
 #Preview {
-    PlaceCard(cityName: "Rio de Janeiro")
+    PlaceCard(cityName: "Rio de Janeiro", vm: PlacesViewModel())
+}
+
+struct LoadingCardView : View {
+    var body: some View {
+        RoundedRectangle(cornerRadius: 20)
+            .foregroundStyle(.thickMaterial)
+            .overlay{
+                ProgressView()
+            }
+            .frame(width: 155, height: 155)
+    }
 }
