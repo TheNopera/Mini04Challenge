@@ -13,28 +13,35 @@ import AVKit
 struct GalleryView: View {
     
     @StateObject var galleryViewModel: GalleryViewModel
+    var title:String
     
     init(title: String) {
         let viewModel = GalleryViewModel(title: title)
         _galleryViewModel = StateObject(wrappedValue: viewModel)
+        self.title = title
     }
     
     var body: some View {
         VStack {
-            
             List(galleryViewModel.assetsByLocation.sorted(by: { $0.key < $1.key }), id: \.key) { location, assets in
-                Section(header: Text(location)) {
-                    ForEach(assets, id: \.self) { asset in
-                        if asset.mediaType == .image {
-                            Image(uiImage: galleryViewModel.getImage(from: asset))
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 100, height: 100)
-                        } else if asset.mediaType == .video {
-                            Image(systemName: "video.fill")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 100, height: 100)
+                if location == title {
+                    Section(header: Text(location)) {
+                        ForEach(assets.filter { asset in
+                            guard let location = asset.location else { return false }
+                            let uf = galleryViewModel.getUFLocalization(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+                            return uf == title
+                        }, id: \.self) { asset in
+                            if asset.mediaType == .image {
+                                Image(uiImage: galleryViewModel.getImage(from: asset))
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 100, height: 100)
+                            } else if asset.mediaType == .video {
+                                Image(systemName: "video.fill")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 100, height: 100)
+                            }
                         }
                     }
                 }

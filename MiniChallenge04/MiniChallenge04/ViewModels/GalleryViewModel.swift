@@ -7,12 +7,12 @@ class GalleryViewModel: ObservableObject {
     @Published var selectedPhoto: PHAsset?
     @Published var locationString: String = ""
     @Published var title:String
+    @Published var currentUf: String?
     
     init(title:String) {
         self.title = title
     }
 
-    
     func requestPhotoLibraryAccess() {
         PHPhotoLibrary.requestAuthorization { [weak self] status in
             guard let self = self else { return }
@@ -54,8 +54,6 @@ class GalleryViewModel: ObservableObject {
         }
     }
     
-    
-    
     func getImage(from asset: PHAsset) -> UIImage {
         var image = UIImage()
         let manager = PHImageManager.default()
@@ -71,18 +69,17 @@ class GalleryViewModel: ObservableObject {
         return image
     }
 
-    
-    func getUFLocalization(latitude:Double,longitude:Double) -> Int{
-        do{
+    func getUFLocalization(latitude:Double,longitude:Double) -> String {
+        do {
             let config = MLModelConfiguration()
             let model = try UFLocalization(configuration: config)
             
             let prediction = try model.prediction(latitude: latitude, longitude: longitude)
             
-            return Int(prediction.codigo_uf)
-        }catch{
+            return ufDictionary[Int(prediction.codigo_uf)] ?? "DF"
+        } catch {
             print("erro in get localization UF")
+            return "Nil"
         }
-        return 0
     }
 }
