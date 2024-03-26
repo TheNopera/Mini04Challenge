@@ -8,46 +8,46 @@
 import Foundation
 import SwiftUI
 import Photos
+import AVKit
 
-struct GalleryView:View {
+struct GalleryView: View {
     
+    @StateObject var galleryViewModel: GalleryViewModel
     
-    @StateObject var galleryViewModel:GalleryViewModel = GalleryViewModel()
-    //@State var title:String
+    init(title: String) {
+        let viewModel = GalleryViewModel(title: title)
+        _galleryViewModel = StateObject(wrappedValue: viewModel)
+    }
     
     var body: some View {
-        
         VStack {
-                        // Exibir assets (fotos ou vídeos) organizados por localização
+            
             List(galleryViewModel.assetsByLocation.sorted(by: { $0.key < $1.key }), id: \.key) { location, assets in
-                            Section(header: Text(location)) {
-                                
-                                ForEach(assets, id: \.self) { asset in
-                                    if asset.mediaType == .image {
-                                        // Exibir a foto usando a função 'image' do 'PHAsset'
-                                        Image(uiImage: galleryViewModel.getImage(from: asset))
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 100, height: 100)
-                                    } else if asset.mediaType == .video {
-                                        // Exibir o ícone do vídeo para indicar que é um vídeo
-                                        Image(systemName: "video.fill")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 100, height: 100)
-                                    }
-                                }
-                            }
+                Section(header: Text(location)) {
+                    ForEach(assets, id: \.self) { asset in
+                        if asset.mediaType == .image {
+                            Image(uiImage: galleryViewModel.getImage(from: asset))
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
+                        } else if asset.mediaType == .video {
+                            Image(systemName: "video.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
                         }
                     }
-        .navigationBarTitle(galleryViewModel.title) // Definir o título da barra de navegação
-                    .onAppear {
-                        galleryViewModel.requestPhotoLibraryAccess() // Solicitar permissão para acessar a biblioteca de fotos ao aparecer na tela
                 }
-            
+            }
         }
+        .navigationBarTitle(galleryViewModel.title)
+        .onAppear {
+            galleryViewModel.requestPhotoLibraryAccess()
+        }
+    }
 }
 
+
 #Preview {
-    GalleryView()
+    GalleryView(title: "Df")
 }

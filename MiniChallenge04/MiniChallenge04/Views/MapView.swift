@@ -26,7 +26,7 @@ struct MapView: View {
                                 GridItem(.flexible(minimum: 50))
                 ], spacing: 10) {
                     ForEach(mapViewModel.ufs, id: \.self) { uf in
-                        NavigationLink(destination: GalleryView()) {
+                        NavigationLink(destination: GalleryView(title: uf)) {
                         
                             // Label do botão contendo a sigla da UF
                             Text(uf)
@@ -34,10 +34,7 @@ struct MapView: View {
                                 .foregroundColor(.white)
                                 .background(Color.blue)
                                 .cornerRadius(10)
-                        }.onTapGesture {
-                            GalleryViewModel().title = uf
                         }
-                        
                     }
                 }
                 .padding()
