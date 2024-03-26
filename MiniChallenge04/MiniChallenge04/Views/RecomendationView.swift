@@ -28,7 +28,8 @@ struct RecomendationView: View {
                         SearchBar(text: $searchText)
                             .padding(.horizontal)
                             .offset(y: -25)
-                            .shadow(radius: 10)
+                            .shadow(color: .gray, radius: 10)
+
                         
                         VStack(spacing: 10) {
                             SectionComponent(sectionName: "Para Você!", linkText: "Mostrar mais")
@@ -82,7 +83,6 @@ struct SectionHeader: View {
         .padding()
     }
 }
-
 
 #Preview {
     
