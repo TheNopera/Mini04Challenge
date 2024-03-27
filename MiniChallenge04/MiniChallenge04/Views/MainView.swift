@@ -29,7 +29,7 @@ struct MainView: View {
                         Text("Recomendação")
                     }
                 }
-        }
+        }.background(.black)
     }
 }
 
