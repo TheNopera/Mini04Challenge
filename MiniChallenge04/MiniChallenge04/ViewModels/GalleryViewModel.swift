@@ -9,8 +9,8 @@ class GalleryViewModel: ObservableObject {
     @Published var title:String
     @Published var currentUf: String?
     
-    init(title:String) {
-        self.title = title
+    init(title: String) {
+        self.title = StateDictionary[title] ?? "Df"
     }
 
     func requestPhotoLibraryAccess() {
