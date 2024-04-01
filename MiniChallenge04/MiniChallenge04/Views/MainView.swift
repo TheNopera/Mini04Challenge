@@ -33,8 +33,10 @@ struct MainView: View {
     }
 }
 
+
 #Preview {
     let viewModel = PlacesViewModel()
     viewModel.recomendationModel.recomendacoes = ["DF", "SP", "RJ", "CE"]
     return MainView(viewModel: viewModel)
 }
+

@@ -30,9 +30,13 @@
 		62CD74522BA21DFF006F022F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CD74512BA21DFF006F022F /* Assets.xcassets */; };
 		62CD74552BA21DFF006F022F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CD74542BA21DFF006F022F /* Preview Assets.xcassets */; };
 		62CD745D2BA21E7A006F022F /* GooglePlaces in Frameworks */ = {isa = PBXBuildFile; productRef = 62CD745C2BA21E7A006F022F /* GooglePlaces */; };
+		7021F2B02BB1F2AD005103CC /* UFLocalization.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7021F2AF2BB1F2AD005103CC /* UFLocalization.mlmodel */; };
 		703FEC802BA8BD3400CCF751 /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703FEC7F2BA8BD3400CCF751 /* DataItem.swift */; };
 		703FEC832BA8C9B700CCF751 /* GalleryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703FEC822BA8C9B700CCF751 /* GalleryDataModel.swift */; };
 		703FEC852BA8CA3E00CCF751 /* FormDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703FEC842BA8CA3E00CCF751 /* FormDataModel.swift */; };
+		7068E8D52BB9D6380068C4BF /* RecommenderCity.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7068E8D42BB9D6380068C4BF /* RecommenderCity.mlmodel */; };
+		706947332BACB1DC0027E9E2 /* OmboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706947322BACB1DC0027E9E2 /* OmboardingView.swift */; };
+		706947352BACB1ED0027E9E2 /* OmboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706947342BACB1ED0027E9E2 /* OmboardingViewModel.swift */; };
 		DDCB1D633F14B7DF0CBA91AF /* Pods_MiniChallenge04.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCD00C95CF5B0A7CD6B636A1 /* Pods_MiniChallenge04.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,9 +66,13 @@
 		62CD744F2BA21DFD006F022F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		62CD74512BA21DFF006F022F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62CD74542BA21DFF006F022F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7021F2AF2BB1F2AD005103CC /* UFLocalization.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = UFLocalization.mlmodel; sourceTree = "<group>"; };
 		703FEC7F2BA8BD3400CCF751 /* DataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
 		703FEC822BA8C9B700CCF751 /* GalleryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDataModel.swift; sourceTree = "<group>"; };
 		703FEC842BA8CA3E00CCF751 /* FormDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDataModel.swift; sourceTree = "<group>"; };
+		7068E8D42BB9D6380068C4BF /* RecommenderCity.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = RecommenderCity.mlmodel; sourceTree = "<group>"; };
+		706947322BACB1DC0027E9E2 /* OmboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmboardingView.swift; sourceTree = "<group>"; };
+		706947342BACB1ED0027E9E2 /* OmboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmboardingViewModel.swift; sourceTree = "<group>"; };
 		72B5C5178C4E36F05E4C9396 /* Pods-MiniChallenge04.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniChallenge04.release.xcconfig"; path = "Target Support Files/Pods-MiniChallenge04/Pods-MiniChallenge04.release.xcconfig"; sourceTree = "<group>"; };
 		BCD00C95CF5B0A7CD6B636A1 /* Pods_MiniChallenge04.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiniChallenge04.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -100,6 +108,7 @@
 				629777362BA8C6150023AE38 /* PlacesViewModel.swift */,
 				0A2033DB2BAB747D00145F71 /* GalleryViewModel.swift */,
 				0A2033E12BAB75AE00145F71 /* RecomendationViewModel.swift */,
+				706947342BACB1ED0027E9E2 /* OmboardingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -112,6 +121,7 @@
 				0A2033E52BAB762F00145F71 /* MainView.swift */,
 				0A2033E72BAB76D300145F71 /* MapView.swift */,
 				62CD744F2BA21DFD006F022F /* ContentView.swift */,
+				706947322BACB1DC0027E9E2 /* OmboardingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -128,6 +138,8 @@
 		62B5E6C32BA3697F00E3ED07 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7021F2AF2BB1F2AD005103CC /* UFLocalization.mlmodel */,
+				7068E8D42BB9D6380068C4BF /* RecommenderCity.mlmodel */,
 				62B5E6C42BA3699600E3ED07 /* PlacesModel.swift */,
 				0A2033DD2BAB755C00145F71 /* GaleryModel.swift */,
 				0A2033E32BAB75CA00145F71 /* RecomendationModel.swift */,
@@ -157,12 +169,12 @@
 		62CD744C2BA21DFD006F022F /* MiniChallenge04 */ = {
 			isa = PBXGroup;
 			children = (
+				62B5E6C32BA3697F00E3ED07 /* Models */,
 				0A2033DA2BAB73C700145F71 /* Views */,
 				0A2033D92BAB73C000145F71 /* ViewModels */,
 				0A2033D82BAB73BA00145F71 /* Modulos */,
 				703FEC812BA8C99E00CCF751 /* DataModel */,
 				0A2033CB2BA4E63300145F71 /* Info.plist */,
-				62B5E6C32BA3697F00E3ED07 /* Models */,
 				62B5E6BB2BA21ED000E3ED07 /* Utility */,
 				0A2033C62BA4DC4900145F71 /* MiniChallenge04App.swift */,
 				62CD74512BA21DFF006F022F /* Assets.xcassets */,
@@ -326,6 +338,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7068E8D52BB9D6380068C4BF /* RecommenderCity.mlmodel in Sources */,
+				706947352BACB1ED0027E9E2 /* OmboardingViewModel.swift in Sources */,
+				706947332BACB1DC0027E9E2 /* OmboardingView.swift in Sources */,
 				0A2033C82BA4DCCA00145F71 /* MiniChallenge04App.swift in Sources */,
 				0A2033EA2BACA36000145F71 /* CategoryCard.swift in Sources */,
 				0A2033E62BAB762F00145F71 /* MainView.swift in Sources */,
@@ -334,6 +349,7 @@
 				703FEC832BA8C9B700CCF751 /* GalleryDataModel.swift in Sources */,
 				0A2033CA2BA4E28200145F71 /* GalleryView.swift in Sources */,
 				629777372BA8C6150023AE38 /* PlacesViewModel.swift in Sources */,
+				7021F2B02BB1F2AD005103CC /* UFLocalization.mlmodel in Sources */,
 				0A2033C52BA4DB9F00145F71 /* PROD-Keys.plist in Sources */,
 				703FEC802BA8BD3400CCF751 /* DataItem.swift in Sources */,
 				62B5E6C22BA23C6100E3ED07 /* Errors.swift in Sources */,
@@ -483,11 +499,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniChallenge04/Preview Content\"";
-				DEVELOPMENT_TEAM = H6ULSPHHN4;
+				DEVELOPMENT_TEAM = CU2V2363W7;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MiniChallenge04/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "exemplo teste";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -515,11 +532,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniChallenge04/Preview Content\"";
-				DEVELOPMENT_TEAM = H6ULSPHHN4;
+				DEVELOPMENT_TEAM = CU2V2363W7;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MiniChallenge04/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "exemplo teste";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

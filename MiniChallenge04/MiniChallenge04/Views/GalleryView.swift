@@ -11,22 +11,20 @@ import Photos
 
 struct GalleryView:View {
     
-    var titulo:String
-    var fotos:[Image] = []
     
     @StateObject var galleryViewModel:GalleryViewModel = GalleryViewModel()
     
-    init(titulo: String) {
-        self.titulo = titulo
-        self.fotos = []
-    }
     
     var body: some View {
         
         VStack {
+            
                         // Exibir assets (fotos ou vídeos) organizados por localização
             List(galleryViewModel.assetsByLocation.sorted(by: { $0.key < $1.key }), id: \.key) { location, assets in
                             Section(header: Text(location)) {
+                                
+                                
+                                
                                 ForEach(assets, id: \.self) { asset in
                                     if asset.mediaType == .image {
                                         // Exibir a foto usando a função 'image' do 'PHAsset'
@@ -54,5 +52,5 @@ struct GalleryView:View {
 }
 
 #Preview {
-    GalleryView(titulo: "Distrito Federal")
+    GalleryView()
 }

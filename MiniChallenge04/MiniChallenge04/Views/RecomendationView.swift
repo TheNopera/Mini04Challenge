@@ -8,9 +8,11 @@
 import SwiftUI
 let categorias = ["Acampamento", "Praia", "Montanhas", "Floresta"]
 struct RecomendationView: View {
+
     @ObservedObject var viewModel: PlacesViewModel
     @State private var searchText = ""
     @State var isCurrentlyRefreshing = false
+
     var body: some View {
         NavigationView {
             VStack {
@@ -85,9 +87,10 @@ struct SectionHeader: View {
 }
 
 #Preview {
-    
+   
     let viewModel = PlacesViewModel()
     viewModel.recomendationModel.recomendacoes = ["Distrito Federal", "São Paulo", "Rio de Janeiro", "Ceara"]
+
     
     return RecomendationView(viewModel: viewModel)
         
