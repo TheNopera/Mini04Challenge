@@ -93,3 +93,4 @@ MiniChallenge04/MiniChallenge04/Secrets.plist
 *PROD-Keys.plist
 *.DS_Store
 *.xcscheme
+MiniChallenge04/MiniChallenge04.xcworkspace/xcshareddata/swiftpm/Package.resolved
