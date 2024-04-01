@@ -13,13 +13,13 @@ class RecomendationViewModel: ObservableObject {
     @Published var recomendationModel: RecomendationModel = RecomendationModel()
     
     init() {
-        appendInModel()
+       // appendInModel()
         print(recomendationModel.recomendacoes.description)
     }
     
-    func appendInModel(){
-        recomendationModel.recomendacoes["MG"]?.append(getCity(uf: "GO", umidade: Int64(3), temperatura: Int64(2), urbano: Int64(3), rural: Int64(2), divertido: Int64(5), calmo: Int64(2), culinaria: Int64(5), historico: Int64(3), religioso: Int64(2), radical: Int64(4)))
-    }
+//    func appendInModel(){
+//        recomendationModel.recomendacoes["MG"]?.append(getCity(uf: "GO", umidade: Int64(3), temperatura: Int64(2), urbano: Int64(3), rural: Int64(2), divertido: Int64(5), calmo: Int64(2), culinaria: Int64(5), historico: Int64(3), religioso: Int64(2), radical: Int64(4)))
+//    }
     
     func getCity(uf:String, umidade:Int64, temperatura:Int64, urbano:Int64, rural:Int64, divertido:Int64, calmo:Int64, culinaria:Int64, historico:Int64, religioso:Int64, radical:Int64) -> String{
         do{
