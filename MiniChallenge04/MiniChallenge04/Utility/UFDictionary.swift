@@ -2,12 +2,14 @@
 //  UFDictionary.swift
 //  MiniChallenge04
 //
-//  Created by Lucas Nascimento on 22/03/24.
+//  Created by Lucas Nascimento on 26/03/24.
 //
 
 import Foundation
 
-// Definindo o dicionário de UFs
+
+// Código do uf: UF
+
 let ufDictionary: [Int: String] = [
     12: "AC",
     27: "AL",
@@ -37,6 +39,3 @@ let ufDictionary: [Int: String] = [
     28: "SE",
     17: "TO"
 ]
-/*
- 
- */

@@ -13,7 +13,7 @@ struct MainView: View {
     var body: some View {
         TabView {
             // View do Mapa
-            ContentView()
+            MapView()
                 .tabItem {
                     VStack {
                         Image(systemName: "map.fill")
@@ -29,7 +29,7 @@ struct MainView: View {
                         Text("Recomendação")
                     }
                 }
-        }
+        }.background(.black)
     }
 }
 

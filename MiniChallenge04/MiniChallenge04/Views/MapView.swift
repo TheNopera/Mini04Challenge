@@ -6,22 +6,75 @@
 //
 
 import SwiftUI
-import Photos
+import SceneKit
 
 struct MapView: View {
-    
-    let ufs = ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"]
+    @State private var SelectedUF: String? = nil
     
     var body: some View {
-        
-        
-        NavigationStack{
-            NavigationLink("Galeria", destination: GalleryView())
-            
+        NavigationStack {
+            if SelectedUF != nil {
+                GalleryView(title: SelectedUF ?? "")
+            } else {
+                SceneKitView(SelectedUF: $SelectedUF)
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+            }
         }
-        .padding()
+    }
+    
+    struct SceneKitView: UIViewRepresentable {
+        @Binding var SelectedUF: String?
+        
+        func makeUIView(context: Context) -> SCNView {
+            let sceneView = SCNView()
+            let scene = SCNScene(named: "MapaBrasil3D.dae")
+            
+            sceneView.scene = scene
+            sceneView.autoenablesDefaultLighting = true
+            sceneView.allowsCameraControl = true
+            
+            // Adicionando gesto de toque para cada nó da malha
+            scene?.rootNode.enumerateChildNodes { node, _ in
+                if node.geometry != nil {
+                    let tapGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(context.coordinator.handleTap(_:)))
+                    sceneView.addGestureRecognizer(tapGesture)
+                }
+            }
+            
+            return sceneView
+        }
+        
+        func updateUIView(_ uiView: SCNView, context: Context) {
+            // Atualiza a visualização conforme necessário
+        }
+        
+        func makeCoordinator() -> Coordinator {
+            Coordinator(SelectedUF: $SelectedUF)
+        }
+    }
+    
+    class Coordinator: NSObject {
+        @Binding var SelectedUF: String?
+        
+        init(SelectedUF: Binding<String?>) {
+            _SelectedUF = SelectedUF
+        }
+        
+        @objc func handleTap(_ gestureRecognizer: UITapGestureRecognizer) {
+            let sceneView = gestureRecognizer.view as? SCNView
+            let touchLocation = gestureRecognizer.location(in: sceneView)
+            let hitTestResult = sceneView?.hitTest(touchLocation, options: nil)
+            
+            if let hitNode = hitTestResult?.first?.node {
+                // Quando o nó é clicado, define o estado para mostrar a nova visualização
+                if let estado = hitNode.name?.split(separator: "_").last.map({ String($0) }) {
+                    SelectedUF = estado
+                }
+            }
+        }
     }
 }
+
 
 #Preview {
     MapView()
