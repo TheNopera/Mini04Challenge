@@ -56,7 +56,7 @@ struct RecomendationView: View {
 #Preview {
     
     let viewModel = RecomendationViewModel()
-    viewModel.recomendationModel.recomendacoes = ["MG":"Belo Horizonte"]
+    viewModel.recomendationModel.recomendacoes = [.AC:"Belo Horizonte"]
     
     return RecomendationView(viewModel: viewModel)
         

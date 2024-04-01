@@ -11,23 +11,33 @@ import CoreML
 
 class RecomendationViewModel: ObservableObject {
     @Published var recomendationModel: RecomendationModel = RecomendationModel()
-    
+    var galeryModel = GaleryModel()
     init() {
         appendInModel()
         print(recomendationModel.recomendacoes.description)
     }
     
     func appendInModel(){
-        recomendationModel.recomendacoes["MG"]?.append(getCity(uf: "GO", umidade: Int64(3), temperatura: Int64(2), urbano: Int64(3), rural: Int64(2), divertido: Int64(5), calmo: Int64(2), culinaria: Int64(5), historico: Int64(3), religioso: Int64(2), radical: Int64(4)))
+        for (uf) in recomendationModel.recomendacoes.keys{
+            if uf == .DF{
+                recomendationModel.recomendacoes[uf]?.append("Brasilia")
+            }else{
+                do{
+                    recomendationModel.recomendacoes[uf]?.append(getCity(uf: uf, umidade: Int64(3), temperatura: Int64(4), urbano: Int64(2), rural: Int64(5), divertido: Int64(5), calmo: Int64(2), culinaria: Int64(5), historico: Int64(5), religioso: Int64(5), radical: Int64(5)))
+                }catch{
+                    print("erro na requisicao do estado: \(uf.rawValue)")
+                }
+            }
+        }
+        
     }
     
-    func getCity(uf:String, umidade:Int64, temperatura:Int64, urbano:Int64, rural:Int64, divertido:Int64, calmo:Int64, culinaria:Int64, historico:Int64, religioso:Int64, radical:Int64) -> String{
+    func getCity(uf:UF, umidade:Int64, temperatura:Int64, urbano:Int64, rural:Int64, divertido:Int64, calmo:Int64, culinaria:Int64, historico:Int64, religioso:Int64, radical:Int64) -> String{
         do{
             let config = MLModelConfiguration()
-            let model = try RecommenderCity(configuration: config)
+            let model = try RecomenderCity(configuration: config)
             
-            let prediction = try model.prediction(UF: uf, Umidade: umidade, Temperatura: temperatura, Urbano: urbano, Rural: rural, Divertido: divertido, Calmo: calmo, Culinaria: culinaria, Historico: historico, Religioso: religioso, Radical: radical)
-            //print(prediction.NameProbability.debugDescription)
+            let prediction = try model.prediction(UF: uf.rawValue, Umidade: umidade, Temperatura: temperatura, Urbano: urbano, Rural: rural, Divertido: divertido, Calmo: calmo, Culinaria: culinaria, Historico: historico, Religioso: religioso, Radical: radical)
             return prediction.Name
         }catch{
             print("erro in get localization UF")
