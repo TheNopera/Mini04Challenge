@@ -75,6 +75,7 @@ struct RecomendationView: View {
 struct SectionHeader: View {
     var title: String
     
+
     var body: some View {
         HStack {
             Text(title)
@@ -87,9 +88,12 @@ struct SectionHeader: View {
 }
 
 #Preview {
-   
+//   
     let viewModel = PlacesViewModel()
     viewModel.recomendationModel.recomendacoes = ["Distrito Federal", "São Paulo", "Rio de Janeiro", "Ceara"]
+
+//    let viewModel = RecomendationViewModel()
+//    viewModel.recomendationModel.recomendacoes = [.AC:"Belo Horizonte"]
 
     
     return RecomendationView(viewModel: viewModel)

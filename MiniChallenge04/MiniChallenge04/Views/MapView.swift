@@ -78,6 +78,7 @@ struct MapView: View {
                     selectedUF = estado
                 }
             }
+            
         }
     }
 }
