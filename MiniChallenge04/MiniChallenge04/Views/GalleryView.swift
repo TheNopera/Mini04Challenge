@@ -18,6 +18,7 @@ struct GalleryView:View {
     var body: some View {
         
         VStack {
+            
                         // Exibir assets (fotos ou vídeos) organizados por localização
             List(galleryViewModel.assetsByLocation.sorted(by: { $0.key < $1.key }), id: \.key) { location, assets in
                             Section(header: Text(location)) {

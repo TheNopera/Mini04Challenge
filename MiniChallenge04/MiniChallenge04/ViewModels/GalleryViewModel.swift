@@ -34,6 +34,7 @@ class GalleryViewModel: ObservableObject {
                 if self.assetsByLocation[locationString] == nil {
                     self.assetsByLocation[locationString] = [PHAsset]() // Inicializar a lista de assets para essa localização
                 }
+                self.assetsByLocation[locationString]?.append(asset)
             }
         }
     }

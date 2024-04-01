@@ -57,7 +57,7 @@ struct MiniChallenge04App: App {
     var body: some Scene {
         WindowGroup {
 
-            GalleryView()
+            RecomendationView()
 
         }
     }

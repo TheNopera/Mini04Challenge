@@ -33,8 +33,8 @@ struct MainView: View {
     }
 }
 
-#Preview {
-    let viewModel = RecomendationViewModel()
-    viewModel.recomendationModel.recomendacoes = ["DF", "SP", "RJ", "CE"]
-    return MainView(viewModel: viewModel)
-}
+//#Preview {
+//    let viewModel = RecomendationViewModel()
+//    viewModel.recomendationModel.recomendacoes = ["DF": "SP", "RJ": "CE"]
+//    return MainView(viewModel: viewModel)
+//}

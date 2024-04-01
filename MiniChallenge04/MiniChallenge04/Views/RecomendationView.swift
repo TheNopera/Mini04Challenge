@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RecomendationView: View {
-    @ObservedObject var viewModel: RecomendationViewModel
+    @ObservedObject var viewModel = RecomendationViewModel()
     
     var body: some View {
         
@@ -36,10 +36,16 @@ struct RecomendationView: View {
         
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack{
-                    ForEach(viewModel.recomendationModel.recomendacoes, id: \.self) { recomendacao in
-                        PlaceCard(nome: recomendacao)
-                            .padding(5)
-                    }
+//                    List(viewModel.recomendationModel.recomendacoes.sorted(by: { $0.key < $1.key }), id: \.key) { location, assets in
+//                        
+//                        Section(header: Text(location)) {
+//                            
+//                            ForEach(assets, id: \.self) { assets in
+//                                PlaceCard(nome: assets)
+//                                    .padding(5)
+//                            }
+//                        }
+//                    }
                 }
             }
         }.padding()
@@ -50,7 +56,7 @@ struct RecomendationView: View {
 #Preview {
     
     let viewModel = RecomendationViewModel()
-    viewModel.recomendationModel.recomendacoes = ["Distrito Federal", "São Paulo", "Rio de Janeiro", "Ceara"]
+    viewModel.recomendationModel.recomendacoes = ["MG":"Belo Horizonte"]
     
     return RecomendationView(viewModel: viewModel)
         

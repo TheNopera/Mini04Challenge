@@ -9,6 +9,6 @@ import Foundation
 
 struct RecomendationModel {
     
-    var recomendacoes:[String] = []
+    var recomendacoes:[String:String] = ["MG":""]
     
 }
