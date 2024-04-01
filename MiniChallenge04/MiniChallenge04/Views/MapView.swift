@@ -9,7 +9,7 @@ import SwiftUI
 import SceneKit
 
 struct MapView: View {
-    @State private var SelectedUF: String?
+    @State private var SelectedUF: String? = nil
     
     var body: some View {
         NavigationStack {
