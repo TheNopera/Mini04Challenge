@@ -50,7 +50,6 @@ class GalleryViewModel: ObservableObject {
                     }
                     self.assetsByLocation[locationString]?.append(asset)
                 }
-                self.assetsByLocation[locationString]?.append(asset)
             }
         }
     }
