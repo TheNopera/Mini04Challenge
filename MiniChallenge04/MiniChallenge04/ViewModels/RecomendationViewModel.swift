@@ -11,7 +11,7 @@ import CoreML
 
 class RecomendationViewModel: ObservableObject {
     @Published var recomendationModel: RecomendationModel = RecomendationModel()
-    var galeryModel = GaleryModel()
+    //var galeryModel = GaleryModel()
     init() {
         appendInModel()
         print(recomendationModel.recomendacoes.description)
@@ -22,11 +22,7 @@ class RecomendationViewModel: ObservableObject {
             if uf == .DF{
                 recomendationModel.recomendacoes[uf]?.append("Brasilia")
             }else{
-                do{
-                    recomendationModel.recomendacoes[uf]?.append(getCity(uf: uf, umidade: Int64(3), temperatura: Int64(4), urbano: Int64(2), rural: Int64(5), divertido: Int64(5), calmo: Int64(2), culinaria: Int64(5), historico: Int64(5), religioso: Int64(5), radical: Int64(5)))
-                }catch{
-                    print("erro na requisicao do estado: \(uf.rawValue)")
-                }
+                recomendationModel.recomendacoes[uf]?.append(getCity(uf: uf, umidade: Int64(3), temperatura: Int64(4), urbano: Int64(2), rural: Int64(5), divertido: Int64(5), calmo: Int64(2), culinaria: Int64(5), historico: Int64(5), religioso: Int64(5), radical: Int64(5)))
             }
         }
         
