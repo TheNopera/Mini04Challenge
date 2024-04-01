@@ -9,21 +9,21 @@ import SwiftUI
 import SceneKit
 
 struct MapView: View {
-    @State private var SelectedUF: String? = nil
+    @State private var selectedUF: String? = nil
     
     var body: some View {
         NavigationStack {
-            if SelectedUF != nil {
-                GalleryView(title: SelectedUF ?? "")
+            if selectedUF != nil {
+                GalleryView(title: selectedUF ?? "")
             } else {
-                SceneKitView(SelectedUF: $SelectedUF)
+                SceneKitView(selectedUF: $selectedUF)
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
             }
         }
     }
     
     struct SceneKitView: UIViewRepresentable {
-        @Binding var SelectedUF: String?
+        @Binding var selectedUF: String?
         
         func makeUIView(context: Context) -> SCNView {
             let sceneView = SCNView()
@@ -38,6 +38,13 @@ struct MapView: View {
                 if node.geometry != nil {
                     let tapGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(context.coordinator.handleTap(_:)))
                     sceneView.addGestureRecognizer(tapGesture)
+                    
+                    // Define uma cor aleatória para cada material do nó
+                    let randomColor = UIColor(red: CGFloat.random(in: 0...1),
+                                              green: CGFloat.random(in: 0...1),
+                                              blue: CGFloat.random(in: 0...1),
+                                              alpha: 1.0)
+                    node.geometry?.firstMaterial?.diffuse.contents = randomColor
                 }
             }
             
@@ -49,15 +56,15 @@ struct MapView: View {
         }
         
         func makeCoordinator() -> Coordinator {
-            Coordinator(SelectedUF: $SelectedUF)
+            Coordinator(selectedUF: $selectedUF)
         }
     }
     
     class Coordinator: NSObject {
-        @Binding var SelectedUF: String?
+        @Binding var selectedUF: String?
         
-        init(SelectedUF: Binding<String?>) {
-            _SelectedUF = SelectedUF
+        init(selectedUF: Binding<String?>) {
+            _selectedUF = selectedUF
         }
         
         @objc func handleTap(_ gestureRecognizer: UITapGestureRecognizer) {
@@ -67,13 +74,14 @@ struct MapView: View {
             
             if let hitNode = hitTestResult?.first?.node {
                 // Quando o nó é clicado, define o estado para mostrar a nova visualização
-                if let estado = hitNode.name?.split(separator: "_").last.map({ String($0) }) {
-                    SelectedUF = estado
+                if let estado = hitNode.name?.split(separator: "_").first.map({ String($0) }) {
+                    selectedUF = estado
                 }
             }
         }
     }
 }
+
 
 
 #Preview {
