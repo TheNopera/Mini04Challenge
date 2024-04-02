@@ -16,7 +16,6 @@ struct PlaceData {
 
 class PlacesViewModel : ObservableObject{
     @Published var api = APIManager()
-    @Published var recomendationModel: RecomendationModel = RecomendationModel()
     @Published var places : PlacesResponse = PlacesResponse(places: [])
     @Published var placesData : [PlaceData] = []
     @Published var apiIsCallable : Bool = false
@@ -71,8 +70,8 @@ class PlacesViewModel : ObservableObject{
     
     
     
-    init(api: APIManager = APIManager(), recomendationModel: RecomendationModel = RecomendationModel()) {
+    init(api: APIManager = APIManager()) {
         self.api = api
-        self.recomendationModel = recomendationModel
+
     }
 }

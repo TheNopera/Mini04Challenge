@@ -18,7 +18,7 @@ struct GalleryView: View {
     init(title: String) {
         let viewModel = GalleryViewModel(title: title)
         _galleryViewModel = StateObject(wrappedValue: viewModel)
-        self.title = StateDictionary[title.uppercased()] ?? "DF"
+        self.title = title
     }
     
     var body: some View {
@@ -41,6 +41,7 @@ struct GalleryView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 100, height: 100)
+
                             }
                         }
                     }

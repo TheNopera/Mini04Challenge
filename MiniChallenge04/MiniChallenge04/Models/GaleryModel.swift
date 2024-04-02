@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import Photos
 
 struct GaleryModel{
-    var nome:String
+    
     
 }

@@ -129,13 +129,14 @@ struct MapView: View {
                 }
             }
             
+            
             // Permitir gestos de zoom e pan simultaneamente
             func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
                 return true
             }
         }
-        }
     }
+}
 
 #Preview {
     MapView()
