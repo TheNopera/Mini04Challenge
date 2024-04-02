@@ -29,7 +29,6 @@
 		6E73001C2BB217EF00D9FB73 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E73001B2BB217EF00D9FB73 /* MapViewModel.swift */; };
 		6E73001E2BB3460B00D9FB73 /* UFDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E73001D2BB3460B00D9FB73 /* UFDictionary.swift */; };
 		6E7300202BB35A7B00D9FB73 /* UFLocalization.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 6E73001F2BB35A7B00D9FB73 /* UFLocalization.mlmodel */; };
-		6E7300222BB4A22C00D9FB73 /* MapaBrasil3D.dae in Resources */ = {isa = PBXBuildFile; fileRef = 6E7300212BB4A22C00D9FB73 /* MapaBrasil3D.dae */; };
 		6EF3B17B2BACAA930012BDD9 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		6EF3B1832BAE27550012BDD9 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		703FEC802BA8BD3400CCF751 /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703FEC7F2BA8BD3400CCF751 /* DataItem.swift */; };
@@ -65,7 +64,6 @@
 		6E73001B2BB217EF00D9FB73 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		6E73001D2BB3460B00D9FB73 /* UFDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFDictionary.swift; sourceTree = "<group>"; };
 		6E73001F2BB35A7B00D9FB73 /* UFLocalization.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = UFLocalization.mlmodel; sourceTree = "<group>"; };
-		6E7300212BB4A22C00D9FB73 /* MapaBrasil3D.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = MapaBrasil3D.dae; sourceTree = "<group>"; };
 		703FEC7F2BA8BD3400CCF751 /* DataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
 		703FEC822BA8C9B700CCF751 /* GalleryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDataModel.swift; sourceTree = "<group>"; };
 		703FEC842BA8CA3E00CCF751 /* FormDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDataModel.swift; sourceTree = "<group>"; };
@@ -182,7 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				62CD74542BA21DFF006F022F /* Preview Assets.xcassets */,
-				6E7300212BB4A22C00D9FB73 /* MapaBrasil3D.dae */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -280,7 +277,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E7300222BB4A22C00D9FB73 /* MapaBrasil3D.dae in Resources */,
 				62CD74552BA21DFF006F022F /* Preview Assets.xcassets in Resources */,
 				62CD74522BA21DFF006F022F /* Assets.xcassets in Resources */,
 			);
@@ -495,7 +491,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniChallenge04/Preview Content\"";
-				DEVELOPMENT_TEAM = L4N6N49H26;
+				DEVELOPMENT_TEAM = H6ULSPHHN4;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -528,7 +524,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniChallenge04/Preview Content\"";
-				DEVELOPMENT_TEAM = L4N6N49H26;
+				DEVELOPMENT_TEAM = H6ULSPHHN4;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
