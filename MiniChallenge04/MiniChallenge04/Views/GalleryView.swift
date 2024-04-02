@@ -18,7 +18,7 @@ struct GalleryView: View {
     init(title: String) {
         let viewModel = GalleryViewModel(title: title)
         _galleryViewModel = StateObject(wrappedValue: viewModel)
-        self.title = title
+        self.title = StateDictionary[title.uppercased()] ?? "DF"
     }
     
     var body: some View {
@@ -48,7 +48,7 @@ struct GalleryView: View {
                 }
             }
         }
-        .navigationBarTitle(StateDictionary[galleryViewModel.title.uppercased()] ?? "df")
+        .navigationBarTitle(galleryViewModel.title)
         .onAppear {
             galleryViewModel.requestPhotoLibraryAccess()
         }

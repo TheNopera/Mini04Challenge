@@ -45,6 +45,10 @@ struct MapView: View {
             let panGesture = UIPanGestureRecognizer(target: context.coordinator, action: #selector(context.coordinator.handlePan(_:)))
             sceneView.addGestureRecognizer(panGesture)
             
+            // Permitir zoom e pan simultaneamente
+            pinchGesture.delegate = context.coordinator
+            panGesture.delegate = context.coordinator
+            
             scene?.rootNode.enumerateChildNodes { node, _ in
                 if node.geometry != nil {
                     let tapGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(context.coordinator.handleTap(_:)))
@@ -67,7 +71,7 @@ struct MapView: View {
             Coordinator(selectedUF: $selectedUF, lastScale: $lastScale, lastPanLocation: $lastPanLocation)
         }
         
-        class Coordinator: NSObject {
+        class Coordinator: NSObject, UIGestureRecognizerDelegate {
             @Binding var selectedUF: String?
             @Binding var lastScale: CGFloat
             @Binding var lastPanLocation: CGPoint
@@ -125,30 +129,14 @@ struct MapView: View {
                 }
             }
             
-        }
+            
+            // Permitir gestos de zoom e pan simultaneamente
+            func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+                return true
+            }
         }
     }
-
-    struct SceneKitView: UIViewRepresentable {
-        func makeUIView(context: Context) -> SCNView {
-            // Crie uma cena SceneKit
-            let sceneView = SCNView()
-            let scene = SCNScene(named: "MapaBrasil3D.dae") // Substitua "seu_objeto.dae" pelo nome do seu arquivo .dae
-            
-            // Adicione a cena à visualização
-            sceneView.scene = scene
-            
-            // Personalize as configurações da cena conforme necessário
-            sceneView.autoenablesDefaultLighting = true // Adiciona iluminação à cena
-            sceneView.allowsCameraControl = true // Permite ao usuário controlar a câmera
-            
-            return sceneView
-        }
-        
-        func updateUIView(_ uiView: SCNView, context: Context) {
-            // Atualiza a visualização conforme necessário
-        }
-    }
+}
 
 #Preview {
     MapView()
