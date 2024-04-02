@@ -55,7 +55,12 @@ struct PlaceCard: View {
             if vm.apiIsCallable{
                 self.imgIsLoaded = false
                 vm.places.places.removeAll()
-                try await vm.getTouristicPlaces(in: cityName)
+                do{
+                    try await vm.getTouristicPlaces(in: cityName)
+                }
+                catch{
+                    self.image = UIImage(named: "Image_Load_Failed")!
+                }
                 self.image = try await vm.getImage(imgName: vm.getRandomPlace(self.cityName))
             }
             else{
