@@ -47,7 +47,7 @@ struct GalleryView: View {
                 }
             }
         }
-        .navigationBarTitle(galleryViewModel.title)
+        .navigationBarTitle(StateDictionary[galleryViewModel.title.uppercased()] ?? "df")
         .onAppear {
             galleryViewModel.requestPhotoLibraryAccess()
         }
