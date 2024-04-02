@@ -19,7 +19,7 @@ struct MainView: View {
                         Image(systemName: "map.fill")
                         Text("Mapa")
                     }
-                }
+                }.background(.black)
 
             // View das recomendações
             RecomendationView(viewModel: viewModel)
@@ -28,7 +28,7 @@ struct MainView: View {
                         Image(systemName: "hand.thumbsup.fill")
                         Text("Recomendação")
                     }
-                }
+                }.background(.black)
         }.background(.black)
     }
 }
