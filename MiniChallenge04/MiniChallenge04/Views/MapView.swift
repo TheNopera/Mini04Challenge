@@ -92,7 +92,7 @@ struct MapView: View {
                 case .changed:
                     let newScale = 1.0 - (lastScale - pinchScale)
                     let currentScale = CGFloat(sceneView.scene?.rootNode.scale.x ?? 1.0)
-                    let scaled = min(max(newScale * currentScale, 0.5), 10.0)
+                    let scaled = min(max(newScale * currentScale, 1), 10.0)
                     sceneView.scene?.rootNode.scale = SCNVector3(scaled, scaled, scaled)
                     lastScale = pinchScale
                 default:
