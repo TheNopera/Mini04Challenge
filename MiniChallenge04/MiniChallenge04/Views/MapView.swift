@@ -49,29 +49,29 @@ struct MapView: View {
             SceneKitView()
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height) // Defina o tamanho da cena conforme necessário
         }
+        }
     }
-}
 
-struct SceneKitView: UIViewRepresentable {
-    func makeUIView(context: Context) -> SCNView {
-        // Crie uma cena SceneKit
-        let sceneView = SCNView()
-        let scene = SCNScene(named: "MapaBrasil3D.dae") // Substitua "seu_objeto.dae" pelo nome do seu arquivo .dae
+    struct SceneKitView: UIViewRepresentable {
+        func makeUIView(context: Context) -> SCNView {
+            // Crie uma cena SceneKit
+            let sceneView = SCNView()
+            let scene = SCNScene(named: "MapaBrasil3D.dae") // Substitua "seu_objeto.dae" pelo nome do seu arquivo .dae
+            
+            // Adicione a cena à visualização
+            sceneView.scene = scene
+            
+            // Personalize as configurações da cena conforme necessário
+            sceneView.autoenablesDefaultLighting = true // Adiciona iluminação à cena
+            sceneView.allowsCameraControl = true // Permite ao usuário controlar a câmera
+            
+            return sceneView
+        }
         
-        // Adicione a cena à visualização
-        sceneView.scene = scene
-        
-        // Personalize as configurações da cena conforme necessário
-        sceneView.autoenablesDefaultLighting = true // Adiciona iluminação à cena
-        sceneView.allowsCameraControl = true // Permite ao usuário controlar a câmera
-        
-        return sceneView
+        func updateUIView(_ uiView: SCNView, context: Context) {
+            // Atualiza a visualização conforme necessário
+        }
     }
-    
-    func updateUIView(_ uiView: SCNView, context: Context) {
-        // Atualiza a visualização conforme necessário
-    }
-}
 
 #Preview {
     MapView()
