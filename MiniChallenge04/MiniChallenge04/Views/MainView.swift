@@ -17,7 +17,7 @@ struct MainView: View {
                 .tabItem {
                     VStack {
                         Image(systemName: "map.fill")
-                        Text("Mapa")
+                        Text("Teste")
                     }
                 }.background(.black)
 
