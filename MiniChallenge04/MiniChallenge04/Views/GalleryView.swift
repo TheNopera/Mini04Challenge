@@ -46,11 +46,16 @@ struct GalleryView: View {
                                             }
                                         
                                     } else if asset.mediaType == .video {
-                                        // Exibir o ícone do vídeo para indicar que é um vídeo
+                                        
                                         Image(systemName: "video.fill")
                                             .resizable()
                                             .scaledToFit()
                                             .frame(width: 100, height: 100)
+                                            .onTapGesture {
+                                                galleryViewModel.isVideoPresented = true
+                                            }.fullScreenCover(isPresented: galleryViewModel.isVideoPresented) {
+                                                galleryViewModel.playVideoFromPHAsset(asset)
+                                            }
                                     }
                                 }
                             }

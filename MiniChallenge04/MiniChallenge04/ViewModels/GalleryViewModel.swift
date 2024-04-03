@@ -5,12 +5,14 @@ import AVKit
 
 class GalleryViewModel: ObservableObject {
     @Published var assetsByLocation: [String: [PHAsset]] = [:]
+    //@Published var thumbnailImage: [PHAsset : UIImage] = [:]
     @Published var selectedPhoto: PHAsset?
     @Published var locationString: String = ""
     @Published var title:String
     @Published var currentUf: String?
     @Published var isImagePresented = false
-
+    @Published var isVideoPresented = false
+    
     
     init(title: String) {
         self.title = StateDictionary[title] ?? "Df"
@@ -72,6 +74,7 @@ class GalleryViewModel: ObservableObject {
             }
         }
     }
+    
 
     func getImage(from asset: PHAsset) -> UIImage {
         var image = UIImage()
