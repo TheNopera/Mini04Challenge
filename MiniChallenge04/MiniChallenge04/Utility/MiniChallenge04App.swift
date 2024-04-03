@@ -58,7 +58,7 @@ struct MiniChallenge04App: App {
     var body: some Scene {
         WindowGroup {
 
-            GalleryView(title: "Banana", isPresente: .constant(true))
+            MainView()
 
         }//.modelContainer(for: GalleryDataModel.self)
     }

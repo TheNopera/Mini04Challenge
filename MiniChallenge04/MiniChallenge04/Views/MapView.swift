@@ -22,6 +22,12 @@ struct MapView: View {
                 SceneKitView(selectedUF: $selectedUF, isPresented: $isPresented)
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
             }
+        }.onAppear {
+            if StateInfoManager.shared.loadStateInfos().isEmpty {
+                
+                StateInfoManager.shared.initializeStateInfos()
+                
+            }
         }
     }
     
