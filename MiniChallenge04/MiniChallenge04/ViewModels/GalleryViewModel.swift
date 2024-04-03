@@ -12,7 +12,7 @@ class GalleryViewModel: ObservableObject {
     @Published var currentUf: String?
     @Published var isImagePresented = false
     @Published var isVideoPresented = false
-    
+    var adaptiveColuns = [GridItem(.adaptive(minimum: 120, maximum: 200))]
     
     init(title: String) {
         self.title = StateDictionary[title] ?? "Df"

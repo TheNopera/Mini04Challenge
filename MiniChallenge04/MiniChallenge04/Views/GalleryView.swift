@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-//import Photos
+import Photos
 //import AVKit
 import SwiftUIImageViewer
 
@@ -17,6 +17,7 @@ struct GalleryView: View {
     var title:String
 //    @State var changeValue: UIImage
 //    @State var image: Image
+    @State var assetAuxiliar:PHAsset?
     
     init(title: String) {
         let viewModel = GalleryViewModel(title: title)
@@ -37,9 +38,10 @@ struct GalleryView: View {
                                             .frame(width: 100, height: 100)
                                             .onTapGesture {
                                                 galleryViewModel.isImagePresented = true
+                                                assetAuxiliar = asset
                                             }
                                             .fullScreenCover(isPresented: $galleryViewModel.isImagePresented) {
-                                                SwiftUIImageViewer(image: Image(uiImage: galleryViewModel.getImage(from: asset)))
+                                                SwiftUIImageViewer(image: Image(uiImage: galleryViewModel.getImage(from: assetAuxiliar ?? asset)))
                                                     .overlay(alignment: .topTrailing) {
                                                     closeButton
                                                 }
@@ -52,10 +54,9 @@ struct GalleryView: View {
                                             .scaledToFit()
                                             .frame(width: 100, height: 100)
                                             .onTapGesture {
-                                                galleryViewModel.isVideoPresented = true
-                                            }.fullScreenCover(isPresented: galleryViewModel.isVideoPresented) {
                                                 galleryViewModel.playVideoFromPHAsset(asset)
                                             }
+                                            
                                     }
                                 }
                             }

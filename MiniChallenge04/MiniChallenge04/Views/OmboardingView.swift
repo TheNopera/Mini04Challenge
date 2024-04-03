@@ -14,15 +14,18 @@ struct OmboardingView: View {
         NavigationStack{
             VStack{
                 if omboardingViewModel.animation{
-                    OmboardingQuestionsTop()
-                    OmboardingQuestionsMiddle()
-                    OmboardingQuestionsBottom()
+                    VStack{
+                        OmboardingQuestionsTop()
+                        OmboardingQuestionsMiddle()
+                        OmboardingQuestionsBottom()
+                    }
                 }else{
                     OmboardingSlider()
                 }
                 
                 
             }.environmentObject(omboardingViewModel)
+                
         }
     }
 }
@@ -30,8 +33,8 @@ struct OmboardingSlider:View {
     @EnvironmentObject var omboardingViewModel: OmboardingViewModel
     var body: some View {
         VStack(spacing:10){
-            Text("Explore Suas Melhores Memórias").multilineTextAlignment(.center).font(.title).foregroundStyle(.black)
-            Text("Vamos viajar no tempo?").foregroundStyle(.black)
+            Text("Explore Suas Melhores Memórias").multilineTextAlignment(.center).font(.title).foregroundStyle(.white)
+            Text("Vamos viajar no tempo?").foregroundStyle(.white)
             Spacer()
             
             Image(systemName: "airplane").font(.system(size: 50))
@@ -44,6 +47,7 @@ struct OmboardingSlider:View {
                 }
             }
         }
+        .background(Image("OmboardingBackground"))
     }
 }
 

@@ -58,7 +58,7 @@ struct MiniChallenge04App: App {
     var body: some Scene {
         WindowGroup {
 
-            GalleryView(title: "Banana")
+            OmboardingView()
 
         }//.modelContainer(for: GalleryDataModel.self)
     }
