@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-//import Photos
-//import AVKit
+import Photos
+
 import SwiftUIImageViewer
 
 
@@ -16,9 +16,12 @@ struct GalleryView: View {
     
     @StateObject var galleryViewModel: GalleryViewModel
 
-    var title: String
 
     @Binding var isPresented: Bool
+    var title:String
+//    @State var changeValue: UIImage
+//    @State var image: Image
+    @State var assetAuxiliar:PHAsset?
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -45,20 +48,25 @@ struct GalleryView: View {
                                             .frame(width: 100, height: 100)
                                             .onTapGesture {
                                                 galleryViewModel.isImagePresented = true
+                                                assetAuxiliar = asset
                                             }
                                             .fullScreenCover(isPresented: $galleryViewModel.isImagePresented) {
-                                                SwiftUIImageViewer(image: Image(uiImage: galleryViewModel.getImage(from: asset)))
+                                                SwiftUIImageViewer(image: Image(uiImage: galleryViewModel.getImage(from: assetAuxiliar ?? asset)))
                                                     .overlay(alignment: .topTrailing) {
                                                     closeButton
                                                 }
                                             }
                                         
                                     } else if asset.mediaType == .video {
-                                        // Exibir o ícone do vídeo para indicar que é um vídeo
+                                        
                                         Image(systemName: "video.fill")
                                             .resizable()
                                             .scaledToFit()
                                             .frame(width: 100, height: 100)
+                                            .onTapGesture {
+                                                galleryViewModel.playVideoFromPHAsset(asset)
+                                            }
+                                            
                                     }
                                 }
                             }
