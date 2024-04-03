@@ -11,11 +11,39 @@ struct OmboardingView: View {
     
     @StateObject var omboardingViewModel = OmboardingViewModel()
     var body: some View {
-        VStack{
-            OmboardingQuestionsTop()
-            OmboardingQuestionsMiddle()
-            OmboardingQuestionsBottom()
-        }.environmentObject(omboardingViewModel)
+        NavigationStack{
+            VStack{
+                if omboardingViewModel.animation{
+                    OmboardingQuestionsTop()
+                    OmboardingQuestionsMiddle()
+                    OmboardingQuestionsBottom()
+                }else{
+                    OmboardingSlider()
+                }
+                
+                
+            }.environmentObject(omboardingViewModel)
+        }
+    }
+}
+struct OmboardingSlider:View {
+    @EnvironmentObject var omboardingViewModel: OmboardingViewModel
+    var body: some View {
+        VStack(spacing:10){
+            Text("Explore Suas Melhores Memórias").multilineTextAlignment(.center).font(.title).foregroundStyle(.black)
+            Text("Vamos viajar no tempo?").foregroundStyle(.black)
+            Spacer()
+            
+            Image(systemName: "airplane").font(.system(size: 50))
+                .padding()
+                .offset(x: omboardingViewModel.animation ? 250 : 0)
+        }.task{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                withAnimation {
+                    omboardingViewModel.animation = true
+                }
+            }
+        }
     }
 }
 struct OmboardingSlider:View {
@@ -65,18 +93,18 @@ struct OmboardingQuestionsMiddle:View {
                     HStack{
                         Text("Texto")
                             .font(.callout)
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.black)
                             .bold()
                             .padding(10)
                         Spacer()
                     }
                     Text("Quais tipos de clima mais te interessa em uma viagem?")
                         .font(.callout)
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.black)
                         .bold()
                         .padding(10)
                         .multilineTextAlignment(.leading)
-                    
+                        .lineLimit(nil)
                     customGrid
                     
                 }
@@ -85,17 +113,19 @@ struct OmboardingQuestionsMiddle:View {
     
     private var rectangleComponent : some View{
         ZStack{
-            RoundedRectangle(cornerRadius: 20)
-                .frame(width: 300, height: 500)
-                .opacity(0.2)
-                .shadow(radius: 10)
-                .offset(y:20)
-            RoundedRectangle(cornerRadius: 20)
-                .frame(width: 310, height: 500)
-                .opacity(0.4)
-                .shadow(radius: 10)
-                .offset(y:10)
-            RoundedRectangle(cornerRadius: 20)
+            //            Image("CardOmboarding").clipShape(RoundedRectangle(cornerRadius: 20))
+            //                .frame(width: 300, height: 500)
+            //                .opacity(0.2)
+            //                .shadow(radius: 10)
+            //                .offset(y:20)
+            //            RoundedRectangle(cornerRadius: 20)
+            //                .frame(width: 310, height: 500)
+            //                .opacity(0.4)
+            //                .shadow(radius: 10)
+            //                .offset(y:10)
+            Image("CardOmboarding")
+                .resizable()
+            //.clipShape(RoundedRectangle(cornerRadius: 20))
                 .frame(width: 320, height: 500)
                 .foregroundStyle(.black)
                 .shadow(radius: 10)
@@ -121,25 +151,24 @@ struct OmboardingQuestionsBottom:View {
     @EnvironmentObject var omboardingViewModel: OmboardingViewModel
     var body: some View {
         HStack(spacing:50){
-            Button(action: {
-                print("test")
-            }, label: {
-                ZStack{
-                    buttonComponent.overlay {
-                        HStack(alignment:.center){
-                            Image(systemName: "chevron.backward")
-                                .foregroundStyle(.white)
-                            Text("Voltar")
-                                .foregroundStyle(.white)
+            if omboardingViewModel.omboardingCount>1{
+                Button(action: {
+                    print("test")
+                }, label: {
+                    ZStack{
+                        buttonComponent.overlay {
+                            HStack(alignment:.center){
+                                Image(systemName: "chevron.backward")
+                                    .foregroundStyle(.white)
+                                Text("Voltar")
+                                    .foregroundStyle(.white)
+                            }
                         }
                     }
-                }
-            }).disabled(omboardingViewModel.omboardingCount != 0 ? false : true)
-                .opacity(omboardingViewModel.omboardingCount != 0 ? 1 : 0)
-            Button(action: {
-                omboardingViewModel.nextForm()
-            }, label: {
-                ZStack{
+                })
+                NavigationLink {
+                    MainView()
+                } label: {
                     buttonComponent.overlay {
                         HStack(alignment:.center){
                             Text("Próximo")
@@ -150,7 +179,39 @@ struct OmboardingQuestionsBottom:View {
                         
                     }
                 }
-            })
+
+            }else{
+                Button(action: {
+                    print("test")
+                }, label: {
+                    
+                        buttonComponent.overlay {
+                            HStack(alignment:.center){
+                                Image(systemName: "chevron.backward")
+                                    .foregroundStyle(.white)
+                                Text("Voltar")
+                                    .foregroundStyle(.white)
+                            }
+                        }
+                    
+                }).disabled(omboardingViewModel.omboardingCount != 0 ? false : true)
+                    .opacity(omboardingViewModel.omboardingCount != 0 ? 1 : 0)
+                Button(action: {
+                    omboardingViewModel.nextForm()
+                }, label: {
+                    
+                        buttonComponent.overlay {
+                            HStack(alignment:.center){
+                                Text("Próximo")
+                                    .foregroundStyle(.white)
+                                Image(systemName: "chevron.right")
+                                    .foregroundStyle(.white)
+                            }
+                            
+                        }
+                    
+                })
+            }
         }.padding()
     }
     

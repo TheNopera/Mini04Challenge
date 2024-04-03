@@ -8,16 +8,20 @@
 import Foundation
 import SwiftData
 import SwiftUI
+import Photos
 
 @Model
-class GalleryDataModel:Identifiable{
-    var id = UUID()
+class GalleryDataModel{
+    var name:String
     
-    @Attribute(.externalStorage)
-    var image:Data
-    
-    init(id: UUID = UUID(), image: Data) {
-        self.id = id
-        self.image = image
+    init(name: String) {
+        self.name = name
     }
+//    var imagesGalleryUset : [String:[PHAsset]]
+//    var userProfile: [Int]
+//    
+//    init( imagesGalleryUset: [String : [PHAsset]], userProfile: [Int]) {
+//        self.imagesGalleryUset = imagesGalleryUset
+//        self.userProfile = userProfile
+//    }
 }

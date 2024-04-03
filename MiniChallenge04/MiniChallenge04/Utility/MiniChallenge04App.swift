@@ -7,6 +7,7 @@
 
 import SwiftUI
 import GooglePlaces
+import SwiftData
 class BaseEnv{
     let dict : NSDictionary
     
@@ -57,8 +58,8 @@ struct MiniChallenge04App: App {
     var body: some Scene {
         WindowGroup {
 
-            MainView()
+            GalleryView(title: "Banana")
 
-        }
+        }//.modelContainer(for: GalleryDataModel.self)
     }
 }
