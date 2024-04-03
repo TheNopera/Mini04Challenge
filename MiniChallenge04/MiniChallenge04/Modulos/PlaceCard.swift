@@ -47,6 +47,7 @@ struct PlaceCard: View {
                 updateImage()
             }
         }
+        
     }
     
     @MainActor
