@@ -18,6 +18,7 @@
 		0A2033E62BAB762F00145F71 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2033E52BAB762F00145F71 /* MainView.swift */; };
 		0A2033E82BAB76D300145F71 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2033E72BAB76D300145F71 /* MapView.swift */; };
 		0A2033EA2BACA36000145F71 /* CategoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2033E92BACA36000145F71 /* CategoryCard.swift */; };
+		0A218A9B2BBDE2BC00C078C6 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A218A9A2BBDE2BC00C078C6 /* MapModel.swift */; };
 		0A7B44C92BBB4EF000B1CFA5 /* MapaBrasil3D.dae in Resources */ = {isa = PBXBuildFile; fileRef = 0A7B44C82BBB4EF000B1CFA5 /* MapaBrasil3D.dae */; };
 		620ED3E42BA4EA86000450BB /* PlaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620ED3E32BA4EA86000450BB /* PlaceCard.swift */; };
 		624B0FB32BACB33200E2D046 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624B0FB22BACB33200E2D046 /* SearchBar.swift */; };
@@ -57,6 +58,7 @@
 		0A2033E52BAB762F00145F71 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0A2033E72BAB76D300145F71 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		0A2033E92BACA36000145F71 /* CategoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCard.swift; sourceTree = "<group>"; };
+		0A218A9A2BBDE2BC00C078C6 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		0A7B44C82BBB4EF000B1CFA5 /* MapaBrasil3D.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = MapaBrasil3D.dae; sourceTree = "<group>"; };
 		12292422961DBE13E3111C71 /* Pods-MiniChallenge04.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniChallenge04.debug.xcconfig"; path = "Target Support Files/Pods-MiniChallenge04/Pods-MiniChallenge04.debug.xcconfig"; sourceTree = "<group>"; };
 		620ED3E32BA4EA86000450BB /* PlaceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCard.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				62B5E6C42BA3699600E3ED07 /* PlacesModel.swift */,
 				0A2033DD2BAB755C00145F71 /* GaleryModel.swift */,
 				0A2033E32BAB75CA00145F71 /* RecomendationModel.swift */,
+				0A218A9A2BBDE2BC00C078C6 /* MapModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				6E7300202BB35A7B00D9FB73 /* UFLocalization.mlmodel in Sources */,
 				0A2033E82BAB76D300145F71 /* MapView.swift in Sources */,
 				0A2033DE2BAB755C00145F71 /* GaleryModel.swift in Sources */,
+				0A218A9B2BBDE2BC00C078C6 /* MapModel.swift in Sources */,
 				62B5E6C52BA3699600E3ED07 /* PlacesModel.swift in Sources */,
 				6E73001E2BB3460B00D9FB73 /* UFDictionary.swift in Sources */,
 				703FEC852BA8CA3E00CCF751 /* FormDataModel.swift in Sources */,

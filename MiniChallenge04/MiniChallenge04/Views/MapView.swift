@@ -58,11 +58,12 @@ struct MapView: View {
                     let tapGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(context.coordinator.handleTap(_:)))
                     sceneView.addGestureRecognizer(tapGesture)
                     
-                    let randomColor = UIColor(red: CGFloat.random(in: 0...1),
-                                              green: CGFloat.random(in: 0...1),
-                                              blue: CGFloat.random(in: 0...1),
-                                              alpha: 1.0)
-                    node.geometry?.firstMaterial?.diffuse.contents = randomColor
+                    let randomColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+                    
+                    if let geometryName = node.geometry?.name, geometryName.hasSuffix("_mesh") {
+                        node.geometry?.firstMaterial?.diffuse.contents = randomColor
+                    }
+                    
                 }
             }
             
