@@ -11,17 +11,19 @@ struct OmboardingView: View {
     
     @StateObject var omboardingViewModel = OmboardingViewModel()
     var body: some View {
-        VStack{
-            if omboardingViewModel.animation{
-                OmboardingQuestionsTop()
-                OmboardingQuestionsMiddle()
-                OmboardingQuestionsBottom()
-            }else{
-                OmboardingSlider()
-            }
-            
-            
-        }.environmentObject(omboardingViewModel)
+        NavigationStack{
+            VStack{
+                if omboardingViewModel.animation{
+                    OmboardingQuestionsTop()
+                    OmboardingQuestionsMiddle()
+                    OmboardingQuestionsBottom()
+                }else{
+                    OmboardingSlider()
+                }
+                
+                
+            }.environmentObject(omboardingViewModel)
+        }
     }
 }
 struct OmboardingSlider:View {
@@ -137,25 +139,24 @@ struct OmboardingQuestionsBottom:View {
     @EnvironmentObject var omboardingViewModel: OmboardingViewModel
     var body: some View {
         HStack(spacing:50){
-            Button(action: {
-                print("test")
-            }, label: {
-                ZStack{
-                    buttonComponent.overlay {
-                        HStack(alignment:.center){
-                            Image(systemName: "chevron.backward")
-                                .foregroundStyle(.white)
-                            Text("Voltar")
-                                .foregroundStyle(.white)
+            if omboardingViewModel.omboardingCount>1{
+                Button(action: {
+                    print("test")
+                }, label: {
+                    ZStack{
+                        buttonComponent.overlay {
+                            HStack(alignment:.center){
+                                Image(systemName: "chevron.backward")
+                                    .foregroundStyle(.white)
+                                Text("Voltar")
+                                    .foregroundStyle(.white)
+                            }
                         }
                     }
-                }
-            }).disabled(omboardingViewModel.omboardingCount != 0 ? false : true)
-                .opacity(omboardingViewModel.omboardingCount != 0 ? 1 : 0)
-            Button(action: {
-                omboardingViewModel.nextForm()
-            }, label: {
-                ZStack{
+                })
+                NavigationLink {
+                    MainView()
+                } label: {
                     buttonComponent.overlay {
                         HStack(alignment:.center){
                             Text("Próximo")
@@ -166,7 +167,39 @@ struct OmboardingQuestionsBottom:View {
                         
                     }
                 }
-            })
+
+            }else{
+                Button(action: {
+                    print("test")
+                }, label: {
+                    
+                        buttonComponent.overlay {
+                            HStack(alignment:.center){
+                                Image(systemName: "chevron.backward")
+                                    .foregroundStyle(.white)
+                                Text("Voltar")
+                                    .foregroundStyle(.white)
+                            }
+                        }
+                    
+                }).disabled(omboardingViewModel.omboardingCount != 0 ? false : true)
+                    .opacity(omboardingViewModel.omboardingCount != 0 ? 1 : 0)
+                Button(action: {
+                    omboardingViewModel.nextForm()
+                }, label: {
+                    
+                        buttonComponent.overlay {
+                            HStack(alignment:.center){
+                                Text("Próximo")
+                                    .foregroundStyle(.white)
+                                Image(systemName: "chevron.right")
+                                    .foregroundStyle(.white)
+                            }
+                            
+                        }
+                    
+                })
+            }
         }.padding()
     }
     
