@@ -11,7 +11,7 @@ struct MainView: View {
     var body: some View {
         TabView {
             // View do Mapa
-            MapView()
+            MapView(isPresented: false)
                 .tabItem {
                     VStack {
                         Image(systemName: "map.fill")

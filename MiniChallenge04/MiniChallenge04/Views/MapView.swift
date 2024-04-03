@@ -5,18 +5,21 @@
 //  Created by Felipe Porto on 20/03/24.
 //
 
+
 import SwiftUI
 import SceneKit
 
 struct MapView: View {
     @State private var selectedUF: String? = nil
+    @State var isPresented: Bool
     
     var body: some View {
         NavigationStack {
-            if selectedUF != nil {
-                GalleryView(title: selectedUF ?? "")
+            if selectedUF != nil && isPresented {
+                
+                GalleryView(title: selectedUF ?? "", isPresente: $isPresented )
             } else {
-                SceneKitView(selectedUF: $selectedUF)
+                SceneKitView(selectedUF: $selectedUF, isPresented: $isPresented)
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
             }
         }
@@ -27,6 +30,7 @@ struct MapView: View {
         @Binding var selectedUF: String?
         @State private var lastScale: CGFloat = 1.0
         @State private var lastPanLocation: CGPoint = .zero
+        @Binding var isPresented: Bool
         
         func makeUIView(context: Context) -> SCNView {
             let sceneView = SCNView()
@@ -68,18 +72,20 @@ struct MapView: View {
         func updateUIView(_ uiView: SCNView, context: Context) {}
         
         func makeCoordinator() -> Coordinator {
-            Coordinator(selectedUF: $selectedUF, lastScale: $lastScale, lastPanLocation: $lastPanLocation)
+            Coordinator(selectedUF: $selectedUF, lastScale: $lastScale, lastPanLocation: $lastPanLocation, isPresented: $isPresented)
         }
         
         class Coordinator: NSObject, UIGestureRecognizerDelegate {
             @Binding var selectedUF: String?
             @Binding var lastScale: CGFloat
             @Binding var lastPanLocation: CGPoint
+            @Binding var isPresented: Bool
             
-            init(selectedUF: Binding<String?>, lastScale: Binding<CGFloat>, lastPanLocation: Binding<CGPoint>) {
+            init(selectedUF: Binding<String?>, lastScale: Binding<CGFloat>, lastPanLocation: Binding<CGPoint>, isPresented:Binding<Bool>) {
                 _selectedUF = selectedUF
                 _lastScale = lastScale
                 _lastPanLocation = lastPanLocation
+                _isPresented = isPresented
             }
             
             @objc func handlePinch(_ gestureRecognizer: UIPinchGestureRecognizer) {
@@ -125,6 +131,7 @@ struct MapView: View {
                 if let hitNode = hitTestResult?.first?.node {
                     if let estado = hitNode.name?.split(separator: "_").first.map({ String($0) }) {
                         selectedUF = estado
+                        isPresented = true
                     }
                 }
             }
@@ -138,6 +145,8 @@ struct MapView: View {
     }
 }
 
+
+
 #Preview {
-    MapView()
+    MapView(isPresented: false)
 }
