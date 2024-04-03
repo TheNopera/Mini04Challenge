@@ -46,19 +46,7 @@ struct OmboardingSlider:View {
         }
     }
 }
-struct OmboardingSlider:View {
-    //@EnvironmentObject var omboardingViewModel: OmboardingViewModel
 
-    var body: some View {
-        VStack{
-            Text("Explore Suas Melhores Memórias").font(.title)
-            Text("Vamos viajar no tempo?")
-            Spacer()
-            
-            
-        }
-    }
-}
 struct OmboardingQuestionsTop:View {
     @EnvironmentObject var omboardingViewModel: OmboardingViewModel
     

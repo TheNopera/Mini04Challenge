@@ -8,14 +8,14 @@
 import SwiftData
 import Photos
 
-@Model
-class estado {
-    
-    @Attribute(.unique) var name:String
-    var foto:PHAsset?
-    
-    init(name: String, foto: PHAsset? = nil) {
-        self.name = name
-        self.foto = foto
-    }
-}
+//@Model
+//class estado {
+//    
+//    @Attribute(.unique) var name:String
+//    var foto:PHAsset?
+//    
+//    init(name: String, foto: PHAsset? = nil) {
+//        self.name = name
+//        self.foto = foto
+//    }
+//}
