@@ -5,24 +5,20 @@
 //  Created by Felipe Porto on 15/03/24.
 //
 
+import Foundation
 import SwiftUI
+import Photos
+import AVKit
 
 struct GalleryView: View {
     
     @StateObject var galleryViewModel: GalleryViewModel
-    var title: String
+    var title:String
     
-    @Binding var isPresented: Bool
-    
-    @Environment(\.presentationMode) var presentationMode
-    
-    init(title: String, isPresente:Binding<Bool>) {
+    init(title: String) {
         let viewModel = GalleryViewModel(title: title)
         _galleryViewModel = StateObject(wrappedValue: viewModel)
         self.title = title
-        
-        _isPresented = isPresente
-        
     }
     
     var body: some View {
@@ -52,18 +48,14 @@ struct GalleryView: View {
                 }
             }
         }
-        .navigationBarItems(leading:
-                                Button(action: {
-                                    isPresented = false
-                                }) {
-                                    Image(systemName: "chevron.left")
-                                    Text("Back")
-                                        .foregroundColor(.blue)
-                                }
-        )
         .navigationBarTitle(galleryViewModel.title)
         .onAppear {
             galleryViewModel.requestPhotoLibraryAccess()
         }
     }
+}
+
+
+#Preview {
+    GalleryView(title: "Df")
 }
