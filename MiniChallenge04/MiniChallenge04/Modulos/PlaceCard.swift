@@ -8,19 +8,28 @@
 import Foundation
 import SwiftUI
 
+struct PlaceCardModel{
+    var image : UIImage?
+    var cityName : String
+    var placeName : String?
+    var description : String?
+    var author : String?
+}
+
 struct PlaceCard: View {
     let cityName : String
     let vm : PlacesViewModel
-    @State var image = UIImage()
     @State var imgIsLoaded = false
+    @State var placeCard : PlaceCardModel?
+    
     var body: some View {
         VStack{
-            if !imgIsLoaded{
+            if placeCard == nil{
                 LoadingCardView()
             }
             else{
                 VStack{
-                    Image(uiImage: image)
+                    Image(uiImage: (placeCard?.image ?? UIImage(named: "Image_Load_Failed"))!)
                         .resizable()
                         .scaledToFill()
                         .frame(width: 155, height: 155)
@@ -53,24 +62,9 @@ struct PlaceCard: View {
     @MainActor
     func updateImage(){
         Task{
-            if vm.apiIsCallable{
-                self.imgIsLoaded = false
-                vm.places.places.removeAll()
-                do{
-                    try await vm.getTouristicPlaces(in: cityName)
-                }
-                catch{
-                    self.image = UIImage(named: "Image_Load_Failed")!
-                }
-                self.image = try await vm.getImage(imgName: vm.getRandomPlace(self.cityName))
-            }
-            else{
-                self.image = UIImage(named: "Image_Load_Failed")!
-            }
-            
-            self.imgIsLoaded = true
+            vm.places.places.removeAll()
+            self.placeCard = await vm.getRandomPlace(self.cityName)
             vm.apiIsCallable = false
-            
         }
     }
 }

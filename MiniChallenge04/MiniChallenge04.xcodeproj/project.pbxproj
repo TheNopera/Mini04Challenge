@@ -128,11 +128,11 @@
 			isa = PBXGroup;
 			children = (
 				0A2033C92BA4E28200145F71 /* GalleryView.swift */,
-				0A2033DF2BAB758A00145F71 /* RecomendationView.swift */,
 				0A2033E52BAB762F00145F71 /* MainView.swift */,
 				0A2033E72BAB76D300145F71 /* MapView.swift */,
 				62CD744F2BA21DFD006F022F /* ContentView.swift */,
 				706947322BACB1DC0027E9E2 /* OmboardingView.swift */,
+				0A2033DF2BAB758A00145F71 /* RecomendationView.swift */,
 				62DF04592BBDE4C200C986B6 /* PlaceDetailsViews.swift */,
 			);
 			path = Views;

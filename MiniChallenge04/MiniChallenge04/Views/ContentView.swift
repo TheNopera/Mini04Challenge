@@ -30,14 +30,7 @@ struct ContentView: View {
             .textFieldStyle(.roundedBorder)
             Button {
                 Task{
-                    self.imgIsLoaded = false
-                    if !vm.places.places.isEmpty{
-                        vm.places.places.removeAll()
-                    }
-                    try await vm.getTouristicPlaces(in: search)
-                    self.img = try await vm.getImage(imgName: vm.getRandomPlace(search))
-                    
-                    self.imgIsLoaded = true
+                  
                 }
             } label: {
                 Text("Pesquisar")

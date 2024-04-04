@@ -40,7 +40,13 @@ struct RecomendationView: View {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 25) {
                                     ForEach(viewModel.getStates(quant: 4), id: \.self) { recomendacao in
-                                        PlaceCard(cityName: recomendacao, vm: self.api)
+                                        
+                                        NavigationLink {
+                                            
+                                        } label: {
+                                            PlaceCard(cityName: recomendacao, vm: self.api)
+                                        }
+                                        
                                     }
                                 }.padding(.horizontal)
                             }

@@ -22,7 +22,7 @@ class APIManager {
         
         //O body do request
         let parameters : [String:Any] = [
-            "textQuery" : "Pontos turisticos \(city)",
+            "textQuery" : "Atração turística, \(city)",
             "languageCode" : "pt-br"
         ]
         
