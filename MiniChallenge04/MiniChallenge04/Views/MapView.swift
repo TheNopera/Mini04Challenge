@@ -67,7 +67,21 @@ struct MapView: View {
                     let randomColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
                     
                     if let geometryName = node.geometry?.name, geometryName.hasSuffix("_mesh") {
-                        node.geometry?.firstMaterial?.diffuse.contents = randomColor
+                        
+                        if let uf = geometryName.split(separator: "_").first.map({ String($0 )})  {
+                            
+                            if let imageData = StateInfoManager.shared.getStateFoto(forUF: String(uf)) {
+                                
+                                let image = UIImage(data: imageData)
+                                
+                                node.geometry?.firstMaterial?.diffuse.contents = image
+                            } else {
+                                node.geometry?.firstMaterial?.diffuse.contents = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+                            }
+                            
+                        }
+                        
+                        
                     }
                     
                 }

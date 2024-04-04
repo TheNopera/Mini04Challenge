@@ -1,15 +1,8 @@
-//
-//  MapModel.swift
-//  MiniChallenge04
-//
-//  Created by Felipe Porto on 03/04/24.
-//
-
 import SwiftUI
 
 struct StatePhoto: Codable, Equatable {
     let uf: String
-    let foto: Data?
+    var foto: Data? // Alterado para var
 }
 
 class StateInfoManager {
@@ -19,7 +12,7 @@ class StateInfoManager {
     private let key = "StatePhoto"
     
     func initializeStateInfos() {
-        let StatePhotos: [StatePhoto] = [
+        let statePhotos: [StatePhoto] = [
             StatePhoto(uf: "AC", foto: nil),
             StatePhoto(uf: "AL", foto: nil),
             StatePhoto(uf: "AP", foto: nil),
@@ -49,21 +42,38 @@ class StateInfoManager {
             StatePhoto(uf: "TO", foto: nil)
         ]
         
-        saveStateInfos(StatePhotos)
+        saveStateInfos(statePhotos)
     }
     
-    
-    private func saveStateInfos(_ StatePhotos: [StatePhoto]) {
-        if let encodedData = try? JSONEncoder().encode(StatePhotos) {
+    private func saveStateInfos(_ statePhotos: [StatePhoto]) {
+        if let encodedData = try? JSONEncoder().encode(statePhotos) {
             userDefaults.set(encodedData, forKey: key)
         }
     }
     
     func loadStateInfos() -> [StatePhoto] {
         if let savedData = userDefaults.data(forKey: key),
-           let StatePhotos = try? JSONDecoder().decode([StatePhoto].self, from: savedData) {
-            return StatePhotos
+           let statePhotos = try? JSONDecoder().decode([StatePhoto].self, from: savedData) {
+            return statePhotos
         }
         return []
     }
+    
+    func updateStateFoto(forUF uf: String, withFoto foto: Data) {
+        var stateInfos = loadStateInfos()
+        if let index = stateInfos.firstIndex(where: { $0.uf == uf }) {
+            stateInfos[index].foto = foto
+            saveStateInfos(stateInfos)
+        }
+    }
+    
+    func getStateFoto(forUF uf: String) -> Data? {
+            // Carregue os StatePhotos
+            let statePhotos = loadStateInfos()
+            // Encontre o StatePhoto correspondente ao UF especificado
+            if let statePhoto = statePhotos.first(where: { $0.uf == uf }) {
+                return statePhoto.foto
+            }
+            return nil
+        }
 }

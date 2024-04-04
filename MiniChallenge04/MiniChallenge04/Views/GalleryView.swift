@@ -55,6 +55,9 @@ struct GalleryView: View {
                                                     .overlay(alignment: .topTrailing) {
                                                     closeButton
                                                 }
+                                                    .overlay(alignment: .topLeading) {
+                                                        setButton
+                                                    }
                                             }
                                         
                                     } else if asset.mediaType == .video {
@@ -78,6 +81,7 @@ struct GalleryView: View {
             galleryViewModel.requestPhotoLibraryAccess()
         }
     }
+    
     private var closeButton: some View {
             Button {
                 galleryViewModel.isImagePresented = false
@@ -90,4 +94,28 @@ struct GalleryView: View {
             .tint(.purple)
             .padding()
         }
+    
+    private var setButton: some View {
+        Button {
+            if let asset = assetAuxiliar {
+                let uiImage = galleryViewModel.getImage(from: asset)
+                if let imageData = uiImage.jpegData(compressionQuality: 1.0) {
+                    StateInfoManager.shared.updateStateFoto(forUF: title.uppercased(), withFoto: imageData)
+                    print(imageData)
+                }
+                
+                
+                
+            }
+        } label: {
+            Text("Set")
+        }
+        .buttonStyle(.bordered)
+        .clipShape(Circle())
+        .tint(.purple)
+        .padding()
+    }
+
+
+    
 }
