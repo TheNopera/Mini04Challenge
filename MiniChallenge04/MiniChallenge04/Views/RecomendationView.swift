@@ -10,6 +10,7 @@ let categorias = ["Acampamento", "Praia", "Montanhas", "Floresta"]
 struct RecomendationView: View {
     @ObservedObject var api = PlacesViewModel()
     @ObservedObject var viewModel: RecomendationViewModel
+    @State var recommendations : [String]?
     @State private var searchText = ""
     @State var isCurrentlyRefreshing = false
 
@@ -39,13 +40,10 @@ struct RecomendationView: View {
                             
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 25) {
-                                    ForEach(viewModel.getStates(quant: 4), id: \.self) { recomendacao in
+                                    ForEach(recommendations ?? [], id: \.self) { recomendacao in
+                                     
+                                        PlaceCard(cityName: recomendacao, vm: self.api)
                                         
-                                        NavigationLink {
-                                            
-                                        } label: {
-                                            PlaceCard(cityName: recomendacao, vm: self.api)
-                                        }
                                         
                                     }
                                 }.padding(.horizontal)
@@ -62,6 +60,11 @@ struct RecomendationView: View {
                         SectionComponent(sectionName: "Mais Procurados")
                     }
                 }
+            }
+            .task {
+                var states = viewModel.getStates(quant: 4)
+                self.recommendations = states
+                
             }
             .refreshable {
                 isCurrentlyRefreshing = true
@@ -99,6 +102,6 @@ struct SectionHeader: View {
     let viewModel = RecomendationViewModel()
 
     
-    return RecomendationView(viewModel: viewModel)
+    return RecomendationView(viewModel: viewModel, recommendations: [])
         
 }

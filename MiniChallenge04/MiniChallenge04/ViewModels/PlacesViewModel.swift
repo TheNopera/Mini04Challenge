@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 
 struct PlaceData {
+   
+    
+    var id = UUID()
     var cityName : String
     var places : [Place]
 }
@@ -16,9 +19,9 @@ struct PlaceData {
 
 class PlacesViewModel : ObservableObject{
     @Published var api = APIManager()
-    @Published var places : PlacesResponse = PlacesResponse(places: [])
     @Published var placesData : [PlaceData] = []
-    @Published var apiIsCallable : Bool = true
+    @Published var apiIsCallable : Bool = false
+    
     //MARK: Get touristic places in a specific city
     @MainActor
     func getTouristicPlaces(in city : String) async throws {
@@ -32,7 +35,7 @@ class PlacesViewModel : ObservableObject{
                 self.placesData.append(PlaceData(cityName: city, places: locations))
             }
         case .failure(_):
-            print("failed")
+            print(places.result)
             throw APIError.invalidResponse("Algo deu errado ao buscar dados do local")
         }
     }
@@ -71,13 +74,17 @@ class PlacesViewModel : ObservableObject{
             let randomPlaceIndex = Int.random(in: 0..<filteredData.places.count)
             
             var img = UIImage()
-            try await img = getImage(imgName: filteredData.places[randomPlaceIndex].photos.first!.name)
+            
+            guard let photos = filteredData.places[randomPlaceIndex].photos else{
+                return PlaceCardModel(image: UIImage(named: "Image_Load_Failed")!, cityName: city, description: "Erro ao tentar recuperar informações do local")
+            }
+            
+            try await img = getImage(imgName: photos.first!.name)
             apiIsCallable = true
-            return PlaceCardModel(image: img ,cityName: city, placeName: filteredData.places[randomPlaceIndex].displayName.text, description: filteredData.places[randomPlaceIndex].editorialSummary?.text, author: filteredData.places[randomPlaceIndex].photos.first?.authorAttributions.first?.displayName)
+            return PlaceCardModel(image: img ,cityName: city, placeName: filteredData.places[randomPlaceIndex].displayName.text, description: filteredData.places[randomPlaceIndex].editorialSummary?.text, author: photos.first!.authorAttributions.first?.displayName)
         }
         catch{
-            
-            return  PlaceCardModel(image: UIImage(named: "Image_Load_Failed")!, cityName: city, description: "Erro ao tentar recuperar informações do local")
+            return PlaceCardModel(image: UIImage(named: "Image_Load_Failed")!, cityName: city, description: "Erro ao tentar recuperar informações do local")
             
         }
         

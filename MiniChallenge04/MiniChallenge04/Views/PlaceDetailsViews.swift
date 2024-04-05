@@ -9,10 +9,8 @@ import Foundation
 import SwiftUI
 
 struct PlaceDetailView : View {
-    var img : Image
-    var title : String
-    var description : String
-    var autor : String
+    var place : PlaceCardModel?
+    var btn = BackBtn()
     var body: some View {
         VStack{
             Spacer()
@@ -28,14 +26,15 @@ struct PlaceDetailView : View {
                 .overlay {
                     HStack{
                         VStack{
-                            CardTitle(text: title)
+                            CardTitle(text: "\(place?.placeName ?? "")- \(place?.cityName ?? "")")
                             Rectangle()
                                 .frame(height: 1)
                                 .foregroundStyle(.white)
                             LocationInfo()
                             CardTitle(text: "Sobre")
                                 
-                            Text(description)
+                            Text(place?.description ?? "Falha ao tentar recuperar informações do local")
+                    
                                 .foregroundStyle(.white)
                             Spacer()
                         }.padding(.top)
@@ -44,16 +43,19 @@ struct PlaceDetailView : View {
                     .padding()
                 }
             HStack{
-                Text("Foto por: "+autor)
+                Text("Foto por:" + (place?.author ?? "Autor desconhecido") )
                 Spacer()
             }.foregroundStyle(.white)
             
         }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: btn)
         .padding([.horizontal,.bottom], 30)
         .background(
-            img
+            Image(uiImage: (place?.image ?? UIImage(named: "Image_Load_Failed"))! )
                 .resizable()
                 .scaledToFill()
+                .frame(height: UIScreen.main.bounds.height)
                 .ignoresSafeArea()
         )
         
@@ -62,8 +64,20 @@ struct PlaceDetailView : View {
     
 }
 
+struct BackBtn : View {
+    @Environment(\.dismiss) private var dismiss
+    var body: some View {
+        Button(action: {
+            dismiss()
+        }, label: {
+            Image(systemName: "chevron.backward.circle.fill")
+                .font(.system(size: 40))
+        })
+    }
+}
+
 #Preview {
-    PlaceDetailView(img: Image("Cristo"),title: "Cristo Redentor- RJ",description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.",autor: "Arthur Liberal")
+    PlaceDetailView(place: PlaceCardModel(image: UIImage(named: "Cristo")!, cityName: "Rio de Janeiro", placeName: "Cristo redentor", description:"Estatua de cristo localiczado no rio de janeiro dawdadadadwadadawdawdawdawdawdawdawdawdawdadwadadadawdadada", author: "Arthur Liberal"))
 }
 
 

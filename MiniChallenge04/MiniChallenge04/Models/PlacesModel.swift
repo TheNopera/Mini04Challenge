@@ -19,8 +19,8 @@ struct Photo: Codable {
 
 struct AuthorAttribution: Codable {
     let displayName: String
-    let uri: String
-    let photoUri: String
+    let uri: String?
+    let photoUri: String?
 }
 
 struct EditorialSummary: Codable {
@@ -36,7 +36,7 @@ struct DisplayName: Codable {
 struct Place: Codable {
     let displayName: DisplayName
     let editorialSummary: EditorialSummary?
-    let photos: [Photo]
+    let photos: [Photo]?
 }
 
 struct PlacesResponse: Codable {

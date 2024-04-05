@@ -42,8 +42,8 @@ class APIManager {
     
     //MARK: FUNÇÃO PARA RETORNAR IMAGEM DE UM LOCAL
     func getImageUrl(imageName : String) async throws -> DataResponse<Data, AFError> {
-        let maxHeight : Int = 400
-        let maxWidht  : Int = 400
+        let maxHeight : Int = 1000
+        let maxWidht  : Int = 700
         
         let data = await AF.request("\(API_BASE_URL+imageName)/media?maxHeightPx=\(maxHeight)&maxWidthPx=\(maxWidht)&key=\(ENV.SERVICE_API_KEY)").serializingData().response
         

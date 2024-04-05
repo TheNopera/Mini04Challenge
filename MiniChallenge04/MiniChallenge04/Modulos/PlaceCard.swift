@@ -23,46 +23,52 @@ struct PlaceCard: View {
     @State var placeCard : PlaceCardModel?
     
     var body: some View {
-        VStack{
-            if placeCard == nil{
-                LoadingCardView()
-            }
-            else{
-                VStack{
-                    Image(uiImage: (placeCard?.image ?? UIImage(named: "Image_Load_Failed"))!)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 155, height: 155)
-                        .clipped()
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                    HStack{
-                        Image("pin")
+        NavigationLink{
+            PlaceDetailView(place: placeCard)
+        }label: {
+            VStack{
+                if placeCard == nil{
+                    LoadingCardView()
+                }
+                else{
+                    VStack{
+                        Image(uiImage: (placeCard?.image ?? UIImage(named: "Image_Load_Failed"))!)
                             .resizable()
-                            .frame(width: 15, height: 15)
-                        Text(cityName)
-                            .bold()
-                        Spacer()
-                    }
-                }.frame(width: 155)
+                            .scaledToFill()
+                            .frame(width: 155, height: 155)
+                            .clipped()
+                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                        HStack{
+                            Image("pin")
+                                .resizable()
+                                .frame(width: 15, height: 15)
+                            Text(cityName)
+                                .bold()
+                            Spacer()
+                        }
+                    }.frame(width: 155)
+                }
             }
-        }
-        .task {
-            if vm.places.places.isEmpty{
-                updateImage()
+            .task {
+                if vm.placesData.isEmpty{
+                    updateImage()
+                }
             }
-        }
-        .onChange(of: vm.apiIsCallable){
-            if vm.apiIsCallable{
-                updateImage()
+            .onChange(of: vm.apiIsCallable){
+                if vm.apiIsCallable{
+                    updateImage()
+                }
             }
+            
         }
         
     }
     
+    
     @MainActor
     func updateImage(){
         Task{
-            vm.places.places.removeAll()
+            vm.placesData.removeAll()
             self.placeCard = await vm.getRandomPlace(self.cityName)
             vm.apiIsCallable = false
         }
@@ -70,7 +76,7 @@ struct PlaceCard: View {
 }
 
 #Preview {
-    PlaceCard(cityName: "Rio de Janeiro", vm: PlacesViewModel())
+    PlaceCard(cityName: "Paritins", vm: PlacesViewModel())
 }
 
 struct LoadingCardView : View {
