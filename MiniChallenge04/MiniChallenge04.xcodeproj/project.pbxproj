@@ -28,6 +28,7 @@
 		62B5E6C22BA23C6100E3ED07 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B5E6C12BA23C6100E3ED07 /* Errors.swift */; };
 		62B5E6C52BA3699600E3ED07 /* PlacesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B5E6C42BA3699600E3ED07 /* PlacesModel.swift */; };
 		62B903882BC4564300C3FC07 /* PlaceDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B903872BC4564300C3FC07 /* PlaceDetailVM.swift */; };
+		62B9038B2BC4869A00C3FC07 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B9038A2BC4869A00C3FC07 /* LocationManager.swift */; };
 		62CD74502BA21DFD006F022F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD744F2BA21DFD006F022F /* ContentView.swift */; };
 		62CD74522BA21DFF006F022F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CD74512BA21DFF006F022F /* Assets.xcassets */; };
 		62CD74552BA21DFF006F022F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CD74542BA21DFF006F022F /* Preview Assets.xcassets */; };
@@ -71,6 +72,7 @@
 		62B5E6C42BA3699600E3ED07 /* PlacesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesModel.swift; sourceTree = "<group>"; };
 		62B903872BC4564300C3FC07 /* PlaceDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailVM.swift; sourceTree = "<group>"; };
 		62B903892BC458AD00C3FC07 /* MiniChallenge04.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MiniChallenge04.entitlements; sourceTree = "<group>"; };
+		62B9038A2BC4869A00C3FC07 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = MiniChallenge04/Utility/LocationManager.swift; sourceTree = SOURCE_ROOT; };
 		62CD744A2BA21DFD006F022F /* MiniChallenge04.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniChallenge04.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62CD744F2BA21DFD006F022F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		62CD74512BA21DFF006F022F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				706947342BACB1ED0027E9E2 /* OmboardingViewModel.swift */,
 				6E73001B2BB217EF00D9FB73 /* MapViewModel.swift */,
 				62B903872BC4564300C3FC07 /* PlaceDetailVM.swift */,
+				62B9038A2BC4869A00C3FC07 /* LocationManager.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				703FEC832BA8C9B700CCF751 /* GalleryDataModel.swift in Sources */,
 				0A2033CA2BA4E28200145F71 /* GalleryView.swift in Sources */,
 				629777372BA8C6150023AE38 /* PlacesViewModel.swift in Sources */,
+				62B9038B2BC4869A00C3FC07 /* LocationManager.swift in Sources */,
 				0A2033C52BA4DB9F00145F71 /* PROD-Keys.plist in Sources */,
 				703FEC802BA8BD3400CCF751 /* DataItem.swift in Sources */,
 				62DF045A2BBDE4C200C986B6 /* PlaceDetailsViews.swift in Sources */,
@@ -531,6 +535,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MiniChallenge04/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Por favor autorize para sabermos a distancia do local";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "exemplo teste";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -565,6 +570,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MiniChallenge04/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Por favor autorize para sabermos a distancia do local";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "exemplo teste";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

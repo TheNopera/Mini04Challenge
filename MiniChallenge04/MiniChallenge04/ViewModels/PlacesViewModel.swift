@@ -9,9 +9,6 @@ import Foundation
 import UIKit
 
 struct PlaceData {
-   
-    
-    var id = UUID()
     var cityName : String
     var places : [Place]
 }
@@ -21,6 +18,7 @@ class PlacesViewModel : ObservableObject{
     @Published var api = APIManager()
     @Published var placesData : [PlaceData] = []
     @Published var apiIsCallable : Bool = true
+    
     
     //MARK: Get touristic places in a specific city
     @MainActor
@@ -62,6 +60,7 @@ class PlacesViewModel : ObservableObject{
     }
     
     //MARK: Get a random place in the array
+    @MainActor
     func getRandomPlace(_ city: String) async -> PlaceCardModel {
         if !apiIsCallable {
             return PlaceCardModel(image: UIImage(named: "Image_Load_Failed")!, cityName: city, description: "Erro ao tentar recuperar informações do local")

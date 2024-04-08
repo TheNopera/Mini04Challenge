@@ -12,7 +12,7 @@ class GalleryViewModel: ObservableObject {
     init(title:String) {
         self.title = title
     }
-
+    
     func requestPhotoLibraryAccess() {
         PHPhotoLibrary.requestAuthorization { [weak self] status in
             guard let self = self else { return }
@@ -68,7 +68,7 @@ class GalleryViewModel: ObservableObject {
         
         return image
     }
-
+    
     func getUFLocalization(latitude:Double,longitude:Double) -> String {
         do {
             let config = MLModelConfiguration()

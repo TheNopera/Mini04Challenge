@@ -123,11 +123,14 @@ struct LocationInfo : View {
             .bold()
             .task {
                 Task{
-                    self.temp = await vm.getTemperature(place: self.place)
+                    self.temp = await vm.getTemperature(for: self.place)
+                  
                 }
             }
     }
 }
+
+
 
 struct VisualEffectView: UIViewRepresentable {
     var effect: UIVisualEffect?
