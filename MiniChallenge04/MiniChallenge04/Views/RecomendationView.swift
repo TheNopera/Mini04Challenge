@@ -62,7 +62,7 @@ struct RecomendationView: View {
                 }
             }
             .task {
-                var states = viewModel.getStates(quant: 4)
+                let states = viewModel.getStates(quant: 4)
                 self.recommendations = states
                 
             }

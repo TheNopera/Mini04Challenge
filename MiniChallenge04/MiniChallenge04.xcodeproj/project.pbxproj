@@ -27,6 +27,7 @@
 		62B5E6BD2BA21EDF00E3ED07 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B5E6BC2BA21EDF00E3ED07 /* APIManager.swift */; };
 		62B5E6C22BA23C6100E3ED07 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B5E6C12BA23C6100E3ED07 /* Errors.swift */; };
 		62B5E6C52BA3699600E3ED07 /* PlacesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B5E6C42BA3699600E3ED07 /* PlacesModel.swift */; };
+		62B903882BC4564300C3FC07 /* PlaceDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B903872BC4564300C3FC07 /* PlaceDetailVM.swift */; };
 		62CD74502BA21DFD006F022F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD744F2BA21DFD006F022F /* ContentView.swift */; };
 		62CD74522BA21DFF006F022F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CD74512BA21DFF006F022F /* Assets.xcassets */; };
 		62CD74552BA21DFF006F022F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CD74542BA21DFF006F022F /* Preview Assets.xcassets */; };
@@ -68,6 +69,8 @@
 		62B5E6BC2BA21EDF00E3ED07 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		62B5E6C12BA23C6100E3ED07 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		62B5E6C42BA3699600E3ED07 /* PlacesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesModel.swift; sourceTree = "<group>"; };
+		62B903872BC4564300C3FC07 /* PlaceDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailVM.swift; sourceTree = "<group>"; };
+		62B903892BC458AD00C3FC07 /* MiniChallenge04.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MiniChallenge04.entitlements; sourceTree = "<group>"; };
 		62CD744A2BA21DFD006F022F /* MiniChallenge04.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniChallenge04.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62CD744F2BA21DFD006F022F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		62CD74512BA21DFF006F022F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -120,6 +123,7 @@
 				0A2033E12BAB75AE00145F71 /* RecomendationViewModel.swift */,
 				706947342BACB1ED0027E9E2 /* OmboardingViewModel.swift */,
 				6E73001B2BB217EF00D9FB73 /* MapViewModel.swift */,
+				62B903872BC4564300C3FC07 /* PlaceDetailVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -183,6 +187,7 @@
 		62CD744C2BA21DFD006F022F /* MiniChallenge04 */ = {
 			isa = PBXGroup;
 			children = (
+				62B903892BC458AD00C3FC07 /* MiniChallenge04.entitlements */,
 				0A7B44C82BBB4EF000B1CFA5 /* MapaBrasil3D.dae */,
 				62B5E6C32BA3697F00E3ED07 /* Models */,
 				0A2033DA2BAB73C700145F71 /* Views */,
@@ -363,6 +368,7 @@
 				0A2033E62BAB762F00145F71 /* MainView.swift in Sources */,
 				620ED3E42BA4EA86000450BB /* PlaceCard.swift in Sources */,
 				0A2033E02BAB758A00145F71 /* RecomendationView.swift in Sources */,
+				62B903882BC4564300C3FC07 /* PlaceDetailVM.swift in Sources */,
 				6E73001C2BB217EF00D9FB73 /* MapViewModel.swift in Sources */,
 				703FEC832BA8C9B700CCF751 /* GalleryDataModel.swift in Sources */,
 				0A2033CA2BA4E28200145F71 /* GalleryView.swift in Sources */,
@@ -516,6 +522,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MiniChallenge04/MiniChallenge04.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniChallenge04/Preview Content\"";
@@ -549,6 +556,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MiniChallenge04/MiniChallenge04.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniChallenge04/Preview Content\"";

@@ -18,11 +18,7 @@ struct PlaceDetailView : View {
                 .frame(width: UIScreen.main.bounds.width * 0.9, height: UIScreen.main.bounds.height * 0.4 )
                 .cornerRadius(35)
                 .opacity(0.9)
-                .background(
-                    RoundedRectangle(cornerRadius: 35)
-                        .opacity(0.3)
-                    
-                )
+            
                 .overlay {
                     HStack{
                         VStack{
@@ -30,11 +26,11 @@ struct PlaceDetailView : View {
                             Rectangle()
                                 .frame(height: 1)
                                 .foregroundStyle(.white)
-                            LocationInfo()
+                            LocationInfo(place: place?.cityName ?? "")
                             CardTitle(text: "Sobre")
-                                
+                            
                             Text(place?.description ?? "Falha ao tentar recuperar informações do local")
-                    
+                            
                                 .foregroundStyle(.white)
                             Spacer()
                         }.padding(.top)
@@ -90,17 +86,33 @@ struct CardTitle : View {
                 .foregroundStyle(.white)
                 .font(.title2)
             Spacer()
+        } .task {
+            Task{
+                
+            }
         }
     }
 }
 
 struct LocationInfo : View {
+   @StateObject var vm : PlaceDetailVM = PlaceDetailVM()
+    var place : String
+    
+    @State var temp : String?
+    
     var body: some View {
         HStack{
             Image(systemName: "thermometer.medium")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-            Text("32Cº")
-               
+            if(vm.tempIsLoading || temp == nil){
+                ProgressView()
+                    .preferredColorScheme(.dark)
+                    .padding(.leading)
+            }else{
+                Text(temp!)
+            }
+            
+            
             Spacer()
             Image(systemName: "airplane")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
@@ -109,6 +121,11 @@ struct LocationInfo : View {
             .padding(.vertical)
             .font(.title3)
             .bold()
+            .task {
+                Task{
+                    self.temp = await vm.getTemperature(place: self.place)
+                }
+            }
     }
 }
 
