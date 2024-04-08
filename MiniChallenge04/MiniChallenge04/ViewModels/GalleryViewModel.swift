@@ -81,8 +81,9 @@ class GalleryViewModel: ObservableObject {
         let manager = PHImageManager.default()
         let options = PHImageRequestOptions()
         options.isSynchronous = true
+        options.deliveryMode = .highQualityFormat
         
-        manager.requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFit, options: options) { result, _ in
+        manager.requestImage(for: asset, targetSize: CGSize(width: 10000, height: 10000), contentMode: .aspectFit, options: options) { result, _ in
             if let result = result {
                 image = result
             }
