@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct MainView: View {
-    @StateObject var viewModel = PlacesViewModel() // Use StateObject para inicializar o ViewModel
-    
     var body: some View {
         TabView {
             // View do Mapa
@@ -17,26 +15,24 @@ struct MainView: View {
                 .tabItem {
                     VStack {
                         Image(systemName: "map.fill")
-                        Text("Mapa")
+                        Text("Teste")
                     }
-                }
+                }.background(.black)
 
             // View das recomendações
-            RecomendationView(viewModel: viewModel)
+            RecomendationView(viewModel: RecomendationViewModel())
                 .tabItem {
                     VStack {
                         Image(systemName: "hand.thumbsup.fill")
                         Text("Recomendação")
                     }
-                }
+                }.background(.black)
         }.background(.black)
     }
 }
 
 
 #Preview {
-    let viewModel = PlacesViewModel()
-    viewModel.recomendationModel.recomendacoes = ["DF", "SP", "RJ", "CE"]
-    return MainView(viewModel: viewModel)
+    return MainView()
 }
 

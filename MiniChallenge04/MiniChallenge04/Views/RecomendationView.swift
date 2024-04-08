@@ -8,8 +8,9 @@
 import SwiftUI
 let categorias = ["Acampamento", "Praia", "Montanhas", "Floresta"]
 struct RecomendationView: View {
-
-    @ObservedObject var viewModel: PlacesViewModel
+    @ObservedObject var api = PlacesViewModel()
+    @ObservedObject var viewModel: RecomendationViewModel
+    @State var recommendations : [String]?
     @State private var searchText = ""
     @State var isCurrentlyRefreshing = false
 
@@ -39,8 +40,11 @@ struct RecomendationView: View {
                             
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 25) {
-                                    ForEach(viewModel.recomendationModel.recomendacoes, id: \.self) { recomendacao in
-                                        PlaceCard(cityName: recomendacao, vm: self.viewModel)
+                                    ForEach(recommendations ?? [], id: \.self) { recomendacao in
+                                     
+                                        PlaceCard(cityName: recomendacao, vm: self.api)
+                                        
+                                        
                                     }
                                 }.padding(.horizontal)
                             }
@@ -57,9 +61,14 @@ struct RecomendationView: View {
                     }
                 }
             }
+            .task {
+                var states = viewModel.getStates(quant: 4)
+                self.recommendations = states
+                
+            }
             .refreshable {
                 isCurrentlyRefreshing = true
-                viewModel.apiIsCallable = true
+                api.apiIsCallable = true
                 isCurrentlyRefreshing = false
             }
             
@@ -75,6 +84,7 @@ struct RecomendationView: View {
 struct SectionHeader: View {
     var title: String
     
+
     var body: some View {
         HStack {
             Text(title)
@@ -87,11 +97,11 @@ struct SectionHeader: View {
 }
 
 #Preview {
-   
-    let viewModel = PlacesViewModel()
-    viewModel.recomendationModel.recomendacoes = ["Distrito Federal", "São Paulo", "Rio de Janeiro", "Ceara"]
+  
+
+    let viewModel = RecomendationViewModel()
 
     
-    return RecomendationView(viewModel: viewModel)
+    return RecomendationView(viewModel: viewModel, recommendations: [])
         
 }
