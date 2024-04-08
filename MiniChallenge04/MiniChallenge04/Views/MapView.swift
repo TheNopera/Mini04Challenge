@@ -14,15 +14,19 @@ struct MapView: View {
     @State var isPresented: Bool
     
     var body: some View {
-        NavigationStack {
+        ZStack{
+            
             if selectedUF != nil && isPresented {
                 
                 GalleryView(title: selectedUF ?? "", isPresente: $isPresented )
             } else {
                 SceneKitView(selectedUF: $selectedUF, isPresented: $isPresented)
-                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+//                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                    .edgesIgnoringSafeArea(.all)
             }
-        }.onAppear {
+            
+        }
+        .onAppear {
             if StateInfoManager.shared.loadStateInfos().isEmpty {
                 
                 StateInfoManager.shared.initializeStateInfos()
@@ -45,6 +49,12 @@ struct MapView: View {
             sceneView.scene = scene
             sceneView.autoenablesDefaultLighting = true
             sceneView.allowsCameraControl = false
+            sceneView.backgroundColor = .clear
+            
+            if let BgImage = UIImage(named: "BG") {
+                sceneView.scene?.background.contents = BgImage
+            }
+            
             
             scene?.rootNode.eulerAngles.x -= 5
             scene?.rootNode.position.y += 5

@@ -8,26 +8,33 @@
 import SwiftUI
 
 struct MainView: View {
+    
     var body: some View {
         TabView {
-            // View do Mapa
-            MapView(isPresented: false)
-                .tabItem {
-                    VStack {
-                        Image(systemName: "map.fill")
-                        Text("Teste")
+            Group {
+                // View do Mapa
+                MapView(isPresented: false)
+                    .tabItem {
+                        VStack {
+                            Spacer()
+                            Image(systemName: "map.fill")
+                            Text("Teste")
+                        }
                     }
-                }.background(.black)
-
-            // View das recomendações
-            RecomendationView(viewModel: RecomendationViewModel())
-                .tabItem {
-                    VStack {
-                        Image(systemName: "hand.thumbsup.fill")
-                        Text("Recomendação")
+                
+                // View das recomendações
+                RecomendationView(viewModel: RecomendationViewModel())
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "hand.thumbsup.fill")
+                            Text("Recomendação")
+                        }
                     }
-                }.background(.black)
-        }.background(.black)
+            }
+            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.88)
+            .offset(y: -30)
+            
+        }
     }
 }
 
