@@ -57,7 +57,6 @@ struct RecomendationView: View {
                                 }.padding()
                             }
                         }
-                        SectionComponent(sectionName: "Mais Procurados")
                     }
                 }
             }

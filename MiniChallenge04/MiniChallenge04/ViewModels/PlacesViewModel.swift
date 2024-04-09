@@ -17,7 +17,7 @@ struct PlaceData {
 class PlacesViewModel : ObservableObject{
     @Published var api = APIManager()
     @Published var placesData : [PlaceData] = []
-    @Published var apiIsCallable : Bool = true
+    @Published var apiIsCallable : Bool = false
     
     
     //MARK: Get touristic places in a specific city
