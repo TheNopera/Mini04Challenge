@@ -64,6 +64,7 @@ struct MiniChallenge04App: App {
                 .preferredColorScheme(colorScheme)
 
 
+
         }//.modelContainer(for: GalleryDataModel.self)
     }
 }
