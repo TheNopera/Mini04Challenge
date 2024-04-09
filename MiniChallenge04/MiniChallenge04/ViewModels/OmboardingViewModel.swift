@@ -29,7 +29,6 @@ class OmboardingViewModel:ObservableObject{
             omboardingModel.formResult.updateValue(value, forKey: item)
         case 2:
             omboardingModel.formResult.updateValue(value, forKey: item)
-            
         default:
             print("error in form")
         }
@@ -44,8 +43,6 @@ class OmboardingViewModel:ObservableObject{
             UserDefaults.standard.set(omboardingModel.formResult, forKey: "formResult")
             formReponseIndetifier = true
         }
-        print(omboardingCount)
-        print(omboardingModel.formResult)
     }
     func backForm(){
         withAnimation {
@@ -77,7 +74,6 @@ class OmboardingViewModel:ObservableObject{
             print("error in form")
         }
         UserDefaults.standard.set(omboardingModel.formResult, forKey: "formResult")
-        print(omboardingCount)
     }
     
     func disableButton(value: String) {
