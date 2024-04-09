@@ -46,7 +46,7 @@ struct PlaceDetailView : View {
                 .resizable()
                 .scaledToFill()
                 .frame(height: UIScreen.main.bounds.height)
-                .ignoresSafeArea()
+                .ignoresSafeArea(.container, edges: .top)
         )
         .toolbar(content: {
             ToolbarItem(placement: .topBarLeading) {
