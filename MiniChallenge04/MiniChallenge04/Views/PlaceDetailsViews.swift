@@ -64,7 +64,7 @@ struct BackBtn : View {
             Image(systemName: "chevron.backward.circle.fill")
                 .font(.system(size: 30))
                 .foregroundStyle(.regularMaterial)
-                .
+                
         })
     }
 }
