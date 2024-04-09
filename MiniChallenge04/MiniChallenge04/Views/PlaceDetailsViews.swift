@@ -40,7 +40,6 @@ struct PlaceDetailView : View {
             
         }
         .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: btn)
         .padding([.horizontal,.bottom], 30)
         .background(
             Image(uiImage: (place?.image ?? UIImage(named: "Image_Load_Failed"))! )
@@ -49,7 +48,11 @@ struct PlaceDetailView : View {
                 .frame(height: UIScreen.main.bounds.height)
                 .ignoresSafeArea()
         )
-        
+        .toolbar(content: {
+            ToolbarItem(placement: .topBarLeading) {
+                btn
+            }
+        })
         
     }
     
