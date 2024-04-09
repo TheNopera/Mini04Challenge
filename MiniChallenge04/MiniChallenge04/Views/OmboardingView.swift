@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+
 struct OmboardingView: View {
     
     @StateObject var omboardingViewModel = OmboardingViewModel()
@@ -30,6 +32,8 @@ struct OmboardingView: View {
         }
     }
 }
+
+
 struct OmboardingSlider:View {
     @Binding var animation:Bool
     @State var viewState = CGSize.zero
@@ -62,10 +66,7 @@ struct OmboardingSlider:View {
                                             animation = true
                                         }
                                     }
-                                    
                                 }
-                                
-                                
                         })
                             .onEnded({ value in
                                 withAnimation {
@@ -88,10 +89,6 @@ struct OmboardingSlider:View {
                     
                 }
             }
-            
-//            Image(systemName: "airplane").font(.system(size: 50))
-//                .padding()
-//                .offset(x: animation ? 250 : 0)
         }.padding(50)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(
@@ -200,10 +197,6 @@ struct OmboardingQuestionsMiddle:View {
                 .shadow(radius: 10)
         }
     }
-    
-//    private var customGrid: some View {
-//        
-//    }
 }
 
 struct OmboardingQuestionsBottom:View {
@@ -238,8 +231,6 @@ struct OmboardingQuestionsBottom:View {
                         self.formReponseIndetifier =  true
                         UserDefaults.standard.set(self.formReponseIndetifier, forKey: "formReponseIndetifier")
                     }
-                        
-                    
                 }
 
             }, label: {
@@ -258,8 +249,6 @@ struct OmboardingQuestionsBottom:View {
             .alert(isPresented: $isButtonClick) {
                 Alert(title: Text("Selecione ao menos uma opção"), dismissButton: .cancel(Text("OK")))
             }
-            
-            
         }.padding()
     }
     

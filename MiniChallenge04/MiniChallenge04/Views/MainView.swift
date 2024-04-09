@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-
+    
     @StateObject var viewModel = PlacesViewModel() // Use StateObject para inicializar o ViewModel
     @StateObject var viewModelRecommendation = RecomendationViewModel()
     @StateObject var omboardingViewModel = OmboardingViewModel()
@@ -27,7 +27,6 @@ struct MainView: View {
                                     Text("Mapa")
                                 }
                             }
-
                         // View das recomendações
                         RecomendationView(viewModel: viewModelRecommendation)
                             .tabItem {
@@ -44,18 +43,16 @@ struct MainView: View {
             }else{
                 OmboardingSlider(animation: $animation)
             }
-        }//.task {
-//            if let formResultSaved = UserDefaults.standard.dictionary(forKey: "formResult") {
-//                if let temperaturaResult = formResultSaved["Temperatura"] as? Int {
-//                    if let urbanoResult = formResultSaved["Urbano"] as? Int{
-//                        if temperaturaResult != 0 && urbanoResult != 0{
-//                            self.formReponseIndetifier = true
-//                        }
-//                    }
-//                    
-//                }
-//            }
-//        }
+        }
+        .task {
+            if let formResultSaved = UserDefaults.standard.dictionary(forKey: "formResult") {
+                if let temperaturaResult = formResultSaved["Temperatura"] as? Int {
+                    if temperaturaResult != 0{
+                        self.formReponseIndetifier = true
+                    }
+                }
+            }
+        }
     }
 }
 
