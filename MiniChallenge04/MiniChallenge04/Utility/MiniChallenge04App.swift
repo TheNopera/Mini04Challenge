@@ -7,6 +7,7 @@
 
 import SwiftUI
 import GooglePlaces
+import SwiftData
 class BaseEnv{
     let dict : NSDictionary
     
@@ -53,12 +54,16 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct MiniChallenge04App: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
+    @Environment(\.colorScheme) var colorScheme
 
     var body: some Scene {
         WindowGroup {
 
             MainView()
+                .preferredColorScheme(colorScheme)
 
-        }
+
+        }//.modelContainer(for: GalleryDataModel.self)
     }
 }

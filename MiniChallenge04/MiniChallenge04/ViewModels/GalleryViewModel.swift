@@ -1,13 +1,18 @@
 import SwiftUI
 import Photos
 import CoreML
+import AVKit
 
 class GalleryViewModel: ObservableObject {
     @Published var assetsByLocation: [String: [PHAsset]] = [:]
+    //@Published var thumbnailImage: [PHAsset : UIImage] = [:]
     @Published var selectedPhoto: PHAsset?
     @Published var locationString: String = ""
     @Published var title:String
     @Published var currentUf: String?
+    @Published var isImagePresented = false
+    @Published var isVideoPresented = false
+    var adaptiveColuns = [GridItem(.adaptive(minimum: 120, maximum: 200))]
     
     init(title:String) {
         self.title = title
@@ -53,14 +58,32 @@ class GalleryViewModel: ObservableObject {
             }
         }
     }
+    func playVideoFromPHAsset(_ asset: PHAsset) {
+        PHCachingImageManager().requestAVAsset(forVideo: asset, options: nil) { (avAsset, _, _) in
+            guard let avAsset = avAsset else { return }
+            
+            DispatchQueue.main.async {
+                let player = AVPlayer(playerItem: AVPlayerItem(asset: avAsset))
+                let playerViewController = AVPlayerViewController()
+                playerViewController.player = player
+                
+                // Presente o playerViewController
+                // Aqui você pode optar por apresentar o player de vídeo em uma nova tela ou em uma folha modal, dependendo do seu aplicativo
+                // Por exemplo:
+                // UIApplication.shared.windows.first?.rootViewController?.present(playerViewController, animated: true, completion: nil)
+            }
+        }
+    }
     
+
     func getImage(from asset: PHAsset) -> UIImage {
         var image = UIImage()
         let manager = PHImageManager.default()
         let options = PHImageRequestOptions()
         options.isSynchronous = true
+        options.deliveryMode = .highQualityFormat
         
-        manager.requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFit, options: options) { result, _ in
+        manager.requestImage(for: asset, targetSize: CGSize(width: 10000, height: 10000), contentMode: .aspectFit, options: options) { result, _ in
             if let result = result {
                 image = result
             }
