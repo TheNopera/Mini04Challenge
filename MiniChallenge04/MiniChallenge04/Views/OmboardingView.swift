@@ -162,7 +162,7 @@ struct OmboardingQuestionsMiddle:View {
                             ForEach(omboardingViewModel.imagesOmboardingForm[omboardingViewModel.omboardingCount < 3 ? omboardingViewModel.omboardingCount : 2].sorted(by: { $0.key < $1.key }), id: \.key){ item, value in
                                 
                                 Button(action: {
-                                    omboardingViewModel.omboardingModel.formResult.updateValue(value, forKey: item)
+                                    omboardingViewModel.formAdd(value: value, item: item)
                                     omboardingViewModel.disableButton(value: item)
                                     print(omboardingViewModel.disabledButtons)
                                     omboardingViewModel.contLimitButtons += 1
@@ -170,9 +170,11 @@ struct OmboardingQuestionsMiddle:View {
                                     
                                     VStack(spacing:0) {
                                         
-                                        RoundedRectangle(cornerRadius: 15)
-                                            .frame(minWidth: 80, maxWidth: 120, minHeight: geometry.size.height*0.15)
-                                            .foregroundColor(.red).padding(10)
+                                        Image(item)
+                                            .resizable()
+                                            .clipShape(RoundedRectangle(cornerRadius: 15))
+                                            .frame(minWidth: 80, maxWidth: 120, minHeight: geometry.size.height*0.14, maxHeight: geometry.size.height*0.15)
+                                            .padding(10)
                                             
                                         Text(item)
                                             .padding(-5)

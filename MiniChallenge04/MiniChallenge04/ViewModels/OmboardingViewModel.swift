@@ -12,43 +12,40 @@ class OmboardingViewModel:ObservableObject{
     
     var omboardingModel = OmboardingModel()
     
-    @Published var imagesOmboardingForm:[[String:Int]] = [["Alice":1,"Bob":2,"Carlos":3,"Denise":4], ["Gustavo":1,"Helena":2], ["Marcelo":1,"Natália":2,"Otávio":3,"Paula":4,"Rafael":5,"Sandra":6]]
+    @Published var imagesOmboardingForm:[[String:Int]] = [["Chuvoso":2,"Quente":4,"Úmido":3,"Frio":1],
+                                                          ["Urbano":5,"Rural":5],
+                                                          ["Divertido":5,"Calmo":5,"Culinária":5,"Histórico":5,"Religião":5,"Radical":5]]
     @Published var numberOfCircle=[1,2,3]
     @Published var disabledButtons: [String] = []
     @Published var contLimitButtons: Int = 0
     @Published var omboardingCount = 0
     @Published var formReponseIndetifier : Bool = false
     
-
+    func formAdd(value: Int, item:String){
+        switch omboardingCount {
+        case 0:
+            omboardingModel.formResult.updateValue(value, forKey: "Temperatura")
+        case 1:
+            omboardingModel.formResult.updateValue(value, forKey: item)
+        case 2:
+            omboardingModel.formResult.updateValue(value, forKey: item)
+            
+        default:
+            print("error in form")
+        }
+    }
     func nextForm(){
         withAnimation {
             self.omboardingCount += 1
             self.contLimitButtons = 0
         }
         
-        switch omboardingCount {
-        case 1:
-            omboardingModel.formResult["Temperatura"] = 0
-            omboardingModel.formResult["Umidade"] = 0
-        case 2:
-            omboardingModel.formResult["Urbano"] = 0
-            omboardingModel.formResult["Rural"] = 0
-        case 3:
-            omboardingModel.formResult["Divertido"] = 0
-            omboardingModel.formResult["Calmo"] = 0
-            omboardingModel.formResult["Culinaria"] = 0
-            omboardingModel.formResult["Historico"] = 0
-            omboardingModel.formResult["Religioso"] = 0
-            omboardingModel.formResult["Radical"] = 0
-            formReponseIndetifier = true
-            
+        if omboardingCount == 3{
             UserDefaults.standard.set(omboardingModel.formResult, forKey: "formResult")
-        default:
-            print("error in form")
+            formReponseIndetifier = true
         }
-        
         print(omboardingCount)
-        print(formReponseIndetifier)
+        print(omboardingModel.formResult)
     }
     func backForm(){
         withAnimation {
@@ -79,7 +76,7 @@ class OmboardingViewModel:ObservableObject{
         default:
             print("error in form")
         }
-        
+        UserDefaults.standard.set(omboardingModel.formResult, forKey: "formResult")
         print(omboardingCount)
     }
     

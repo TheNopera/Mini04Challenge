@@ -7,10 +7,11 @@
 
 import Foundation
 import SwiftUI
+
+
 class OmboardingModel{
-    let textOmboarding:[String] = ["Qual tipo de clima mais te agrada em uma viagem?","Qual tipo de local você mais gosta?","Quais desses tópicos não podem faltar em uma viajem para você?"]
+    let textOmboarding:[String] = ["Qual tipo de clima mais te agrada em uma viagem?","Qual tipo de local geográfico você mais gosta?","Quais desses tópicos não podem faltar em uma viajem para você?"]
     let buttonsImages:[String] = []
-    @State var formResult : [String:Int?] = ["Umidade" : 0, "Temperatura" : 0, "Urbano" : 0, "Rural" : 0, "Divertido" : 0, "Calmo": 0, "Culinaria": 0, "Historico": 0, "Religioso": 0, "Radical": 0]
-    
+    var formResult : [String:Int] = ["Umidade" : 3, "Temperatura" : 0, "Urbano" : 0, "Rural" : 0, "Divertido" : 0, "Calmo": 0, "Culinária": 0, "Histórico": 0, "Religião": 0, "Radical": 0]
 
 }
