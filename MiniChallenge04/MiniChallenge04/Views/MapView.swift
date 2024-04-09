@@ -5,7 +5,6 @@
 //  Created by Felipe Porto on 20/03/24.
 //
 
-
 import SwiftUI
 import SceneKit
 
@@ -30,7 +29,6 @@ struct MapView: View {
             if StateInfoManager.shared.loadStateInfos().isEmpty {
                 
                 StateInfoManager.shared.initializeStateInfos()
-                
             }
         }
     }
@@ -176,8 +174,6 @@ struct MapView: View {
     }
 }
 
-
-
 #Preview {
-    MapView(isPresented: false)
+    MapView(isPresented: true)
 }

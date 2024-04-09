@@ -11,6 +11,7 @@ struct MainView: View {
     
     var body: some View {
         TabView {
+
             Group {
                 // View do Mapa
                 MapView(isPresented: false)
@@ -20,6 +21,7 @@ struct MainView: View {
                             Image(systemName: "map.fill")
                             Text("Teste")
                         }
+
                     }
                 
                 // View das recomendações

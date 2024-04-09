@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 
 struct PlaceData {
+   
+    
+    var id = UUID()
     var cityName : String
     var places : [Place]
 }
@@ -16,9 +19,9 @@ struct PlaceData {
 
 class PlacesViewModel : ObservableObject{
     @Published var api = APIManager()
-    @Published var places : PlacesResponse = PlacesResponse(places: [])
     @Published var placesData : [PlaceData] = []
     @Published var apiIsCallable : Bool = false
+    
     //MARK: Get touristic places in a specific city
     @MainActor
     func getTouristicPlaces(in city : String) async throws {
@@ -29,10 +32,10 @@ class PlacesViewModel : ObservableObject{
             
         case .success(_):
             if let locations = places.value?.places{
-                    self.placesData.append(PlaceData(cityName: city, places: locations))
+                self.placesData.append(PlaceData(cityName: city, places: locations))
             }
         case .failure(_):
-            print("failed")
+            print(places.result)
             throw APIError.invalidResponse("Algo deu errado ao buscar dados do local")
         }
     }
@@ -59,19 +62,39 @@ class PlacesViewModel : ObservableObject{
     }
     
     //MARK: Get a random place in the array
-    func getRandomPlace(_ city : String) -> String{
-        let filteredData = placesData.filter { $0.cityName == city }
-        let randomNumber = Int.random(in: 0..<filteredData.count)
-        let randomPlace = Int.random(in: 0..<filteredData[randomNumber].places.count)
+    func getRandomPlace(_ city: String) async -> PlaceCardModel {
+        if !apiIsCallable {
+            return PlaceCardModel(image: UIImage(named: "Image_Load_Failed")!, cityName: city, description: "Erro ao tentar recuperar informações do local")
+        }
+        do{
+            try await getTouristicPlaces(in: city)
+            guard let filteredData = placesData.first(where: { $0.cityName == city }) else {
+                return PlaceCardModel(image: UIImage(named: "Image_Load_Failed")!, cityName: city, description: "Erro ao tentar recuperar informações do local")
+            }
+            let randomPlaceIndex = Int.random(in: 0..<filteredData.places.count)
+            
+            var img = UIImage()
+            
+            guard let photos = filteredData.places[randomPlaceIndex].photos else{
+                return PlaceCardModel(image: UIImage(named: "Image_Load_Failed")!, cityName: city, description: "Erro ao tentar recuperar informações do local")
+            }
+            
+            try await img = getImage(imgName: photos.first!.name)
+            apiIsCallable = true
+            return PlaceCardModel(image: img ,cityName: city, placeName: filteredData.places[randomPlaceIndex].displayName.text, description: filteredData.places[randomPlaceIndex].editorialSummary?.text, author: photos.first!.authorAttributions.first?.displayName)
+        }
+        catch{
+            return PlaceCardModel(image: UIImage(named: "Image_Load_Failed")!, cityName: city, description: "Erro ao tentar recuperar informações do local")
+            
+        }
         
         
-        return filteredData[randomNumber].places[randomPlace].photos.first!.name
     }
     
     
     
     init(api: APIManager = APIManager()) {
         self.api = api
-
+        
     }
 }

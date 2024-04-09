@@ -5,7 +5,10 @@
 //  Created by Felipe Porto on 15/03/24.
 //
 
+import Foundation
 import SwiftUI
+import Photos
+import AVKit
 
 import Photos
 
@@ -29,9 +32,7 @@ struct GalleryView: View {
         let viewModel = GalleryViewModel(title: title)
         _galleryViewModel = StateObject(wrappedValue: viewModel)
         self.title = title
-        
         _isPresented = isPresente
-        
     }
     
     var body: some View {
