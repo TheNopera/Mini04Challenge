@@ -90,6 +90,21 @@ class PlacesViewModel : ObservableObject{
         
     }
     
+    func getCategoryPlaces(for category : String ){
+        switch category{
+        case "Acampamento":
+            print("camp")
+        case "Praia":
+            print("camp")
+        case "Montanhas":
+            print("montanhas")
+        case "Floresta":
+            print("camp")
+        default:
+            fatalError()
+
+        }
+    }
     
     
     init(api: APIManager = APIManager()) {

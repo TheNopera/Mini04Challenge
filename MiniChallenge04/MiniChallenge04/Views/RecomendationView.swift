@@ -53,6 +53,7 @@ struct RecomendationView: View {
                                 HStack(spacing: 25) {
                                     ForEach(categorias, id: \.self) { categoria in
                                      RoundCard(category: categoria)
+                                        
                                     }
                                 }.padding()
                             }
