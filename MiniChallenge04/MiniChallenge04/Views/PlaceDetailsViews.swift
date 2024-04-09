@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import WeatherKit
 
 struct PlaceDetailView : View {
     var place : PlaceCardModel?
@@ -15,24 +16,18 @@ struct PlaceDetailView : View {
         VStack{
             Spacer()
             VisualEffectView(effect: UIBlurEffect(style: .dark))
-                .frame(width: UIScreen.main.bounds.width * 0.9, height: UIScreen.main.bounds.height * 0.4 )
+                .frame(width: UIScreen.main.bounds.width * 0.9, height: UIScreen.main.bounds.height * 0.2 )
                 .cornerRadius(35)
                 .opacity(0.9)
             
                 .overlay {
                     HStack{
                         VStack{
-                            CardTitle(text: "\(place?.placeName ?? "")- \(place?.cityName ?? "")")
+                            CardTitle(text: "\(place?.placeName ?? "")")
                             Rectangle()
                                 .frame(height: 1)
                                 .foregroundStyle(.white)
                             LocationInfo(place: place?.cityName ?? "")
-                            CardTitle(text: "Sobre")
-                            
-                            Text(place?.description ?? "Falha ao tentar recuperar informações do local")
-                            
-                                .foregroundStyle(.white)
-                            Spacer()
                         }.padding(.top)
                         Spacer()
                     }
@@ -67,11 +62,16 @@ struct BackBtn : View {
             dismiss()
         }, label: {
             Image(systemName: "chevron.backward.circle.fill")
-                .font(.system(size: 40))
+                .font(.system(size: 30))
+                .foregroundStyle(.regularMaterial)
+                .
         })
     }
 }
 
+#Preview{
+    BackBtn()
+}
 #Preview {
     PlaceDetailView(place: PlaceCardModel(image: UIImage(named: "Cristo")!, cityName: "Rio de Janeiro", placeName: "Cristo redentor", description:"Estatua de cristo localiczado no rio de janeiro dawdadadadwadadawdawdawdawdawdawdawdawdawdadwadadadawdadada", author: "Arthur Liberal"))
 }
@@ -102,6 +102,8 @@ struct LocationInfo : View {
     
     var body: some View {
         HStack{
+            Text(place)
+            Spacer()
             Image(systemName: "thermometer.medium")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
             if(vm.tempIsLoading || temp == nil){
@@ -110,13 +112,9 @@ struct LocationInfo : View {
                     .padding(.leading)
             }else{
                 Text(temp!)
+                    .padding(.trailing)
             }
             
-            
-            Spacer()
-            Image(systemName: "airplane")
-                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-            Text("7.000Km")
         }.foregroundStyle(.white)
             .padding(.vertical)
             .font(.title3)
