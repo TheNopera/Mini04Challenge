@@ -13,22 +13,24 @@ struct MapView: View {
     @State var isPresented: Bool
     
     var body: some View {
-        ZStack{
-            
-            if selectedUF != nil && isPresented {
+        NavigationStack {
+            ZStack{
                 
-                GalleryView(title: selectedUF ?? "", isPresente: $isPresented )
-            } else {
-                SceneKitView(selectedUF: $selectedUF, isPresented: $isPresented)
-//                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                    .edgesIgnoringSafeArea(.all)
+                if selectedUF != nil && isPresented {
+                    
+                    GalleryView(title: selectedUF ?? "", isPresente: $isPresented )
+                } else {
+                    SceneKitView(selectedUF: $selectedUF, isPresented: $isPresented)
+                    //                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                        .edgesIgnoringSafeArea(.all)
+                }
+                
             }
-            
-        }
-        .onAppear {
-            if StateInfoManager.shared.loadStateInfos().isEmpty {
-                
-                StateInfoManager.shared.initializeStateInfos()
+            .onAppear {
+                if StateInfoManager.shared.loadStateInfos().isEmpty {
+                    
+                    StateInfoManager.shared.initializeStateInfos()
+                }
             }
         }
     }

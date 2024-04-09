@@ -17,7 +17,7 @@ class GalleryViewModel: ObservableObject {
     init(title:String) {
         self.title = title
     }
-    
+
     func requestPhotoLibraryAccess() {
         PHPhotoLibrary.requestAuthorization { [weak self] status in
             guard let self = self else { return }
@@ -75,16 +75,14 @@ class GalleryViewModel: ObservableObject {
         }
     }
     
-
-    func getImage(from asset: PHAsset) -> UIImage {
-        
+    func getImageLQ(from asset: PHAsset) -> UIImage {
         var image = UIImage()
         let manager = PHImageManager.default()
         let options = PHImageRequestOptions()
         options.isSynchronous = true
-        options.deliveryMode = .highQualityFormat
+        options.deliveryMode = .fastFormat
         
-        manager.requestImage(for: asset, targetSize: CGSize(width: 10000, height: 10000), contentMode: .aspectFit, options: options) { result, _ in
+        manager.requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFit, options: options) { result, _ in
             if let result = result {
                 image = result
             }
@@ -92,7 +90,24 @@ class GalleryViewModel: ObservableObject {
         
         return image
     }
-    
+
+    func getImage(from asset: PHAsset) -> UIImage {
+        var image = UIImage()
+        let manager = PHImageManager.default()
+        let options = PHImageRequestOptions()
+        options.isSynchronous = true
+        options.isNetworkAccessAllowed = true
+        options.deliveryMode = .opportunistic
+        
+        manager.requestImage(for: asset, targetSize: CGSize(width: 3840, height: 3840), contentMode: .aspectFill, options: options) { result, _ in
+            if let result = result {
+                image = result
+            }
+        }
+        
+        return image
+    }
+
     func getUFLocalization(latitude:Double,longitude:Double) -> String {
         do {
             let config = MLModelConfiguration()
