@@ -77,6 +77,7 @@ class GalleryViewModel: ObservableObject {
     
 
     func getImage(from asset: PHAsset) -> UIImage {
+        
         var image = UIImage()
         let manager = PHImageManager.default()
         let options = PHImageRequestOptions()
