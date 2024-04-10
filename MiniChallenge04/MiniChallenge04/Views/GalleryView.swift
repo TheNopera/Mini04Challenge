@@ -39,27 +39,29 @@ struct GalleryView: View {
                         .foregroundColor(.gray)
                         .padding()
                 } else {
-                    List {
-                        ForEach(assets, id: \.self) { asset in
-                            if asset.mediaType == .image {
-                                // Exibir a foto usando a função 'image' do 'PHAsset'
-                                Image(uiImage: galleryViewModel.getImageLQ(from: asset))
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 100, height: 100)
-                                    .onTapGesture {
-                                        galleryViewModel.isImagePresented = true
-                                        assetAuxiliar = asset
-                                    }
-                                    .fullScreenCover(isPresented: $galleryViewModel.isImagePresented) {
-                                        SwiftUIImageViewer(image: Image(uiImage: galleryViewModel.getImage(from: assetAuxiliar ?? asset)))
-                                            .overlay(alignment: .topTrailing) {
-                                                closeButton
-                                            }
-                                            .overlay(alignment: .topLeading) {
-                                                setButton
-                                            }
-                                    }
+                    ScrollView {
+                        LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))], spacing: 10) {
+                            ForEach(assets, id: \.self) { asset in
+                                if asset.mediaType == .image {
+                                    // Exibir a foto usando a função 'getImageLQ' do 'GalleryViewModel'
+                                    Image(uiImage: galleryViewModel.getImageLQ(from: asset))
+                                        .resizable()
+                                        //.scaledToFit()
+                                        .frame(minWidth: 120, maxWidth: 130, minHeight: 120, maxHeight: 130)
+                                        .onTapGesture {
+                                            galleryViewModel.isImagePresented = true
+                                            assetAuxiliar = asset
+                                        }
+                                        .fullScreenCover(isPresented: $galleryViewModel.isImagePresented) {
+                                            SwiftUIImageViewer(image: Image(uiImage: galleryViewModel.getImage(from: assetAuxiliar ?? asset)))
+                                                .overlay(alignment: .topTrailing) {
+                                                    closeButton
+                                                }
+                                                .overlay(alignment: .topLeading) {
+                                                    setButton
+                                                }
+                                        }
+                                }
                             }
                         }
                     }
