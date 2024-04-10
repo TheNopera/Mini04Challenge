@@ -35,7 +35,7 @@ struct RecomendationView: View {
 
                         
                         VStack(spacing: 10) {
-                            SectionComponent(sectionName: "Para Você!", linkText: "Mostrar mais")
+                            SectionComponent(sectionName: "Para Você!")
                                 .padding(.bottom)
                             
                             ScrollView(.horizontal, showsIndicators: false) {
