@@ -17,7 +17,8 @@ struct PlaceData {
 class PlacesViewModel : ObservableObject{
     @Published var api = APIManager()
     @Published var placesData : [PlaceData] = []
-    @Published var apiIsCallable : Bool = false
+    @Published var categoryPlaces : [PlaceCardModel] = []
+    @Published var apiIsCallable : Bool = true
     
     
     //MARK: Get touristic places in a specific city
@@ -90,20 +91,36 @@ class PlacesViewModel : ObservableObject{
         
     }
     
-    func getCategoryPlaces(for category : String ){
+    //MARK: GET PLACES FROM A SPECIFIC  CATEGORY
+    @MainActor
+    func getCategoryPlaces(for category : String ) async{
+        var recommendations : [PlaceCardModel] = []
+        var contents = 5
+        
         switch category{
         case "Acampamento":
-            print("camp")
+            recommendations = recomendationCamping
         case "Praia":
-            print("camp")
+            recommendations = recomendationBeach
         case "Montanhas":
-            print("montanhas")
+            recommendations = recomendationMontain
         case "Floresta":
-            print("camp")
+            recommendations = recomendationForest
         default:
-            fatalError()
-
+            fatalError("Nenhuma categoria encontrada")
         }
+        
+        while contents < recommendations.count{
+            for i in (contents - 5)..<contents{
+                do{
+                    let fetchPlace = await self.getRandomPlace(recommendations[i].placeName!)
+                    categoryPlaces.append(fetchPlace)
+                }
+            }
+            
+            contents = contents + 5
+        }
+    
     }
     
     

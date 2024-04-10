@@ -10,23 +10,24 @@ import SwiftUI
 struct PlaceCardGrid: View {
     let categoryName : String
     let cityName: String?
-    let vm = PlacesViewModel()
+    @StateObject var vm = PlacesViewModel()
     var body: some View {
         ScrollView {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))], spacing: 10) {
-//                ForEach(vm.placesData, id: \.self) { place in
-//                    PlaceCard(cityName: cityName, place: place, vm: vm)
-//                }
+                ForEach(vm.categoryPlaces, id:\.self){ place in
+                    PlaceCard(cityName: place.cityName,vm: self.vm, placeCard: place)
+                }
+                .padding()
+            }.navigationTitle(categoryName)
+            
+        }
+        .task {
+            Task{
+               await self.vm.getCategoryPlaces(for:categoryName)
             }
-            .padding()
-        }.navigationTitle(categoryName)
-            .task {
-                
-            }
+        }
     }
-    
 }
-
 #Preview {
-    PlaceCardGrid(categoryName: "Acampamento", cityName: nil)
+    PlaceCardGrid(categoryName: "", cityName: nil)
 }

@@ -8,12 +8,17 @@
 import Foundation
 import SwiftUI
 
-struct PlaceCardModel{
+struct PlaceCardModel : Hashable{
     var image : UIImage?
     var cityName : String
     var placeName : String?
     var description : String?
     var author : String?
+    
+    func hash(into hasher: inout Hasher) {
+         hasher.combine(cityName)
+         hasher.combine(placeName)
+     }
 }
 
 struct PlaceCard: View {
@@ -50,7 +55,8 @@ struct PlaceCard: View {
                 }
             }
             .task {
-                if vm.placesData.isEmpty{
+                print("called")
+                if vm.placesData.isEmpty && self.placeCard == nil{
                     updateImage()
                 }
             }
