@@ -22,7 +22,7 @@ struct MapView: View {
                 } else {
                     SceneKitView(selectedUF: $selectedUF, isPresented: $isPresented)
                     //                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                        .edgesIgnoringSafeArea(.all)
+                        .edgesIgnoringSafeArea(.top)
                 }
                 
             }

@@ -25,12 +25,35 @@ struct OutlinedCardStyle : ViewModifier {
 
 struct SearchBar: View {
     @Binding var text: String
-    
+    @StateObject var vm = PlacesViewModel()
+    @State private var isNavigationActive = false
+    @State var place : PlaceCardModel?
     var body: some View {
-        HStack {
-            Image(systemName: "magnifyingglass")
-                .foregroundStyle(.gray)
-            TextField("Pesquisar", text: $text)
-        }.modifier(OutlinedCardStyle(padding: 10))
+        
+            VStack {
+                HStack {
+                    Image(systemName: "magnifyingglass")
+                        .foregroundStyle(.gray)
+                    TextField("Pesquisar", text: $text)
+                        .onSubmit {
+                            
+                            Task{
+                                vm.apiIsCallable = true
+                                vm.placesData.removeAll()
+                                self.place = await vm.getRandomPlace(self.text)
+                                isNavigationActive = true
+                                vm.apiIsCallable = false
+                                    
+                            }
+                        }
+                }.modifier(OutlinedCardStyle(padding: 10))
+                    
+                // Use NavigationLink to navigate to another view
+                NavigationLink(destination: PlaceDetailView(place: place), isActive: $isNavigationActive) {
+                    
+                }
+                .hidden()
+            }
+        
     }
 }
