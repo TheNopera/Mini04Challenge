@@ -16,7 +16,7 @@ struct PlaceDetailView : View {
         VStack{
             Spacer()
             VisualEffectView(effect: UIBlurEffect(style: .dark))
-                .frame(width: UIScreen.main.bounds.width * 0.9, height: UIScreen.main.bounds.height * 0.2 )
+                .frame(width: UIScreen.main.bounds.width * 0.9, height: UIScreen.main.bounds.height * 0.3 )
                 .cornerRadius(35)
                 .opacity(0.9)
             
@@ -28,8 +28,14 @@ struct PlaceDetailView : View {
                                 .frame(height: 1)
                                 .foregroundStyle(.white)
                             LocationInfo(place: place?.cityName ?? "")
+                            Link(destination: googleSearchURL(searchText: place?.cityName ?? ""), label: {
+                                           Text("Search on Google")
+                                    .buttonStyle(.bordered)
+                                       })
+                          
                         }.padding(.top)
                         Spacer()
+            
                     }
                     .padding()
                 }
@@ -56,6 +62,14 @@ struct PlaceDetailView : View {
         
     }
     
+    private func googleSearchURL(searchText: String) -> URL {
+         if let encodedText = searchText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+            let url = URL(string: "https://www.google.com/search?q=\(encodedText)") {
+             return url
+         } else {
+             return URL(string: "https://www.google.com")!
+         }
+     }
 }
 
 struct BackBtn : View {

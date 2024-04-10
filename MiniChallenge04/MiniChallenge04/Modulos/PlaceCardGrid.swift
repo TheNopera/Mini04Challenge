@@ -29,5 +29,5 @@ struct PlaceCardGrid: View {
     }
 }
 #Preview {
-    PlaceCardGrid(categoryName: "", cityName: nil)
+    PlaceCardGrid(categoryName: "Acampamento", cityName: nil)
 }
