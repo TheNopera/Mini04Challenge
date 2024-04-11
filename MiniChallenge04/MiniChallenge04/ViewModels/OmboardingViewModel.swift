@@ -34,8 +34,8 @@ class OmboardingViewModel:ObservableObject{
         }
     }
     func nextForm(){
+        self.omboardingCount += 1
         withAnimation {
-            self.omboardingCount += 1
             self.contLimitButtons = 0
         }
         
@@ -45,8 +45,8 @@ class OmboardingViewModel:ObservableObject{
         }
     }
     func backForm(){
+        self.omboardingCount -= 1
         withAnimation {
-            self.omboardingCount -= 1
             self.contLimitButtons = 0
             
         }
@@ -77,7 +77,6 @@ class OmboardingViewModel:ObservableObject{
     }
     
     func disableButton(value: String) {
-            // Define o botão como desabilitado após ser clicado
         disabledButtons.append(value)
         }
         

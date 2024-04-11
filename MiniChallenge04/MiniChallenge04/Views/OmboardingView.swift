@@ -15,20 +15,22 @@ struct OmboardingView: View {
     @Binding var formReponseIndetifier:Bool
     var body: some View {
         NavigationStack{
-            VStack{
-           
-                OmboardingQuestionsTop()
-                OmboardingQuestionsMiddle()
-                OmboardingQuestionsBottom(formReponseIndetifier: $formReponseIndetifier)
-
+            ZStack{
+                VStack{
+                }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(
+                        Image("FormBackground")
+                            .resizable()
+                            .scaledToFill()
+                    )
+                    .ignoresSafeArea(.all)
+                VStack{
+                    OmboardingQuestionsTop()
+                    OmboardingQuestionsMiddle()
+                    OmboardingQuestionsBottom(formReponseIndetifier: $formReponseIndetifier)
+                }
             }.environmentObject(omboardingViewModel)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(
-                    Image("FormBackground")
-                        .resizable()
-                        .scaledToFill()
-                )
-                .edgesIgnoringSafeArea(.all)
         }
     }
 }
@@ -135,7 +137,7 @@ struct OmboardingQuestionsTop:View {
                     }
                 }
             }
-        }
+        }.padding(10)
     }
     
     
@@ -161,16 +163,13 @@ struct OmboardingQuestionsMiddle:View {
                                 Button(action: {
                                     omboardingViewModel.formAdd(value: value, item: item)
                                     omboardingViewModel.disableButton(value: item)
-                                    print(omboardingViewModel.disabledButtons)
                                     omboardingViewModel.contLimitButtons += 1
                                 }, label: {
-                                    
-                                    VStack(spacing:0) {
-                                        
+                                VStack(spacing:0) {
                                         Image(item)
                                             .resizable()
                                             .clipShape(RoundedRectangle(cornerRadius: 15))
-                                            .frame(minWidth: 80, maxWidth: 120, minHeight: geometry.size.height*0.14, maxHeight: geometry.size.height*0.15)
+                                            .frame(minWidth: 70, maxWidth: 120, minHeight: geometry.size.height*0.125, maxHeight: geometry.size.height*0.14)
                                             .padding(10)
                                             
                                         Text(item)
@@ -189,13 +188,14 @@ struct OmboardingQuestionsMiddle:View {
     }
     
     private var rectangleComponent : some View{
-        ZStack{
+        
             Image("CardOmboarding")
                 .resizable()
-                .frame(width: 330, height: 570)
+                .frame(minWidth: 290 ,maxWidth: 380, minHeight: 500 ,maxHeight: 650)
                 .foregroundStyle(.black)
                 .shadow(radius: 10)
-        }
+                .padding(.horizontal)
+        
     }
 }
 
@@ -204,7 +204,7 @@ struct OmboardingQuestionsBottom:View {
     @State var isButtonClick: Bool = false
     @Binding var formReponseIndetifier:Bool
     var body: some View {
-        HStack(spacing:50){
+        HStack(spacing: 100){
             Button(action: {
                 omboardingViewModel.backForm()
             }, label: {
@@ -255,7 +255,7 @@ struct OmboardingQuestionsBottom:View {
     private var buttonComponent: some View{
         RoundedRectangle(cornerRadius: 10)
             .foregroundStyle(.blueSystem)
-            .frame(width: 130, height: 50)
+            .frame(minWidth: 90, maxWidth: 130, minHeight: 30, maxHeight: 50)
             .shadow(radius: 10)
     }
 }
@@ -263,5 +263,5 @@ struct OmboardingQuestionsBottom:View {
 
 
 #Preview {
-    OmboardingSlider(animation: .constant(true))
+    OmboardingView( formReponseIndetifier: .constant(false))
 }
