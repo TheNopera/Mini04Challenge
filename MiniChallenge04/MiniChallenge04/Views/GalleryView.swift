@@ -105,12 +105,15 @@ struct GalleryView: View {
         Button {
             if let asset = assetAuxiliar {
                 let uiImage = galleryViewModel.getImage(from: asset)
-                if let imageData = uiImage.jpegData(compressionQuality: 1.0) {
-                    StateInfoManager.shared.updateStateFoto(forUF: title.uppercased(), withFoto: imageData)
-                    print(imageData)
+                DispatchQueue.global().async {
+                    if let imageData = uiImage.jpegData(compressionQuality: 1.0) {
+                        DispatchQueue.main.async {
+                            StateInfoManager.shared.updateStateFoto(forUF: title.uppercased(), withFoto: imageData)
+                            print(imageData)
+                            galleryViewModel.isImagePresented = false
+                        }
+                    }
                 }
-                
-                galleryViewModel.isImagePresented = false
             }
         } label: {
             Text("Set")

@@ -51,13 +51,23 @@ struct MapView: View {
             sceneView.allowsCameraControl = false
             sceneView.backgroundColor = .clear
             
-            if let BgImage = UIImage(named: "BG") {
-                sceneView.scene?.background.contents = BgImage
+            if let bgImage = UIImage(named: "BG") {
+                sceneView.scene?.background.contents = bgImage
             }
-            
             
             scene?.rootNode.eulerAngles.x -= 5
             scene?.rootNode.position.y += 5
+            
+            // Definir o alpha das _mesh para 0
+            scene?.rootNode.enumerateChildNodes { node, _ in
+                if let geometryName = node.geometry?.name, geometryName.hasSuffix("_mesh") {
+                    node.geometry?.firstMaterial?.diffuse.contents = UIColor(white: 0, alpha: 0)
+                }
+            }
+            
+            // Adicionar gesto de toque antes dos gestos de pinch e pan
+            let tapGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(context.coordinator.handleTap(_:)))
+            sceneView.addGestureRecognizer(tapGesture)
             
             let pinchGesture = UIPinchGestureRecognizer(target: context.coordinator, action: #selector(context.coordinator.handlePinch(_:)))
             sceneView.addGestureRecognizer(pinchGesture)
@@ -69,36 +79,33 @@ struct MapView: View {
             pinchGesture.delegate = context.coordinator
             panGesture.delegate = context.coordinator
             
-            scene?.rootNode.enumerateChildNodes { node, _ in
-                if node.geometry != nil {
-                    let tapGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(context.coordinator.handleTap(_:)))
-                    sceneView.addGestureRecognizer(tapGesture)
-                    
-                    let randomColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
-                    
-                    if let geometryName = node.geometry?.name, geometryName.hasSuffix("_mesh") {
-                        
-                        if let uf = geometryName.split(separator: "_").first.map({ String($0 )})  {
-                            
-                            if let imageData = StateInfoManager.shared.getStateFoto(forUF: String(uf)) {
-                                
-                                let image = UIImage(data: imageData)
-                                
-                                node.geometry?.firstMaterial?.diffuse.contents = image
-                            } else {
-                                node.geometry?.firstMaterial?.diffuse.contents = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
-                            }
-                            
-                        }
-                        
-                        
-                    }
-                    
-                }
-            }
+            loadStateImages(scene: sceneView.scene)
             
             return sceneView
         }
+
+
+        
+        private func loadStateImages(scene: SCNScene?) {
+                DispatchQueue.global().async {
+                    scene?.rootNode.enumerateChildNodes { node, _ in
+                        if let geometryName = node.geometry?.name, geometryName.hasSuffix("_mesh") {
+                            
+                            node.geometry?.firstMaterial?.diffuse.contents = UIColor(white: 0, alpha: 0)
+                            
+                            if let uf = geometryName.split(separator: "_").first.map({ String($0) }) {
+                                if let imageData = StateInfoManager.shared.getStateFoto(forUF: uf) {
+                                    if let image = UIImage(data: imageData) {
+                                        DispatchQueue.main.async {
+                                            node.geometry?.firstMaterial?.diffuse.contents = image
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         
         func updateUIView(_ uiView: SCNView, context: Context) {}
         
