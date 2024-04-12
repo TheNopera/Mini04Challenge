@@ -42,8 +42,14 @@ struct OmboardingSlider:View {
     @StateObject var omboardingViewModel = OmboardingViewModel()
     var body: some View {
         VStack(spacing:10){
-            Text("Explore Suas Melhores Memórias").multilineTextAlignment(.center).font(.title).foregroundStyle(.white)
-            Text("Vamos viajar no tempo?").foregroundStyle(.white)
+            Text("Explore Suas Melhores Memórias")
+                .multilineTextAlignment(.center)
+                .font(.system(size: 32))
+                .foregroundStyle(.white)
+                .bold()
+            Text("Vamos viajar no tempo?")
+                .font(.system(size: 24))
+                .foregroundStyle(.white)
             Spacer()
             Capsule()
                 .fill(LinearGradient(gradient: Gradient(colors: [Color.white, Color.clear]), startPoint: .leading, endPoint: .trailing))
@@ -102,6 +108,10 @@ struct OmboardingSlider:View {
         
     }
 }
+
+#Preview(body: {
+    OmboardingSlider(animation: .constant(false))
+})
 struct OmboardingQuestionsTop:View {
     @EnvironmentObject var omboardingViewModel: OmboardingViewModel
     
@@ -145,6 +155,7 @@ struct OmboardingQuestionsTop:View {
 struct OmboardingQuestionsMiddle:View {
     @EnvironmentObject var omboardingViewModel: OmboardingViewModel
     @State var adaptiveColuns: [GridItem] = [GridItem(.flexible(), spacing: 0), GridItem(.flexible(), spacing: 0)]
+    
     var body: some View {
         rectangleComponent
             .overlay {
@@ -170,14 +181,20 @@ struct OmboardingQuestionsMiddle:View {
                                         Image(item)
                                             .resizable()
                                             .clipShape(RoundedRectangle(cornerRadius: 15))
-                                            .frame(minWidth: geometry.size.height*0.125, maxWidth: geometry.size.height*0.17, minHeight: geometry.size.height*0.125, maxHeight: geometry.size.height*0.16)
+                                            .frame(
+                                                minWidth: geometry.size.height*0.125,
+                                                maxWidth: geometry.size.height*0.17,
+                                                minHeight: geometry.size.height*0.125,
+                                                maxHeight: geometry.size.height*0.16)
                                             .padding(.horizontal)
                                             
                                         Text(item)
                                             .padding(2)
                                             .font(.system(size: 12))
                                             .foregroundStyle(.black)
-                                    }.padding(5).opacity(omboardingViewModel.isButtonDisabled(value: item) ? 0.5 : 1.0)
+                                }
+                                .padding(5)
+                                .opacity(omboardingViewModel.disabledButtons.contains(item) ? 1 : 0.6)
                                 }).disabled(omboardingViewModel.isButtonDisabled(value: item))
                                 
                             }
@@ -189,14 +206,12 @@ struct OmboardingQuestionsMiddle:View {
     }
     
     private var rectangleComponent : some View{
-        
             Image("CardOmboarding")
                 .resizable()
                 .frame(minWidth: 290 ,maxWidth: 380, minHeight: 500 ,maxHeight: 650)
                 .foregroundStyle(.black)
                 .shadow(radius: 10)
                 .padding(.horizontal)
-        
     }
 }
 
@@ -256,7 +271,10 @@ struct OmboardingQuestionsBottom:View {
     private var buttonComponent: some View{
         RoundedRectangle(cornerRadius: 10)
             .foregroundStyle(.blueSystem)
-            .frame(minWidth: 90, maxWidth: 130, minHeight: 30, maxHeight: 50)
+            .frame(minWidth: 90,
+                   maxWidth: 130,
+                   minHeight: 30,
+                   maxHeight: 50)
             .shadow(radius: 10)
     }
 }

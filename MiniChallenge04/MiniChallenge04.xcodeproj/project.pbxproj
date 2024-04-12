@@ -42,13 +42,42 @@
 		7034C1F82BBF3AEC00651E84 /* OmboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7034C1F72BBF3AEC00651E84 /* OmboardingModel.swift */; };
 		703FEC802BA8BD3400CCF751 /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703FEC7F2BA8BD3400CCF751 /* DataItem.swift */; };
 		703FEC832BA8C9B700CCF751 /* GalleryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703FEC822BA8C9B700CCF751 /* GalleryDataModel.swift */; };
-		7068E8D52BB9D6380068C4BF /* RecommenderCity.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7068E8D42BB9D6380068C4BF /* RecommenderCity.mlmodel */; };
 		7068E8D72BBB373B0068C4BF /* RecomenderCity.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7068E8D62BBB373B0068C4BF /* RecomenderCity.mlmodel */; };
 		706947332BACB1DC0027E9E2 /* OmboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706947322BACB1DC0027E9E2 /* OmboardingView.swift */; };
 		706947352BACB1ED0027E9E2 /* OmboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706947342BACB1ED0027E9E2 /* OmboardingViewModel.swift */; };
 		70CBFB7F2BBDC4CB00069106 /* SwiftUIImageViewer in Frameworks */ = {isa = PBXBuildFile; productRef = 70CBFB7E2BBDC4CB00069106 /* SwiftUIImageViewer */; };
+		70F8954B2BC9A4E5006A21CC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F8954A2BC9A4E5006A21CC /* WidgetKit.framework */; };
+		70F8954D2BC9A4E5006A21CC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F8954C2BC9A4E5006A21CC /* SwiftUI.framework */; };
+		70F895502BC9A4E5006A21CC /* WidgetViewBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F8954F2BC9A4E5006A21CC /* WidgetViewBundle.swift */; };
+		70F895522BC9A4E5006A21CC /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F895512BC9A4E5006A21CC /* WidgetView.swift */; };
+		70F895542BC9A4E5006A21CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70F895532BC9A4E5006A21CC /* Assets.xcassets */; };
+		70F895582BC9A4E5006A21CC /* WidgetViewExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 70F895492BC9A4E5006A21CC /* WidgetViewExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DDCB1D633F14B7DF0CBA91AF /* Pods_MiniChallenge04.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCD00C95CF5B0A7CD6B636A1 /* Pods_MiniChallenge04.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		70F895562BC9A4E5006A21CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62CD74422BA21DFD006F022F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 70F895482BC9A4E5006A21CC;
+			remoteInfo = WidgetViewExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		70F8955C2BC9A4E6006A21CC /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				70F895582BC9A4E5006A21CC /* WidgetViewExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0A2033C32BA4DB7200145F71 /* PROD-Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PROD-Keys.plist"; sourceTree = "<group>"; };
@@ -89,10 +118,16 @@
 		7034C1F72BBF3AEC00651E84 /* OmboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmboardingModel.swift; sourceTree = "<group>"; };
 		703FEC7F2BA8BD3400CCF751 /* DataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
 		703FEC822BA8C9B700CCF751 /* GalleryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDataModel.swift; sourceTree = "<group>"; };
-		7068E8D42BB9D6380068C4BF /* RecommenderCity.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = RecommenderCity.mlmodel; sourceTree = "<group>"; };
 		7068E8D62BBB373B0068C4BF /* RecomenderCity.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = RecomenderCity.mlmodel; sourceTree = "<group>"; };
 		706947322BACB1DC0027E9E2 /* OmboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmboardingView.swift; sourceTree = "<group>"; };
 		706947342BACB1ED0027E9E2 /* OmboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmboardingViewModel.swift; sourceTree = "<group>"; };
+		70F895492BC9A4E5006A21CC /* WidgetViewExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetViewExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		70F8954A2BC9A4E5006A21CC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		70F8954C2BC9A4E5006A21CC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		70F8954F2BC9A4E5006A21CC /* WidgetViewBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewBundle.swift; sourceTree = "<group>"; };
+		70F895512BC9A4E5006A21CC /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
+		70F895532BC9A4E5006A21CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		70F895552BC9A4E5006A21CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72B5C5178C4E36F05E4C9396 /* Pods-MiniChallenge04.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniChallenge04.release.xcconfig"; path = "Target Support Files/Pods-MiniChallenge04/Pods-MiniChallenge04.release.xcconfig"; sourceTree = "<group>"; };
 		BCD00C95CF5B0A7CD6B636A1 /* Pods_MiniChallenge04.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiniChallenge04.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -105,6 +140,15 @@
 				62CD745D2BA21E7A006F022F /* GooglePlaces in Frameworks */,
 				DDCB1D633F14B7DF0CBA91AF /* Pods_MiniChallenge04.framework in Frameworks */,
 				70CBFB7F2BBDC4CB00069106 /* SwiftUIImageViewer in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70F895462BC9A4E5006A21CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70F8954D2BC9A4E5006A21CC /* SwiftUI.framework in Frameworks */,
+				70F8954B2BC9A4E5006A21CC /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,7 +210,6 @@
 			isa = PBXGroup;
 			children = (
 				7068E8D62BBB373B0068C4BF /* RecomenderCity.mlmodel */,
-				7068E8D42BB9D6380068C4BF /* RecommenderCity.mlmodel */,
 				6E73001F2BB35A7B00D9FB73 /* UFLocalization.mlmodel */,
 				62B5E6C42BA3699600E3ED07 /* PlacesModel.swift */,
 				62096CB72BC57432001C921C /* MapModel.swift */,
@@ -182,6 +225,7 @@
 			children = (
 				0A2033C32BA4DB7200145F71 /* PROD-Keys.plist */,
 				62CD744C2BA21DFD006F022F /* MiniChallenge04 */,
+				70F8954E2BC9A4E5006A21CC /* WidgetView */,
 				62CD744B2BA21DFD006F022F /* Products */,
 				C051BA09DB1F73FBA01C08C5 /* Pods */,
 				806F97F4E8F5BA75A982C82C /* Frameworks */,
@@ -192,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				62CD744A2BA21DFD006F022F /* MiniChallenge04.app */,
+				70F895492BC9A4E5006A21CC /* WidgetViewExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -232,10 +277,23 @@
 			path = DataModel;
 			sourceTree = "<group>";
 		};
+		70F8954E2BC9A4E5006A21CC /* WidgetView */ = {
+			isa = PBXGroup;
+			children = (
+				70F8954F2BC9A4E5006A21CC /* WidgetViewBundle.swift */,
+				70F895512BC9A4E5006A21CC /* WidgetView.swift */,
+				70F895532BC9A4E5006A21CC /* Assets.xcassets */,
+				70F895552BC9A4E5006A21CC /* Info.plist */,
+			);
+			path = WidgetView;
+			sourceTree = "<group>";
+		};
 		806F97F4E8F5BA75A982C82C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				BCD00C95CF5B0A7CD6B636A1 /* Pods_MiniChallenge04.framework */,
+				70F8954A2BC9A4E5006A21CC /* WidgetKit.framework */,
+				70F8954C2BC9A4E5006A21CC /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -261,10 +319,12 @@
 				62CD74472BA21DFD006F022F /* Frameworks */,
 				62CD74482BA21DFD006F022F /* Resources */,
 				729F21D92D1F31B29F3E6833 /* [CP] Embed Pods Frameworks */,
+				70F8955C2BC9A4E6006A21CC /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				70F895572BC9A4E5006A21CC /* PBXTargetDependency */,
 			);
 			name = MiniChallenge04;
 			packageProductDependencies = (
@@ -275,6 +335,23 @@
 			productReference = 62CD744A2BA21DFD006F022F /* MiniChallenge04.app */;
 			productType = "com.apple.product-type.application";
 		};
+		70F895482BC9A4E5006A21CC /* WidgetViewExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 70F895592BC9A4E6006A21CC /* Build configuration list for PBXNativeTarget "WidgetViewExtension" */;
+			buildPhases = (
+				70F895452BC9A4E5006A21CC /* Sources */,
+				70F895462BC9A4E5006A21CC /* Frameworks */,
+				70F895472BC9A4E5006A21CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WidgetViewExtension;
+			productName = WidgetViewExtension;
+			productReference = 70F895492BC9A4E5006A21CC /* WidgetViewExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -282,11 +359,17 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
+				KnownAssetTags = (
+					New,
+				);
+				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					62CD74492BA21DFD006F022F = {
 						CreatedOnToolsVersion = 15.0.1;
+					};
+					70F895482BC9A4E5006A21CC = {
+						CreatedOnToolsVersion = 15.3;
 					};
 				};
 			};
@@ -308,6 +391,7 @@
 			projectRoot = "";
 			targets = (
 				62CD74492BA21DFD006F022F /* MiniChallenge04 */,
+				70F895482BC9A4E5006A21CC /* WidgetViewExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -320,6 +404,14 @@
 				0A7B44C92BBB4EF000B1CFA5 /* MapaBrasil3D.dae in Resources */,
 				62CD74552BA21DFF006F022F /* Preview Assets.xcassets in Resources */,
 				62CD74522BA21DFF006F022F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70F895472BC9A4E5006A21CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70F895542BC9A4E5006A21CC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,7 +465,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7068E8D72BBB373B0068C4BF /* RecomenderCity.mlmodel in Sources */,
-				7068E8D52BB9D6380068C4BF /* RecommenderCity.mlmodel in Sources */,
 				706947352BACB1ED0027E9E2 /* OmboardingViewModel.swift in Sources */,
 				706947332BACB1DC0027E9E2 /* OmboardingView.swift in Sources */,
 				0A2033C82BA4DCCA00145F71 /* MiniChallenge04App.swift in Sources */,
@@ -410,7 +501,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		70F895452BC9A4E5006A21CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70F895522BC9A4E5006A21CC /* WidgetView.swift in Sources */,
+				70F895502BC9A4E5006A21CC /* WidgetViewBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		70F895572BC9A4E5006A21CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 70F895482BC9A4E5006A21CC /* WidgetViewExtension */;
+			targetProxy = 70F895562BC9A4E5006A21CC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		62CD74562BA21DFF006F022F /* Debug */ = {
@@ -536,15 +644,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 12292422961DBE13E3111C71 /* Pods-MiniChallenge04.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MiniChallenge04/MiniChallenge04.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniChallenge04/Preview Content\"";
-
-				DEVELOPMENT_TEAM = H6ULSPHHN4;
-
+				DEVELOPMENT_TEAM = CU2V2363W7;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -556,6 +663,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -573,14 +681,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 72B5C5178C4E36F05E4C9396 /* Pods-MiniChallenge04.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MiniChallenge04/MiniChallenge04.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniChallenge04/Preview Content\"";
-				DEVELOPMENT_TEAM = H6ULSPHHN4;
-
+				DEVELOPMENT_TEAM = CU2V2363W7;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -592,6 +700,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -599,6 +708,62 @@
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "The-Nopera.MiniChallenge04";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		70F8955A2BC9A4E6006A21CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CU2V2363W7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WidgetView/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WidgetView;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "The-Nopera.MiniChallenge04.WidgetView";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		70F8955B2BC9A4E6006A21CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CU2V2363W7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WidgetView/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WidgetView;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "The-Nopera.MiniChallenge04.WidgetView";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -622,6 +787,15 @@
 			buildConfigurations = (
 				62CD74592BA21DFF006F022F /* Debug */,
 				62CD745A2BA21DFF006F022F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		70F895592BC9A4E6006A21CC /* Build configuration list for PBXNativeTarget "WidgetViewExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70F8955A2BC9A4E6006A21CC /* Debug */,
+				70F8955B2BC9A4E6006A21CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

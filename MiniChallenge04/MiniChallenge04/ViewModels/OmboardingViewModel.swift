@@ -90,7 +90,7 @@ class OmboardingViewModel:ObservableObject{
         }
     
     func switchColor(isCircle:Bool, num:Int) -> Color{
-        withAnimation {
+        withAnimation(.easeInOut) {
             if omboardingCount == (num-1){
                 if isCircle{
                     return .blueSystem
