@@ -154,6 +154,7 @@ struct MapView: View {
                     let deltaY = Float(translation.y / 100.0)
                     sceneView.scene?.rootNode.position.x += deltaX
                     sceneView.scene?.rootNode.position.z -= deltaY
+                    sceneView.scene?.rootNode.position.y -= deltaY
                     lastPanLocation = translation
                     gestureRecognizer.setTranslation(.zero, in: sceneView)
                 default:

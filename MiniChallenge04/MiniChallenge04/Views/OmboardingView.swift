@@ -166,7 +166,7 @@ struct OmboardingQuestionsMiddle:View {
                             .foregroundStyle(.black)
                             .bold()
                             .padding(.horizontal)
-                            .padding(.vertical, 5)
+                            .padding(10)
                             .multilineTextAlignment(.leading)
                             .lineLimit(nil)
                         LazyVGrid(columns: adaptiveColuns, spacing: 0) {
