@@ -62,21 +62,21 @@ class PlacesViewModel : ObservableObject{
     
     //MARK: Get a random place in the array
     @MainActor
-    func getRandomPlace(_ city: String) async -> PlaceCardModel {
+    func getRandomPlace(_ city: String) async -> PlaceCardModel? {
         if !apiIsCallable {
-            return PlaceCardModel(image: UIImage(named: "Image_Load_Failed")!, cityName: city, description: "Erro ao tentar recuperar informações do local")
+            return nil
         }
         do{
             try await getTouristicPlaces(in: city)
             guard let filteredData = placesData.first(where: { $0.cityName == city }) else {
-                return PlaceCardModel(image: UIImage(named: "Image_Load_Failed")!, cityName: city, description: "Erro ao tentar recuperar informações do local")
+                return nil
             }
             let randomPlaceIndex = Int.random(in: 0..<filteredData.places.count)
             
             var img = UIImage()
             
             guard let photos = filteredData.places[randomPlaceIndex].photos else{
-                return PlaceCardModel(image: UIImage(named: "Image_Load_Failed")!, cityName: city, description: "Erro ao tentar recuperar informações do local")
+                return nil
             }
             
             try await img = getImage(imgName: photos.first!.name)
@@ -84,7 +84,7 @@ class PlacesViewModel : ObservableObject{
             return PlaceCardModel(image: img ,cityName: city, placeName: filteredData.places[randomPlaceIndex].displayName.text, description: filteredData.places[randomPlaceIndex].editorialSummary?.text, author: photos.first!.authorAttributions.first?.displayName)
         }
         catch{
-            return PlaceCardModel(image: UIImage(named: "Image_Load_Failed")!, cityName: city, description: "Erro ao tentar recuperar informações do local")
+           return nil
             
         }
         
@@ -113,7 +113,9 @@ class PlacesViewModel : ObservableObject{
         while contents < recommendations.count{
             for i in (contents - 5)..<contents{
                 do{
-                    let fetchPlace = await self.getRandomPlace(recommendations[i].placeName!)
+                    guard let fetchPlace = await self.getRandomPlace(recommendations[i].placeName!) else{
+                        continue
+                    }
                     categoryPlaces.append(fetchPlace)
                 }
             }

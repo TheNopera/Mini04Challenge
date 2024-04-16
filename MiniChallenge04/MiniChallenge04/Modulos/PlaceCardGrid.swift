@@ -24,7 +24,10 @@ struct PlaceCardGrid: View {
         .toolbar(.hidden, for: .tabBar)
         .task {
             Task{
-               await self.vm.getCategoryPlaces(for:categoryName)
+                if vm.categoryPlaces.isEmpty{
+                    await self.vm.getCategoryPlaces(for:categoryName)
+                }
+              
             }
         }
     }
