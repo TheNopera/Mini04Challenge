@@ -53,6 +53,7 @@ struct MapView: View {
             sceneView.autoenablesDefaultLighting = true
             sceneView.allowsCameraControl = false
             sceneView.backgroundColor = .clear
+
             
             scene?.rootNode.eulerAngles.x -= 5
             scene?.rootNode.position.y += 5
@@ -137,11 +138,36 @@ struct MapView: View {
                     let currentScale = CGFloat(sceneView.scene?.rootNode.scale.x ?? 1.0)
                     let scaled = min(max(newScale * currentScale, 1), 10.0)
                     sceneView.scene?.rootNode.scale = SCNVector3(scaled, scaled, scaled)
+                    
+                    // Rotação no eixo Z da câmera
+                    
+                    
+                    let rotationAngle = (pinchScale - lastScale) * -0.5 // Ajuste o valor conforme necessário
+                    
+                    print(sceneView.scene?.rootNode.eulerAngles.x ?? 1.0)
+                    
+                    
+                    if sceneView.scene?.rootNode.eulerAngles.x ?? 1.0 < -4.9 && sceneView.scene?.rootNode.eulerAngles.x ?? 1.0 >= -6{
+                        sceneView.scene?.rootNode.eulerAngles.x += Float(rotationAngle)
+                    } else {
+                        if sceneView.scene?.rootNode.eulerAngles.x ?? 1.0 < -4.8 {
+                            sceneView.scene?.rootNode.eulerAngles.x -= 0.1
+                        }
+                        
+                        if sceneView.scene?.rootNode.eulerAngles.x ?? 1.0 <= -5 {
+                            sceneView.scene?.rootNode.eulerAngles.x += 0.1
+                        }
+                    }
+                    
                     lastScale = pinchScale
                 default:
+                    let normalizedRotationAction = SCNAction.rotateTo(x: -5, y: 0, z: 0, duration: 0.5)
+                    sceneView.scene?.rootNode.runAction(normalizedRotationAction)
                     break
                 }
             }
+
+
             
             @objc func handlePan(_ gestureRecognizer: UIPanGestureRecognizer) {
                 guard let sceneView = gestureRecognizer.view as? SCNView else { return }
@@ -153,7 +179,7 @@ struct MapView: View {
                     let deltaY = Float(translation.y / 100.0)
                     sceneView.scene?.rootNode.position.x += deltaX
                     sceneView.scene?.rootNode.position.z -= deltaY
-                    sceneView.scene?.rootNode.position.y -= deltaY
+
                     lastPanLocation = translation
                     gestureRecognizer.setTranslation(.zero, in: sceneView)
                 default:
