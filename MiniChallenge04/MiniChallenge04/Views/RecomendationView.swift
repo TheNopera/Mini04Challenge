@@ -15,7 +15,7 @@ struct RecomendationView: View {
     @State var isCurrentlyRefreshing = false
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 ScrollView {
                     if isCurrentlyRefreshing {
@@ -61,6 +61,8 @@ struct RecomendationView: View {
                     }
                 }
             }
+            
+            .toolbar(.visible, for: .tabBar)
             .task {
                 let states = viewModel.getStates(quant: 4)
                 self.recommendations = states

@@ -49,6 +49,7 @@ struct PlaceCard: View {
                                 .frame(width: 15, height: 15)
                             Text(cityName)
                                 .bold()
+                                .tint(.black)
                             Spacer()
                         }
                     }.frame(width: 155)
