@@ -20,9 +20,12 @@ struct MapView: View {
                     
                     GalleryView(title: selectedUF ?? "", isPresente: $isPresented )
                 } else {
+                    LinearGradient(gradient: Gradient(colors: [.backgroundMap1, .backgroundMap2]), startPoint: .top, endPoint: .bottom)
+                                .edgesIgnoringSafeArea(.all)
                     SceneKitView(selectedUF: $selectedUF, isPresented: $isPresented)
                     //                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                         .edgesIgnoringSafeArea(.top)
+                    
                 }
                 
             }
@@ -50,10 +53,6 @@ struct MapView: View {
             sceneView.autoenablesDefaultLighting = true
             sceneView.allowsCameraControl = false
             sceneView.backgroundColor = .clear
-            
-            if let bgImage = UIImage(named: "BG") {
-                sceneView.scene?.background.contents = bgImage
-            }
             
             scene?.rootNode.eulerAngles.x -= 5
             scene?.rootNode.position.y += 5

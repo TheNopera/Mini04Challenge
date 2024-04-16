@@ -186,7 +186,18 @@ struct OmboardingQuestionsMiddle:View {
                                                 maxWidth: geometry.size.height*0.17,
                                                 minHeight: geometry.size.height*0.125,
                                                 maxHeight: geometry.size.height*0.16)
+                                            .overlay {
+                                                if omboardingViewModel.disabledButtons.contains(item){
+                                                    RoundedRectangle(cornerRadius: 15)
+                                                        .stroke(lineWidth: 5.0)
+                                                        .frame(width: .infinity, height: .infinity)
+                                                        .foregroundStyle(.blueSystem)
+                                                        
+                                                }
+                                                    
+                                            }
                                             .padding(.horizontal)
+                                            
                                             
                                         Text(item)
                                             .padding(2)
@@ -195,6 +206,7 @@ struct OmboardingQuestionsMiddle:View {
                                 }
                                 .padding(5)
                                 .opacity(omboardingViewModel.disabledButtons.contains(item) ? 1 : 0.6)
+                                .brightness(omboardingViewModel.disabledButtons.contains(item) ? 0.1 : 0)
                                 }).disabled(omboardingViewModel.isButtonDisabled(value: item))
                                 
                             }
