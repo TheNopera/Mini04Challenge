@@ -21,12 +21,14 @@ struct PlaceCardGrid: View {
             }.navigationTitle(categoryName)
             
         }
+        .toolbar(.hidden, for: .tabBar)
         .task {
             Task{
                await self.vm.getCategoryPlaces(for:categoryName)
             }
         }
     }
+    
 }
 #Preview {
     PlaceCardGrid(categoryName: "Acampamento", cityName: nil)
