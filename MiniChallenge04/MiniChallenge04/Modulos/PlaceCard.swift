@@ -55,8 +55,9 @@ struct PlaceCard: View {
                 }
             }
             .task {
-                print("called")
+               
                 if vm.placesData.isEmpty && self.placeCard == nil{
+                    print("called")
                     updateImage()
                 }
             }
@@ -74,8 +75,13 @@ struct PlaceCard: View {
     @MainActor
     func updateImage(){
         Task{
+            var response : PlaceCardModel?
             vm.placesData.removeAll()
-            self.placeCard = await vm.getRandomPlace(self.cityName)
+            while response == nil{
+                response = await vm.getRandomPlace(self.cityName)
+            }
+           
+            self.placeCard = response
             vm.apiIsCallable = false
         }
     }

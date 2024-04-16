@@ -23,7 +23,10 @@ struct PlaceCardGrid: View {
         }
         .task {
             Task{
-               await self.vm.getCategoryPlaces(for:categoryName)
+                if vm.categoryPlaces.isEmpty{
+                    await self.vm.getCategoryPlaces(for:categoryName)
+                }
+              
             }
         }
     }
