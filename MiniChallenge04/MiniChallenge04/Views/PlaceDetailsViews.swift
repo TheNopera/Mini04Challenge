@@ -45,6 +45,7 @@ struct PlaceDetailView : View {
             }.foregroundStyle(.white)
             
         }
+        .toolbar(.hidden, for: .tabBar)
         .navigationBarBackButtonHidden(true)
         .padding([.horizontal,.bottom], 30)
         .background(

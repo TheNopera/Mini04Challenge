@@ -30,6 +30,7 @@ struct CategoryCard:View {
             }
                 Text(categoria)
                     .font(.custom("Bold", size: 15))
+                    .tint(.black)
 
         }
         .padding(2)
