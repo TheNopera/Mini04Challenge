@@ -42,3 +42,4 @@ struct Place: Codable {
 struct PlacesResponse: Codable {
     var places: [Place]
 }
+

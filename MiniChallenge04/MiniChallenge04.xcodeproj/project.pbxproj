@@ -45,24 +45,8 @@
 		706947332BACB1DC0027E9E2 /* OmboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706947322BACB1DC0027E9E2 /* OmboardingView.swift */; };
 		706947352BACB1ED0027E9E2 /* OmboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706947342BACB1ED0027E9E2 /* OmboardingViewModel.swift */; };
 		70CBFB7F2BBDC4CB00069106 /* SwiftUIImageViewer in Frameworks */ = {isa = PBXBuildFile; productRef = 70CBFB7E2BBDC4CB00069106 /* SwiftUIImageViewer */; };
-		70F8954B2BC9A4E5006A21CC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F8954A2BC9A4E5006A21CC /* WidgetKit.framework */; };
-		70F8954D2BC9A4E5006A21CC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F8954C2BC9A4E5006A21CC /* SwiftUI.framework */; };
-		70F895502BC9A4E5006A21CC /* WidgetViewBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F8954F2BC9A4E5006A21CC /* WidgetViewBundle.swift */; };
-		70F895522BC9A4E5006A21CC /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F895512BC9A4E5006A21CC /* WidgetView.swift */; };
-		70F895542BC9A4E5006A21CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70F895532BC9A4E5006A21CC /* Assets.xcassets */; };
-		70F895582BC9A4E5006A21CC /* WidgetViewExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 70F895492BC9A4E5006A21CC /* WidgetViewExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DDCB1D633F14B7DF0CBA91AF /* Pods_MiniChallenge04.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCD00C95CF5B0A7CD6B636A1 /* Pods_MiniChallenge04.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		70F895562BC9A4E5006A21CC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 62CD74422BA21DFD006F022F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 70F895482BC9A4E5006A21CC;
-			remoteInfo = WidgetViewExtension;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		70F8955C2BC9A4E6006A21CC /* Embed Foundation Extensions */ = {
@@ -71,7 +55,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				70F895582BC9A4E5006A21CC /* WidgetViewExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,7 +102,6 @@
 		7068E8D62BBB373B0068C4BF /* RecomenderCity.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = RecomenderCity.mlmodel; sourceTree = "<group>"; };
 		706947322BACB1DC0027E9E2 /* OmboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmboardingView.swift; sourceTree = "<group>"; };
 		706947342BACB1ED0027E9E2 /* OmboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmboardingViewModel.swift; sourceTree = "<group>"; };
-		70F895492BC9A4E5006A21CC /* WidgetViewExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetViewExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		70F8954A2BC9A4E5006A21CC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		70F8954C2BC9A4E5006A21CC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		70F8954F2BC9A4E5006A21CC /* WidgetViewBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewBundle.swift; sourceTree = "<group>"; };
@@ -138,15 +120,6 @@
 				62CD745D2BA21E7A006F022F /* GooglePlaces in Frameworks */,
 				DDCB1D633F14B7DF0CBA91AF /* Pods_MiniChallenge04.framework in Frameworks */,
 				70CBFB7F2BBDC4CB00069106 /* SwiftUIImageViewer in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		70F895462BC9A4E5006A21CC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				70F8954D2BC9A4E5006A21CC /* SwiftUI.framework in Frameworks */,
-				70F8954B2BC9A4E5006A21CC /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,7 +206,6 @@
 			isa = PBXGroup;
 			children = (
 				62CD744A2BA21DFD006F022F /* MiniChallenge04.app */,
-				70F895492BC9A4E5006A21CC /* WidgetViewExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -321,7 +293,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				70F895572BC9A4E5006A21CC /* PBXTargetDependency */,
 			);
 			name = MiniChallenge04;
 			packageProductDependencies = (
@@ -331,23 +302,6 @@
 			productName = MiniChallenge04;
 			productReference = 62CD744A2BA21DFD006F022F /* MiniChallenge04.app */;
 			productType = "com.apple.product-type.application";
-		};
-		70F895482BC9A4E5006A21CC /* WidgetViewExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 70F895592BC9A4E6006A21CC /* Build configuration list for PBXNativeTarget "WidgetViewExtension" */;
-			buildPhases = (
-				70F895452BC9A4E5006A21CC /* Sources */,
-				70F895462BC9A4E5006A21CC /* Frameworks */,
-				70F895472BC9A4E5006A21CC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = WidgetViewExtension;
-			productName = WidgetViewExtension;
-			productReference = 70F895492BC9A4E5006A21CC /* WidgetViewExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -364,9 +318,6 @@
 				TargetAttributes = {
 					62CD74492BA21DFD006F022F = {
 						CreatedOnToolsVersion = 15.0.1;
-					};
-					70F895482BC9A4E5006A21CC = {
-						CreatedOnToolsVersion = 15.3;
 					};
 				};
 			};
@@ -388,7 +339,6 @@
 			projectRoot = "";
 			targets = (
 				62CD74492BA21DFD006F022F /* MiniChallenge04 */,
-				70F895482BC9A4E5006A21CC /* WidgetViewExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -401,14 +351,6 @@
 				0A7B44C92BBB4EF000B1CFA5 /* MapaBrasil3D.dae in Resources */,
 				62CD74552BA21DFF006F022F /* Preview Assets.xcassets in Resources */,
 				62CD74522BA21DFF006F022F /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		70F895472BC9A4E5006A21CC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				70F895542BC9A4E5006A21CC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,24 +439,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		70F895452BC9A4E5006A21CC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				70F895522BC9A4E5006A21CC /* WidgetView.swift in Sources */,
-				70F895502BC9A4E5006A21CC /* WidgetViewBundle.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		70F895572BC9A4E5006A21CC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 70F895482BC9A4E5006A21CC /* WidgetViewExtension */;
-			targetProxy = 70F895562BC9A4E5006A21CC /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		62CD74562BA21DFF006F022F /* Debug */ = {
@@ -647,20 +572,19 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniChallenge04/Preview Content\"";
-
-				DEVELOPMENT_TEAM = H6ULSPHHN4;
-
+				DEVELOPMENT_TEAM = L4N6N49H26;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MiniChallenge04/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Por favor autorize para sabermos a distancia do local";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "exemplo teste";
+				INFOPLIST_KEY_CFBundleDisplayName = "PicMap BR";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Por favor, autorize, nosso aplicativo utiliza suas fotos apenas para coloca-las no mapa, não salvamos elas pois puxamos elas da galeria, e não possuimos banco de dados que salve imagens pessoais";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -669,9 +593,13 @@
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "The-Nopera.MiniChallenge04";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -686,20 +614,19 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniChallenge04/Preview Content\"";
-
-				DEVELOPMENT_TEAM = H6ULSPHHN4;
-
+				DEVELOPMENT_TEAM = L4N6N49H26;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MiniChallenge04/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Por favor autorize para sabermos a distancia do local";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "exemplo teste";
+				INFOPLIST_KEY_CFBundleDisplayName = "PicMap BR";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Por favor, autorize, nosso aplicativo utiliza suas fotos apenas para coloca-las no mapa, não salvamos elas pois puxamos elas da galeria, e não possuimos banco de dados que salve imagens pessoais";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -708,65 +635,13 @@
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "The-Nopera.MiniChallenge04";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		70F8955A2BC9A4E6006A21CC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = CU2V2363W7;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WidgetView/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = WidgetView;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "The-Nopera.MiniChallenge04.WidgetView";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		70F8955B2BC9A4E6006A21CC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = CU2V2363W7;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WidgetView/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = WidgetView;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "The-Nopera.MiniChallenge04.WidgetView";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -787,15 +662,6 @@
 			buildConfigurations = (
 				62CD74592BA21DFF006F022F /* Debug */,
 				62CD745A2BA21DFF006F022F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		70F895592BC9A4E6006A21CC /* Build configuration list for PBXNativeTarget "WidgetViewExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				70F8955A2BC9A4E6006A21CC /* Debug */,
-				70F8955B2BC9A4E6006A21CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
