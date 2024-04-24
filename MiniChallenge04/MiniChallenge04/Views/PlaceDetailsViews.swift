@@ -28,10 +28,20 @@ struct PlaceDetailView : View {
                                 .frame(height: 1)
                                 .foregroundStyle(.white)
                             LocationInfo(place: place?.cityName ?? "")
-                            Link(destination: googleSearchURL(searchText: place?.cityName ?? ""), label: {
-                                           Text("Search on Google")
-                                    .buttonStyle(.bordered)
-                                       })
+                           
+                            HStack{
+                                Link(destination: googleSearchURL(searchText: place?.cityName ?? ""), label: {
+                                               Text("Search on Google")
+                                        .buttonStyle(.bordered)
+                                           })
+                                Spacer()
+                                Image(systemName: "applelogo")
+                                    .resizable()
+                                    .frame(width: 17, height: 20)
+                                    .foregroundColor(.white)
+                                Text("Weather")
+                                    .foregroundColor(.white)
+                            }
                           
                         }.padding(.top)
                         Spacer()
@@ -45,6 +55,7 @@ struct PlaceDetailView : View {
             }.foregroundStyle(.white)
             
         }
+        .toolbar(.hidden, for: .tabBar)
         .navigationBarBackButtonHidden(true)
         .padding([.horizontal,.bottom], 30)
         .background(

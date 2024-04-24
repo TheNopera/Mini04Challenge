@@ -15,20 +15,22 @@ struct OmboardingView: View {
     @Binding var formReponseIndetifier:Bool
     var body: some View {
         NavigationStack{
-            VStack{
-           
-                OmboardingQuestionsTop()
-                OmboardingQuestionsMiddle()
-                OmboardingQuestionsBottom(formReponseIndetifier: $formReponseIndetifier)
-
+            ZStack{
+                VStack{
+                }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(
+                        Image("FormBackground")
+                            .resizable()
+                            .scaledToFill()
+                    )
+                    .ignoresSafeArea(.all)
+                VStack{
+                    OmboardingQuestionsTop()
+                    OmboardingQuestionsMiddle()
+                    OmboardingQuestionsBottom(formReponseIndetifier: $formReponseIndetifier)
+                }
             }.environmentObject(omboardingViewModel)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(
-                    Image("FormBackground")
-                        .resizable()
-                        .scaledToFill()
-                )
-                .edgesIgnoringSafeArea(.all)
         }
     }
 }
@@ -40,8 +42,14 @@ struct OmboardingSlider:View {
     @StateObject var omboardingViewModel = OmboardingViewModel()
     var body: some View {
         VStack(spacing:10){
-            Text("Explore Suas Melhores Memórias").multilineTextAlignment(.center).font(.title).foregroundStyle(.white)
-            Text("Vamos viajar no tempo?").foregroundStyle(.white)
+            Text("Explore Suas Melhores Memórias")
+                .multilineTextAlignment(.center)
+                .font(.system(size: 32))
+                .foregroundStyle(.white)
+                .bold()
+            Text("Vamos viajar no tempo?")
+                .font(.system(size: 24))
+                .foregroundStyle(.white)
             Spacer()
             Capsule()
                 .fill(LinearGradient(gradient: Gradient(colors: [Color.white, Color.clear]), startPoint: .leading, endPoint: .trailing))
@@ -100,6 +108,10 @@ struct OmboardingSlider:View {
         
     }
 }
+
+#Preview(body: {
+    OmboardingSlider(animation: .constant(false))
+})
 struct OmboardingQuestionsTop:View {
     @EnvironmentObject var omboardingViewModel: OmboardingViewModel
     
@@ -135,7 +147,7 @@ struct OmboardingQuestionsTop:View {
                     }
                 }
             }
-        }
+        }.padding(10)
     }
     
     
@@ -143,6 +155,7 @@ struct OmboardingQuestionsTop:View {
 struct OmboardingQuestionsMiddle:View {
     @EnvironmentObject var omboardingViewModel: OmboardingViewModel
     @State var adaptiveColuns: [GridItem] = [GridItem(.flexible(), spacing: 0), GridItem(.flexible(), spacing: 0)]
+    
     var body: some View {
         rectangleComponent
             .overlay {
@@ -152,7 +165,8 @@ struct OmboardingQuestionsMiddle:View {
                             .font(.system(size: 18))
                             .foregroundStyle(.black)
                             .bold()
-                            .padding()
+                            .padding(.horizontal)
+                            .padding(10)
                             .multilineTextAlignment(.leading)
                             .lineLimit(nil)
                         LazyVGrid(columns: adaptiveColuns, spacing: 0) {
@@ -161,23 +175,38 @@ struct OmboardingQuestionsMiddle:View {
                                 Button(action: {
                                     omboardingViewModel.formAdd(value: value, item: item)
                                     omboardingViewModel.disableButton(value: item)
-                                    print(omboardingViewModel.disabledButtons)
                                     omboardingViewModel.contLimitButtons += 1
                                 }, label: {
-                                    
-                                    VStack(spacing:0) {
-                                        
+                                VStack(spacing:0) {
                                         Image(item)
                                             .resizable()
                                             .clipShape(RoundedRectangle(cornerRadius: 15))
-                                            .frame(minWidth: 80, maxWidth: 120, minHeight: geometry.size.height*0.14, maxHeight: geometry.size.height*0.15)
-                                            .padding(10)
+                                            .frame(
+                                                minWidth: geometry.size.height*0.125,
+                                                maxWidth: geometry.size.height*0.17,
+                                                minHeight: geometry.size.height*0.125,
+                                                maxHeight: geometry.size.height*0.16)
+                                            .overlay {
+                                                if omboardingViewModel.disabledButtons.contains(item){
+                                                    RoundedRectangle(cornerRadius: 15)
+                                                        .stroke(lineWidth: 5.0)
+                                                        .frame(width: .infinity, height: .infinity)
+                                                        .foregroundStyle(.blueSystem)
+                                                        
+                                                }
+                                                    
+                                            }
+                                            .padding(.horizontal)
+                                            
                                             
                                         Text(item)
-                                            .padding(-5)
+                                            .padding(2)
                                             .font(.system(size: 12))
                                             .foregroundStyle(.black)
-                                    }.padding(5).opacity(omboardingViewModel.isButtonDisabled(value: item) ? 0.5 : 1.0)
+                                }
+                                .padding(5)
+                                .opacity(omboardingViewModel.disabledButtons.contains(item) ? 1 : 0.6)
+                                .brightness(omboardingViewModel.disabledButtons.contains(item) ? 0.1 : 0)
                                 }).disabled(omboardingViewModel.isButtonDisabled(value: item))
                                 
                             }
@@ -189,13 +218,12 @@ struct OmboardingQuestionsMiddle:View {
     }
     
     private var rectangleComponent : some View{
-        ZStack{
             Image("CardOmboarding")
                 .resizable()
-                .frame(width: 330, height: 570)
+                .frame(minWidth: 290 ,maxWidth: 380, minHeight: 500 ,maxHeight: 650)
                 .foregroundStyle(.black)
                 .shadow(radius: 10)
-        }
+                .padding(.horizontal)
     }
 }
 
@@ -204,7 +232,7 @@ struct OmboardingQuestionsBottom:View {
     @State var isButtonClick: Bool = false
     @Binding var formReponseIndetifier:Bool
     var body: some View {
-        HStack(spacing:50){
+        HStack(spacing: 100){
             Button(action: {
                 omboardingViewModel.backForm()
             }, label: {
@@ -255,7 +283,10 @@ struct OmboardingQuestionsBottom:View {
     private var buttonComponent: some View{
         RoundedRectangle(cornerRadius: 10)
             .foregroundStyle(.blueSystem)
-            .frame(width: 130, height: 50)
+            .frame(minWidth: 90,
+                   maxWidth: 130,
+                   minHeight: 30,
+                   maxHeight: 50)
             .shadow(radius: 10)
     }
 }
@@ -263,5 +294,5 @@ struct OmboardingQuestionsBottom:View {
 
 
 #Preview {
-    OmboardingSlider(animation: .constant(true))
+    OmboardingView( formReponseIndetifier: .constant(false))
 }

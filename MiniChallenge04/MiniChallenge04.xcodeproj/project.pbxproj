@@ -30,7 +30,6 @@
 		62B5E6C22BA23C6100E3ED07 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B5E6C12BA23C6100E3ED07 /* Errors.swift */; };
 		62B5E6C52BA3699600E3ED07 /* PlacesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B5E6C42BA3699600E3ED07 /* PlacesModel.swift */; };
 		62B903882BC4564300C3FC07 /* PlaceDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B903872BC4564300C3FC07 /* PlaceDetailVM.swift */; };
-		62B9038B2BC4869A00C3FC07 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B9038A2BC4869A00C3FC07 /* LocationManager.swift */; };
 		62CD74502BA21DFD006F022F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CD744F2BA21DFD006F022F /* ContentView.swift */; };
 		62CD74522BA21DFF006F022F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CD74512BA21DFF006F022F /* Assets.xcassets */; };
 		62CD74552BA21DFF006F022F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CD74542BA21DFF006F022F /* Preview Assets.xcassets */; };
@@ -42,13 +41,25 @@
 		7034C1F82BBF3AEC00651E84 /* OmboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7034C1F72BBF3AEC00651E84 /* OmboardingModel.swift */; };
 		703FEC802BA8BD3400CCF751 /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703FEC7F2BA8BD3400CCF751 /* DataItem.swift */; };
 		703FEC832BA8C9B700CCF751 /* GalleryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703FEC822BA8C9B700CCF751 /* GalleryDataModel.swift */; };
-		7068E8D52BB9D6380068C4BF /* RecommenderCity.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7068E8D42BB9D6380068C4BF /* RecommenderCity.mlmodel */; };
 		7068E8D72BBB373B0068C4BF /* RecomenderCity.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7068E8D62BBB373B0068C4BF /* RecomenderCity.mlmodel */; };
 		706947332BACB1DC0027E9E2 /* OmboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706947322BACB1DC0027E9E2 /* OmboardingView.swift */; };
 		706947352BACB1ED0027E9E2 /* OmboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706947342BACB1ED0027E9E2 /* OmboardingViewModel.swift */; };
 		70CBFB7F2BBDC4CB00069106 /* SwiftUIImageViewer in Frameworks */ = {isa = PBXBuildFile; productRef = 70CBFB7E2BBDC4CB00069106 /* SwiftUIImageViewer */; };
 		DDCB1D633F14B7DF0CBA91AF /* Pods_MiniChallenge04.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCD00C95CF5B0A7CD6B636A1 /* Pods_MiniChallenge04.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		70F8955C2BC9A4E6006A21CC /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0A2033C32BA4DB7200145F71 /* PROD-Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PROD-Keys.plist"; sourceTree = "<group>"; };
@@ -77,7 +88,6 @@
 		62B5E6C42BA3699600E3ED07 /* PlacesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesModel.swift; sourceTree = "<group>"; };
 		62B903872BC4564300C3FC07 /* PlaceDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailVM.swift; sourceTree = "<group>"; };
 		62B903892BC458AD00C3FC07 /* MiniChallenge04.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MiniChallenge04.entitlements; sourceTree = "<group>"; };
-		62B9038A2BC4869A00C3FC07 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = MiniChallenge04/Utility/LocationManager.swift; sourceTree = SOURCE_ROOT; };
 		62CD744A2BA21DFD006F022F /* MiniChallenge04.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniChallenge04.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62CD744F2BA21DFD006F022F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		62CD74512BA21DFF006F022F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,10 +99,15 @@
 		7034C1F72BBF3AEC00651E84 /* OmboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmboardingModel.swift; sourceTree = "<group>"; };
 		703FEC7F2BA8BD3400CCF751 /* DataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
 		703FEC822BA8C9B700CCF751 /* GalleryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDataModel.swift; sourceTree = "<group>"; };
-		7068E8D42BB9D6380068C4BF /* RecommenderCity.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = RecommenderCity.mlmodel; sourceTree = "<group>"; };
 		7068E8D62BBB373B0068C4BF /* RecomenderCity.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = RecomenderCity.mlmodel; sourceTree = "<group>"; };
 		706947322BACB1DC0027E9E2 /* OmboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmboardingView.swift; sourceTree = "<group>"; };
 		706947342BACB1ED0027E9E2 /* OmboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmboardingViewModel.swift; sourceTree = "<group>"; };
+		70F8954A2BC9A4E5006A21CC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		70F8954C2BC9A4E5006A21CC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		70F8954F2BC9A4E5006A21CC /* WidgetViewBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewBundle.swift; sourceTree = "<group>"; };
+		70F895512BC9A4E5006A21CC /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
+		70F895532BC9A4E5006A21CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		70F895552BC9A4E5006A21CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72B5C5178C4E36F05E4C9396 /* Pods-MiniChallenge04.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniChallenge04.release.xcconfig"; path = "Target Support Files/Pods-MiniChallenge04/Pods-MiniChallenge04.release.xcconfig"; sourceTree = "<group>"; };
 		BCD00C95CF5B0A7CD6B636A1 /* Pods_MiniChallenge04.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiniChallenge04.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -133,7 +148,6 @@
 				706947342BACB1ED0027E9E2 /* OmboardingViewModel.swift */,
 				6E73001B2BB217EF00D9FB73 /* MapViewModel.swift */,
 				62B903872BC4564300C3FC07 /* PlaceDetailVM.swift */,
-				62B9038A2BC4869A00C3FC07 /* LocationManager.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -166,7 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				7068E8D62BBB373B0068C4BF /* RecomenderCity.mlmodel */,
-				7068E8D42BB9D6380068C4BF /* RecommenderCity.mlmodel */,
 				6E73001F2BB35A7B00D9FB73 /* UFLocalization.mlmodel */,
 				62B5E6C42BA3699600E3ED07 /* PlacesModel.swift */,
 				62096CB72BC57432001C921C /* MapModel.swift */,
@@ -182,6 +195,7 @@
 			children = (
 				0A2033C32BA4DB7200145F71 /* PROD-Keys.plist */,
 				62CD744C2BA21DFD006F022F /* MiniChallenge04 */,
+				70F8954E2BC9A4E5006A21CC /* WidgetView */,
 				62CD744B2BA21DFD006F022F /* Products */,
 				C051BA09DB1F73FBA01C08C5 /* Pods */,
 				806F97F4E8F5BA75A982C82C /* Frameworks */,
@@ -232,10 +246,23 @@
 			path = DataModel;
 			sourceTree = "<group>";
 		};
+		70F8954E2BC9A4E5006A21CC /* WidgetView */ = {
+			isa = PBXGroup;
+			children = (
+				70F8954F2BC9A4E5006A21CC /* WidgetViewBundle.swift */,
+				70F895512BC9A4E5006A21CC /* WidgetView.swift */,
+				70F895532BC9A4E5006A21CC /* Assets.xcassets */,
+				70F895552BC9A4E5006A21CC /* Info.plist */,
+			);
+			path = WidgetView;
+			sourceTree = "<group>";
+		};
 		806F97F4E8F5BA75A982C82C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				BCD00C95CF5B0A7CD6B636A1 /* Pods_MiniChallenge04.framework */,
+				70F8954A2BC9A4E5006A21CC /* WidgetKit.framework */,
+				70F8954C2BC9A4E5006A21CC /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -261,6 +288,7 @@
 				62CD74472BA21DFD006F022F /* Frameworks */,
 				62CD74482BA21DFD006F022F /* Resources */,
 				729F21D92D1F31B29F3E6833 /* [CP] Embed Pods Frameworks */,
+				70F8955C2BC9A4E6006A21CC /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -282,7 +310,10 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
+				KnownAssetTags = (
+					New,
+				);
+				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					62CD74492BA21DFD006F022F = {
@@ -373,7 +404,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7068E8D72BBB373B0068C4BF /* RecomenderCity.mlmodel in Sources */,
-				7068E8D52BB9D6380068C4BF /* RecommenderCity.mlmodel in Sources */,
 				706947352BACB1ED0027E9E2 /* OmboardingViewModel.swift in Sources */,
 				706947332BACB1DC0027E9E2 /* OmboardingView.swift in Sources */,
 				0A2033C82BA4DCCA00145F71 /* MiniChallenge04App.swift in Sources */,
@@ -386,7 +416,6 @@
 				703FEC832BA8C9B700CCF751 /* GalleryDataModel.swift in Sources */,
 				0A2033CA2BA4E28200145F71 /* GalleryView.swift in Sources */,
 				629777372BA8C6150023AE38 /* PlacesViewModel.swift in Sources */,
-				62B9038B2BC4869A00C3FC07 /* LocationManager.swift in Sources */,
 				0A2033C52BA4DB9F00145F71 /* PROD-Keys.plist in Sources */,
 				703FEC802BA8BD3400CCF751 /* DataItem.swift in Sources */,
 				62DF045A2BBDE4C200C986B6 /* PlaceDetailsViews.swift in Sources */,
@@ -536,6 +565,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 12292422961DBE13E3111C71 /* Pods-MiniChallenge04.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MiniChallenge04/MiniChallenge04.entitlements;
@@ -547,13 +577,15 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MiniChallenge04/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Por favor autorize para sabermos a distancia do local";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "exemplo teste";
+				INFOPLIST_KEY_CFBundleDisplayName = "PicMap BR";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Por favor, autorize, nosso aplicativo utiliza suas fotos apenas para coloca-las no mapa, não salvamos elas pois puxamos elas da galeria, e não possuimos banco de dados que salve imagens pessoais";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -561,9 +593,13 @@
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "The-Nopera.MiniChallenge04";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -571,6 +607,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 72B5C5178C4E36F05E4C9396 /* Pods-MiniChallenge04.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MiniChallenge04/MiniChallenge04.entitlements;
@@ -582,13 +619,15 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MiniChallenge04/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Por favor autorize para sabermos a distancia do local";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "exemplo teste";
+				INFOPLIST_KEY_CFBundleDisplayName = "PicMap BR";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Por favor, autorize, nosso aplicativo utiliza suas fotos apenas para coloca-las no mapa, não salvamos elas pois puxamos elas da galeria, e não possuimos banco de dados que salve imagens pessoais";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -596,9 +635,13 @@
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "The-Nopera.MiniChallenge04";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

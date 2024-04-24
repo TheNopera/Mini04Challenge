@@ -21,6 +21,7 @@ struct PlaceCardGrid: View {
             }.navigationTitle(categoryName)
             
         }
+        .toolbar(.hidden, for: .tabBar)
         .task {
             Task{
                 if vm.categoryPlaces.isEmpty{
@@ -30,6 +31,7 @@ struct PlaceCardGrid: View {
             }
         }
     }
+    
 }
 #Preview {
     PlaceCardGrid(categoryName: "Acampamento", cityName: nil)

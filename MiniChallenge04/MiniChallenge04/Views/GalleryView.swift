@@ -21,6 +21,7 @@ struct GalleryView: View {
     @Binding var isPresented: Bool
     var title: String
     @State var assetAuxiliar: PHAsset?
+    @State var alertPresent:Bool = false
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -46,7 +47,7 @@ struct GalleryView: View {
                                     // Exibir a foto usando a função 'getImageLQ' do 'GalleryViewModel'
                                     Image(uiImage: galleryViewModel.getImageLQ(from: asset))
                                         .resizable()
-                                        //.scaledToFit()
+                                    //.scaledToFit()
                                         .frame(minWidth: 120, maxWidth: 130, minHeight: 120, maxHeight: 130)
                                         .onTapGesture {
                                             galleryViewModel.isImagePresented = true
@@ -54,10 +55,10 @@ struct GalleryView: View {
                                         }
                                         .fullScreenCover(isPresented: $galleryViewModel.isImagePresented) {
                                             SwiftUIImageViewer(image: Image(uiImage: galleryViewModel.getImage(from: assetAuxiliar ?? asset)))
-                                                .overlay(alignment: .topTrailing) {
+                                                .overlay(alignment: .topLeading) {
                                                     closeButton
                                                 }
-                                                .overlay(alignment: .topLeading) {
+                                                .overlay(alignment: .topTrailing) {
                                                     setButton
                                                 }
                                         }
@@ -95,29 +96,39 @@ struct GalleryView: View {
             Image(systemName: "xmark")
                 .font(.headline)
         }
-        .buttonStyle(.bordered)
-        .clipShape(Circle())
-        .tint(.purple)
+        .tint(.blue)
         .padding()
     }
     
     private var setButton: some View {
-        Button {
-            if let asset = assetAuxiliar {
-                let uiImage = galleryViewModel.getImage(from: asset)
-                if let imageData = uiImage.jpegData(compressionQuality: 1.0) {
-                    StateInfoManager.shared.updateStateFoto(forUF: title.uppercased(), withFoto: imageData)
-                    print(imageData)
-                }
-                
-                galleryViewModel.isImagePresented = false
-            }
-        } label: {
-            Text("Set")
-        }
+        Button(action: {
+            alertPresent = true
+        }, label: {
+            Text("Destacar")
+        })
         .buttonStyle(.bordered)
-        .clipShape(Circle())
-        .tint(.purple)
+        .clipShape(Capsule())
+        .tint(.blue)
         .padding()
+        .alert(isPresented: $alertPresent) {
+            Alert(title: Text("Você deseja destacar essa imagem no mapa?"), primaryButton: .cancel(), secondaryButton: .default(Text("OK"), action: {
+                if let asset = assetAuxiliar {
+                    let uiImage = galleryViewModel.getImage(from: asset)
+                    DispatchQueue.global().async {
+                        if let imageData = uiImage.jpegData(compressionQuality: 1.0) {
+                            DispatchQueue.main.async {
+                                StateInfoManager.shared.updateStateFoto(forUF: title.uppercased(), withFoto: imageData)
+                                print(imageData)
+                                galleryViewModel.isImagePresented = false
+                            }
+                        }
+                    }
+                }
+            }))
+        }
     }
+}
+
+#Preview {
+    GalleryView(title: "MG", isPresente: .constant(false))
 }

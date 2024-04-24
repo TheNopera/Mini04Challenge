@@ -17,7 +17,7 @@ class GalleryViewModel: ObservableObject {
     init(title:String) {
         self.title = title
     }
-
+    
     func requestPhotoLibraryAccess() {
         PHPhotoLibrary.requestAuthorization { [weak self] status in
             guard let self = self else { return }
@@ -29,31 +29,28 @@ class GalleryViewModel: ObservableObject {
         }
     }
     
+    func isCoordinateInsideBrazil(latitude: CLLocationDegrees, longitude: CLLocationDegrees) -> Bool {
+        return (latitude >= BrazilRegion.minLatitude &&
+                latitude <= BrazilRegion.maxLatitude &&
+                longitude >= BrazilRegion.minLongitude &&
+                longitude <= BrazilRegion.maxLongitude)
+    }
+    
     func loadAssets() {
         let fetchOptions = PHFetchOptions()
         let allAssets = PHAsset.fetchAssets(with: .image, options: fetchOptions) // Fetch all photos from the library
-        let allVAssets = PHAsset.fetchAssets(with: .video, options: fetchOptions) // Fetch all videos from the library
         
         allAssets.enumerateObjects { (asset, _, _) in
+            
             if let location = asset.location {
-                let locationString = "\(self.getUFLocalization(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude))" // Create a unique key based on location
-                DispatchQueue.main.async {
-                    if self.assetsByLocation[locationString] == nil {
-                        self.assetsByLocation[locationString] = [PHAsset]() // Initialize the asset list for this location
+                if self.isCoordinateInsideBrazil(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude) {
+                    let locationString = "\(self.getUFLocalization(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude))" // Create a unique key based on location
+                    DispatchQueue.main.async {
+                        if self.assetsByLocation[locationString] == nil {
+                            self.assetsByLocation[locationString] = [PHAsset]() // Initialize the asset list for this location
+                        }
+                        self.assetsByLocation[locationString]?.append(asset)
                     }
-                    self.assetsByLocation[locationString]?.append(asset)
-                }
-            }
-        }
-        
-        allVAssets.enumerateObjects { (asset, _, _) in
-            if let location = asset.location {
-                let locationString = "\(self.getUFLocalization(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude))" // Create a unique key based on location
-                DispatchQueue.main.async {
-                    if self.assetsByLocation[locationString] == nil {
-                        self.assetsByLocation[locationString] = [PHAsset]() // Initialize the asset list for this location
-                    }
-                    self.assetsByLocation[locationString]?.append(asset)
                 }
             }
         }
@@ -90,7 +87,7 @@ class GalleryViewModel: ObservableObject {
         
         return image
     }
-
+    
     func getImage(from asset: PHAsset) -> UIImage {
         var image = UIImage()
         let manager = PHImageManager.default()
@@ -107,7 +104,7 @@ class GalleryViewModel: ObservableObject {
         
         return image
     }
-
+    
     func getUFLocalization(latitude:Double,longitude:Double) -> String {
         do {
             let config = MLModelConfiguration()

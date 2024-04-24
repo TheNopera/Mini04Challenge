@@ -22,6 +22,7 @@ struct RoundCard: View {
                     .clipShape(Circle())
                 Text(category)
                     .font(.system(size: 15,weight: .heavy))
+                    .tint(.black)
             }
         }
        
